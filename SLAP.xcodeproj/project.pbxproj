@@ -12,7 +12,6 @@
 		ECA17C162CCD26FA00B13270 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = ECA17C152CCD26FA00B13270 /* Base */; };
 		ECA17C182CCD26FB00B13270 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECA17C172CCD26FB00B13270 /* Assets.xcassets */; };
 		ECA17C1B2CCD26FB00B13270 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = ECA17C1A2CCD26FB00B13270 /* Base */; };
-		ECA17C262CCD26FB00B13270 /* SLAPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C252CCD26FB00B13270 /* SLAPTests.swift */; };
 		ECA17C402CCD2DC800B13270 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C3F2CCD2DC800B13270 /* Secrets.swift */; };
 		ECA17C442CCD31E800B13270 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C432CCD31E800B13270 /* ViewControllerFactory.swift */; };
 		ECA17C472CCD321900B13270 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C462CCD321900B13270 /* AppManager.swift */; };
@@ -74,7 +73,6 @@
 		ECA17C1A2CCD26FB00B13270 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECA17C1C2CCD26FB00B13270 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECA17C212CCD26FB00B13270 /* SLAPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SLAPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECA17C252CCD26FB00B13270 /* SLAPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLAPTests.swift; sourceTree = "<group>"; };
 		ECA17C3F2CCD2DC800B13270 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		ECA17C432CCD31E800B13270 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 		ECA17C462CCD321900B13270 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
@@ -181,7 +179,6 @@
 				ECA17C5B2CCD3B7500B13270 /* Fakes */,
 				ECA17C5C2CCD3B7B00B13270 /* Tests */,
 				ECA17C632CCD3CE600B13270 /* TestHelpers */,
-				ECA17C252CCD26FB00B13270 /* SLAPTests.swift */,
 			);
 			path = SLAPTests;
 			sourceTree = "<group>";
@@ -510,7 +507,6 @@
 				ECA17C712CCD418400B13270 /* FakeConfig.swift in Sources */,
 				ECA17C7F2CCD66E400B13270 /* FakeApi.swift in Sources */,
 				ECA17C602CCD3BB800B13270 /* TestingAppDelegate.swift in Sources */,
-				ECA17C262CCD26FB00B13270 /* SLAPTests.swift in Sources */,
 				ECA17C652CCD3CF600B13270 /* UIWindow.swift in Sources */,
 				ECA17C6A2CCD3DB000B13270 /* UIImage.swift in Sources */,
 				ECA17C6F2CCD414A00B13270 /* AppEnv.swift in Sources */,
