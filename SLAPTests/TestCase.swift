@@ -30,9 +30,8 @@ class TestCase: XCTestCase {
         return factor
     }()
     
-    
     func testWindow(withViewController viewController: UIViewController,
-                    sceneEnv: SceneEnv = .testEnv(),
+                    appEnv: AppEnv = .testEnv(),
                     shouldWrapInNavController wrap: Bool = false,
                     frame: CGRect = .zero) -> UIWindow {
         
@@ -99,7 +98,8 @@ extension TestCase {
     func XCTWaitUntilNotNil<T>(_ expr: @autoclosure (() throws -> T?),
                                _ msg: @autoclosure () -> String? = "",
                                extraWaitFactor: Double = 1,
-                               file: StaticString = #filePath,
+                               fileID: StaticString = #fileID,
+                               filePath: StaticString = #filePath,
                                line: UInt = #line) rethrows {
         let failureMsg: () -> String = {
             "XCTWaitUntilNotNil: Still nil after \(self.waitTimeout * extraWaitFactor) seconds."
@@ -108,14 +108,16 @@ extension TestCase {
                              msg(),
                              failureMessage: failureMsg(),
                              extraWaitFactor: extraWaitFactor,
-                             file: file,
+                             fileID: fileID,
+                             filePath: filePath,
                              line: line)
     }
     
     func XCTWaitUntilNil<T>(_ expr: @autoclosure (() throws -> T?),
                             _ msg: @autoclosure () -> String? = "",
                             extraWaitFactor: Double = 1,
-                            file: StaticString = #filePath,
+                            fileID: StaticString = #fileID,
+                            filePath: StaticString = #filePath,
                             line: UInt = #line) rethrows {
         let failureMsg: () -> String = {
             "XCTWaitUntilNotNil: Still not nil after \(self.waitTimeout * extraWaitFactor) seconds."
@@ -124,7 +126,8 @@ extension TestCase {
                              msg(),
                              failureMessage: failureMsg(),
                              extraWaitFactor: extraWaitFactor,
-                             file: file,
+                             fileID: fileID,
+                             filePath: filePath,
                              line: line)
     }
     
@@ -132,7 +135,8 @@ extension TestCase {
                                  _ expr2: @autoclosure (() throws -> T),
                                  _ msg: @autoclosure () -> String? = "",
                                  extraWaitFactor: Double = 1,
-                                 file: StaticString = #filePath,
+                                 fileID: StaticString = #fileID,
+                                 filePath: StaticString = #filePath,
                                  line: UInt = #line) rethrows where T: Equatable {
         let failureMsg: () -> String = {
             "XCTWaitUntilEqual: Still equal after in \(self.waitTimeout * extraWaitFactor) seconds"
@@ -141,7 +145,8 @@ extension TestCase {
                              msg(),
                              failureMessage: failureMsg(),
                              extraWaitFactor: extraWaitFactor,
-                             file: file,
+                             fileID: fileID,
+                             filePath: filePath,
                              line: line)
     }
     
@@ -149,7 +154,8 @@ extension TestCase {
                            _ msg: @autoclosure () -> String? = "",
                            failureMessage: @autoclosure () -> String? = "",
                            extraWaitFactor: Double = 1,
-                           file: StaticString = #filePath,
+                           fileID: StaticString = #fileID,
+                           filePath: StaticString = #filePath,
                            line: UInt = #line) rethrows {
         let failureMsg: () -> String = {
             "XCTWaitUntilFalse: Still not false after in \(self.waitTimeout * extraWaitFactor) seconds"
@@ -159,7 +165,8 @@ extension TestCase {
                              msg(),
                              failureMessage: failureMsg(),
                              extraWaitFactor: extraWaitFactor,
-                             file: file,
+                             fileID: fileID,
+                             filePath: filePath,
                              line: line)
     }
     
@@ -167,7 +174,8 @@ extension TestCase {
                           _ msg: @autoclosure () -> String? = "",
                           failureMessage: @autoclosure () -> String? = "",
                           extraWaitFactor: Double = 1,
-                          file: StaticString = #filePath,
+                          fileID: StaticString = #fileID,
+                          filePath: StaticString = #filePath,
                           line: UInt = #line) rethrows {
         let failureMsg: () -> String = {
             "XCTWaitUntilTrue: Still not true after in \(self.waitTimeout * extraWaitFactor) seconds"
@@ -177,7 +185,8 @@ extension TestCase {
                               msg(),
                               failureMsg: failureMsg(),
                               extraWaitFactor: extraWaitFactor,
-                              file: file,
+                              fileID: fileID,
+                              filePath: filePath,
                               line: line)
     }
     
@@ -186,7 +195,8 @@ extension TestCase {
                               _ msg: @autoclosure () -> String? = "",
                               failureMsg: @autoclosure () -> String? = "",
                               extraWaitFactor: Double = 1,
-                              file: StaticString = #filePath,
+                              fileID: StaticString = #fileID,
+                              filePath: StaticString = #filePath,
                               line: UInt = #line) rethrows where T: Equatable {
         
         let start = Date()
@@ -204,7 +214,7 @@ extension TestCase {
                 txt += msg() ?? ""
                 
                 // check for difference during failure
-                XCTAssertNoDifference(val1, val2, txt, file: file, line: line)
+                expectNoDifference(val1, val2, txt, fileID: fileID, filePath: filePath, line: line)
                 return
             }
             executeRunLoop(for: 0.01)
@@ -220,21 +230,27 @@ extension TestCase {
     func XCTAssertImagesMatch(_ image1: UIImage?,
                               _ image2: UIImage?,
                               accuracy: Double = 0.01,
-                              file: StaticString = #filePath,
+                              fileID: StaticString = #fileID,
+                              filePath: StaticString = #filePath,
                               line: UInt = #line) {
         guard let image1, let image2 else {
-            XCTFail("Image is nil!", file: file, line: line)
+            XCTFail("Image is nil!", file: filePath, line: line)
             return
         }
         let norm1 = image1.pngNormalizedImage
         let norm2 = image2.pngNormalizedImage
         let scale = UIScreen.main.scale
-        XCTAssertNoDifference(norm1.size, norm2.size, "Image size mismatch at scale: \(scale)", file: file, line: line)
+        expectNoDifference(norm1.size,
+                           norm2.size,
+                           "Image size mismatch at scale: \(scale)",
+                           fileID: fileID,
+                           filePath: filePath,
+                           line: line)
         guard let diff = norm1.compare(toImage: norm2) else {
-            XCTFail("Unable to compare images.", file: file, line: line)
+            XCTFail("Unable to compare images.", file: filePath, line: line)
             return
         }
-        XCTAssertLessThan(diff, accuracy, file: file, line: line)
+        XCTAssertLessThan(diff, accuracy, file: filePath, line: line)
     }
     
 }

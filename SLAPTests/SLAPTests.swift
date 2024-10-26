@@ -5,8 +5,8 @@
 //  Created by Jay Lyerly on 10/26/24.
 //
 
-import XCTest
 @testable import SLAP
+import XCTest
 
 final class SLAPTests: XCTestCase {
 

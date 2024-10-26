@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		ECA17C0F2CCD26FA00B13270 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C0E2CCD26FA00B13270 /* AppDelegate.swift */; };
-		ECA17C112CCD26FA00B13270 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C102CCD26FA00B13270 /* SceneDelegate.swift */; };
 		ECA17C132CCD26FA00B13270 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C122CCD26FA00B13270 /* MainViewController.swift */; };
 		ECA17C162CCD26FA00B13270 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = ECA17C152CCD26FA00B13270 /* Base */; };
 		ECA17C182CCD26FB00B13270 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECA17C172CCD26FB00B13270 /* Assets.xcassets */; };
@@ -31,6 +30,11 @@
 		ECA17C652CCD3CF600B13270 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C642CCD3CF600B13270 /* UIWindow.swift */; };
 		ECA17C682CCD3D4D00B13270 /* CustomDump in Frameworks */ = {isa = PBXBuildFile; productRef = ECA17C672CCD3D4D00B13270 /* CustomDump */; };
 		ECA17C6A2CCD3DB000B13270 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C692CCD3DB000B13270 /* UIImage.swift */; };
+		ECA17C6D2CCD3FEE00B13270 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C6C2CCD3FEE00B13270 /* main.swift */; };
+		ECA17C6F2CCD414A00B13270 /* AppEnv.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C6E2CCD414A00B13270 /* AppEnv.swift */; };
+		ECA17C712CCD418400B13270 /* FakeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C702CCD418400B13270 /* FakeConfig.swift */; };
+		ECA17C732CCD418B00B13270 /* FakeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C722CCD418B00B13270 /* FakeAlert.swift */; };
+		ECA17C752CCD419400B13270 /* FakeDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C742CCD419400B13270 /* FakeDefaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +50,6 @@
 /* Begin PBXFileReference section */
 		ECA17C0B2CCD26FA00B13270 /* SLAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SLAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA17C0E2CCD26FA00B13270 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ECA17C102CCD26FA00B13270 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		ECA17C122CCD26FA00B13270 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		ECA17C152CCD26FA00B13270 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ECA17C172CCD26FB00B13270 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,6 +73,11 @@
 		ECA17C612CCD3BC700B13270 /* TestingRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingRootViewController.swift; sourceTree = "<group>"; };
 		ECA17C642CCD3CF600B13270 /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
 		ECA17C692CCD3DB000B13270 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		ECA17C6C2CCD3FEE00B13270 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		ECA17C6E2CCD414A00B13270 /* AppEnv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnv.swift; sourceTree = "<group>"; };
+		ECA17C702CCD418400B13270 /* FakeConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeConfig.swift; sourceTree = "<group>"; };
+		ECA17C722CCD418B00B13270 /* FakeAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAlert.swift; sourceTree = "<group>"; };
+		ECA17C742CCD419400B13270 /* FakeDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDefaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,12 +121,10 @@
 			isa = PBXGroup;
 			children = (
 				ECA17C412CCD317900B13270 /* AppDelegate */,
-				ECA17C452CCD320300B13270 /* SceneDelegate */,
 				ECA17C3E2CCD2DB500B13270 /* Controllers */,
 				ECA17C422CCD31D800B13270 /* ViewControllers */,
 				ECA17C542CCD38E100B13270 /* Extensions */,
 				ECA17C572CCD3AAA00B13270 /* Helpers */,
-				ECA17C142CCD26FA00B13270 /* Main.storyboard */,
 				ECA17C172CCD26FB00B13270 /* Assets.xcassets */,
 				ECA17C192CCD26FB00B13270 /* LaunchScreen.storyboard */,
 				ECA17C1C2CCD26FB00B13270 /* Info.plist */,
@@ -158,6 +164,7 @@
 		ECA17C412CCD317900B13270 /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
+				ECA17C6C2CCD3FEE00B13270 /* main.swift */,
 				ECA17C0E2CCD26FA00B13270 /* AppDelegate.swift */,
 				ECA17C462CCD321900B13270 /* AppManager.swift */,
 			);
@@ -168,17 +175,9 @@
 			isa = PBXGroup;
 			children = (
 				ECA17C432CCD31E800B13270 /* ViewControllerFactory.swift */,
-				ECA17C122CCD26FA00B13270 /* MainViewController.swift */,
+				ECA17C6B2CCD3F6200B13270 /* Main */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		ECA17C452CCD320300B13270 /* SceneDelegate */ = {
-			isa = PBXGroup;
-			children = (
-				ECA17C102CCD26FA00B13270 /* SceneDelegate.swift */,
-			);
-			path = SceneDelegate;
 			sourceTree = "<group>";
 		};
 		ECA17C542CCD38E100B13270 /* Extensions */ = {
@@ -200,6 +199,7 @@
 		ECA17C5A2CCD3B6F00B13270 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				ECA17C762CCD613900B13270 /* API */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -207,6 +207,9 @@
 		ECA17C5B2CCD3B7500B13270 /* Fakes */ = {
 			isa = PBXGroup;
 			children = (
+				ECA17C702CCD418400B13270 /* FakeConfig.swift */,
+				ECA17C722CCD418B00B13270 /* FakeAlert.swift */,
+				ECA17C742CCD419400B13270 /* FakeDefaults.swift */,
 			);
 			path = Fakes;
 			sourceTree = "<group>";
@@ -223,8 +226,25 @@
 			children = (
 				ECA17C642CCD3CF600B13270 /* UIWindow.swift */,
 				ECA17C692CCD3DB000B13270 /* UIImage.swift */,
+				ECA17C6E2CCD414A00B13270 /* AppEnv.swift */,
 			);
 			path = TestHelpers;
+			sourceTree = "<group>";
+		};
+		ECA17C6B2CCD3F6200B13270 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				ECA17C122CCD26FA00B13270 /* MainViewController.swift */,
+				ECA17C142CCD26FA00B13270 /* Main.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		ECA17C762CCD613900B13270 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +254,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ECA17C352CCD26FB00B13270 /* Build configuration list for PBXNativeTarget "SLAP" */;
 			buildPhases = (
+				ECA17C772CCD635500B13270 /* SwiftLint */,
 				ECA17C072CCD26FA00B13270 /* Sources */,
 				ECA17C082CCD26FA00B13270 /* Frameworks */,
 				ECA17C092CCD26FA00B13270 /* Resources */,
@@ -329,6 +350,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		ECA17C772CCD635500B13270 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nSWIFTLINT=${SOURCE_ROOT}/swiftlint\nif test -f \"$SWIFTLINT\"; then\n  echo `pwd`\n  echo \"$SWIFTLINT\" ${SWIFTLINT_FLAGS}\n  \"$SWIFTLINT\" ${SWIFTLINT_FLAGS}\nelse\n  echo \"error: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		ECA17C072CCD26FA00B13270 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -345,8 +388,8 @@
 				ECA17C4B2CCD32BE00B13270 /* Config.swift in Sources */,
 				ECA17C4F2CCD36D000B13270 /* Images.swift in Sources */,
 				ECA17C562CCD390100B13270 /* Logger.swift in Sources */,
+				ECA17C6D2CCD3FEE00B13270 /* main.swift in Sources */,
 				ECA17C0F2CCD26FA00B13270 /* AppDelegate.swift in Sources */,
-				ECA17C112CCD26FA00B13270 /* SceneDelegate.swift in Sources */,
 				ECA17C512CCD36D800B13270 /* Style.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,12 +398,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECA17C712CCD418400B13270 /* FakeConfig.swift in Sources */,
 				ECA17C602CCD3BB800B13270 /* TestingAppDelegate.swift in Sources */,
 				ECA17C262CCD26FB00B13270 /* SLAPTests.swift in Sources */,
 				ECA17C652CCD3CF600B13270 /* UIWindow.swift in Sources */,
 				ECA17C6A2CCD3DB000B13270 /* UIImage.swift in Sources */,
+				ECA17C6F2CCD414A00B13270 /* AppEnv.swift in Sources */,
+				ECA17C752CCD419400B13270 /* FakeDefaults.swift in Sources */,
 				ECA17C5E2CCD3B9800B13270 /* TestCase.swift in Sources */,
 				ECA17C622CCD3BC700B13270 /* TestingRootViewController.swift in Sources */,
+				ECA17C732CCD418B00B13270 /* FakeAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +568,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V9VQ2RXE25;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SLAP/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -549,6 +597,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V9VQ2RXE25;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SLAP/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
