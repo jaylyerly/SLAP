@@ -16,6 +16,7 @@
 		ECA17C262CCD26FB00B13270 /* SLAPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C252CCD26FB00B13270 /* SLAPTests.swift */; };
 		ECA17C302CCD26FB00B13270 /* SLAPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C2F2CCD26FB00B13270 /* SLAPUITests.swift */; };
 		ECA17C322CCD26FB00B13270 /* SLAPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C312CCD26FB00B13270 /* SLAPUITestsLaunchTests.swift */; };
+		ECA17C402CCD2DC800B13270 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C3F2CCD2DC800B13270 /* Secrets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		ECA17C2B2CCD26FB00B13270 /* SLAPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SLAPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA17C2F2CCD26FB00B13270 /* SLAPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLAPUITests.swift; sourceTree = "<group>"; };
 		ECA17C312CCD26FB00B13270 /* SLAPUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLAPUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		ECA17C3F2CCD2DC800B13270 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		ECA17C0D2CCD26FA00B13270 /* SLAP */ = {
 			isa = PBXGroup;
 			children = (
+				ECA17C3E2CCD2DB500B13270 /* Controllers */,
 				ECA17C0E2CCD26FA00B13270 /* AppDelegate.swift */,
 				ECA17C102CCD26FA00B13270 /* SceneDelegate.swift */,
 				ECA17C122CCD26FA00B13270 /* ViewController.swift */,
@@ -125,6 +128,14 @@
 				ECA17C312CCD26FB00B13270 /* SLAPUITestsLaunchTests.swift */,
 			);
 			path = SLAPUITests;
+			sourceTree = "<group>";
+		};
+		ECA17C3E2CCD2DB500B13270 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ECA17C3F2CCD2DC800B13270 /* Secrets.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECA17C132CCD26FA00B13270 /* ViewController.swift in Sources */,
+				ECA17C402CCD2DC800B13270 /* Secrets.swift in Sources */,
 				ECA17C0F2CCD26FA00B13270 /* AppDelegate.swift in Sources */,
 				ECA17C112CCD26FA00B13270 /* SceneDelegate.swift in Sources */,
 			);

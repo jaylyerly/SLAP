@@ -65,3 +65,5 @@ fastlane/test_output
 .DS_Store
 .env
 
+# Don't check in the generated Secrets file
+SLAP/Controllers/Secrets.swift
