@@ -9,25 +9,32 @@
 /* Begin PBXBuildFile section */
 		ECA17C0F2CCD26FA00B13270 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C0E2CCD26FA00B13270 /* AppDelegate.swift */; };
 		ECA17C112CCD26FA00B13270 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C102CCD26FA00B13270 /* SceneDelegate.swift */; };
-		ECA17C132CCD26FA00B13270 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C122CCD26FA00B13270 /* ViewController.swift */; };
+		ECA17C132CCD26FA00B13270 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C122CCD26FA00B13270 /* MainViewController.swift */; };
 		ECA17C162CCD26FA00B13270 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = ECA17C152CCD26FA00B13270 /* Base */; };
 		ECA17C182CCD26FB00B13270 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECA17C172CCD26FB00B13270 /* Assets.xcassets */; };
 		ECA17C1B2CCD26FB00B13270 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = ECA17C1A2CCD26FB00B13270 /* Base */; };
 		ECA17C262CCD26FB00B13270 /* SLAPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C252CCD26FB00B13270 /* SLAPTests.swift */; };
-		ECA17C302CCD26FB00B13270 /* SLAPUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C2F2CCD26FB00B13270 /* SLAPUITests.swift */; };
-		ECA17C322CCD26FB00B13270 /* SLAPUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C312CCD26FB00B13270 /* SLAPUITestsLaunchTests.swift */; };
 		ECA17C402CCD2DC800B13270 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C3F2CCD2DC800B13270 /* Secrets.swift */; };
+		ECA17C442CCD31E800B13270 /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C432CCD31E800B13270 /* ViewControllerFactory.swift */; };
+		ECA17C472CCD321900B13270 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C462CCD321900B13270 /* AppManager.swift */; };
+		ECA17C492CCD329E00B13270 /* AppEnv.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C482CCD329E00B13270 /* AppEnv.swift */; };
+		ECA17C4B2CCD32BE00B13270 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C4A2CCD32BE00B13270 /* Config.swift */; };
+		ECA17C4D2CCD353500B13270 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C4C2CCD353500B13270 /* Defaults.swift */; };
+		ECA17C4F2CCD36D000B13270 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C4E2CCD36D000B13270 /* Images.swift */; };
+		ECA17C512CCD36D800B13270 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C502CCD36D800B13270 /* Style.swift */; };
+		ECA17C532CCD373400B13270 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C522CCD373400B13270 /* Alert.swift */; };
+		ECA17C562CCD390100B13270 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C552CCD390100B13270 /* Logger.swift */; };
+		ECA17C592CCD3AE900B13270 /* Completion.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C582CCD3AE900B13270 /* Completion.swift */; };
+		ECA17C5E2CCD3B9800B13270 /* TestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C5D2CCD3B9700B13270 /* TestCase.swift */; };
+		ECA17C602CCD3BB800B13270 /* TestingAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C5F2CCD3BB800B13270 /* TestingAppDelegate.swift */; };
+		ECA17C622CCD3BC700B13270 /* TestingRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C612CCD3BC700B13270 /* TestingRootViewController.swift */; };
+		ECA17C652CCD3CF600B13270 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C642CCD3CF600B13270 /* UIWindow.swift */; };
+		ECA17C682CCD3D4D00B13270 /* CustomDump in Frameworks */ = {isa = PBXBuildFile; productRef = ECA17C672CCD3D4D00B13270 /* CustomDump */; };
+		ECA17C6A2CCD3DB000B13270 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C692CCD3DB000B13270 /* UIImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		ECA17C222CCD26FB00B13270 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ECA17C032CCD26F900B13270 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = ECA17C0A2CCD26FA00B13270;
-			remoteInfo = SLAP;
-		};
-		ECA17C2C2CCD26FB00B13270 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ECA17C032CCD26F900B13270 /* Project object */;
 			proxyType = 1;
@@ -40,17 +47,29 @@
 		ECA17C0B2CCD26FA00B13270 /* SLAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SLAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA17C0E2CCD26FA00B13270 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECA17C102CCD26FA00B13270 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		ECA17C122CCD26FA00B13270 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ECA17C122CCD26FA00B13270 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		ECA17C152CCD26FA00B13270 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ECA17C172CCD26FB00B13270 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ECA17C1A2CCD26FB00B13270 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECA17C1C2CCD26FB00B13270 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECA17C212CCD26FB00B13270 /* SLAPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SLAPTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA17C252CCD26FB00B13270 /* SLAPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLAPTests.swift; sourceTree = "<group>"; };
-		ECA17C2B2CCD26FB00B13270 /* SLAPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SLAPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECA17C2F2CCD26FB00B13270 /* SLAPUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLAPUITests.swift; sourceTree = "<group>"; };
-		ECA17C312CCD26FB00B13270 /* SLAPUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLAPUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		ECA17C3F2CCD2DC800B13270 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		ECA17C432CCD31E800B13270 /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
+		ECA17C462CCD321900B13270 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		ECA17C482CCD329E00B13270 /* AppEnv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnv.swift; sourceTree = "<group>"; };
+		ECA17C4A2CCD32BE00B13270 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		ECA17C4C2CCD353500B13270 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		ECA17C4E2CCD36D000B13270 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		ECA17C502CCD36D800B13270 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		ECA17C522CCD373400B13270 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		ECA17C552CCD390100B13270 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		ECA17C582CCD3AE900B13270 /* Completion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Completion.swift; sourceTree = "<group>"; };
+		ECA17C5D2CCD3B9700B13270 /* TestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCase.swift; sourceTree = "<group>"; };
+		ECA17C5F2CCD3BB800B13270 /* TestingAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingAppDelegate.swift; sourceTree = "<group>"; };
+		ECA17C612CCD3BC700B13270 /* TestingRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingRootViewController.swift; sourceTree = "<group>"; };
+		ECA17C642CCD3CF600B13270 /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
+		ECA17C692CCD3DB000B13270 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,13 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ECA17C282CCD26FB00B13270 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				ECA17C682CCD3D4D00B13270 /* CustomDump in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +96,6 @@
 			children = (
 				ECA17C0D2CCD26FA00B13270 /* SLAP */,
 				ECA17C242CCD26FB00B13270 /* SLAPTests */,
-				ECA17C2E2CCD26FB00B13270 /* SLAPUITests */,
 				ECA17C0C2CCD26FA00B13270 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,7 +105,6 @@
 			children = (
 				ECA17C0B2CCD26FA00B13270 /* SLAP.app */,
 				ECA17C212CCD26FB00B13270 /* SLAPTests.xctest */,
-				ECA17C2B2CCD26FB00B13270 /* SLAPUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,10 +112,12 @@
 		ECA17C0D2CCD26FA00B13270 /* SLAP */ = {
 			isa = PBXGroup;
 			children = (
+				ECA17C412CCD317900B13270 /* AppDelegate */,
+				ECA17C452CCD320300B13270 /* SceneDelegate */,
 				ECA17C3E2CCD2DB500B13270 /* Controllers */,
-				ECA17C0E2CCD26FA00B13270 /* AppDelegate.swift */,
-				ECA17C102CCD26FA00B13270 /* SceneDelegate.swift */,
-				ECA17C122CCD26FA00B13270 /* ViewController.swift */,
+				ECA17C422CCD31D800B13270 /* ViewControllers */,
+				ECA17C542CCD38E100B13270 /* Extensions */,
+				ECA17C572CCD3AAA00B13270 /* Helpers */,
 				ECA17C142CCD26FA00B13270 /* Main.storyboard */,
 				ECA17C172CCD26FB00B13270 /* Assets.xcassets */,
 				ECA17C192CCD26FB00B13270 /* LaunchScreen.storyboard */,
@@ -116,26 +129,102 @@
 		ECA17C242CCD26FB00B13270 /* SLAPTests */ = {
 			isa = PBXGroup;
 			children = (
+				ECA17C5D2CCD3B9700B13270 /* TestCase.swift */,
+				ECA17C5F2CCD3BB800B13270 /* TestingAppDelegate.swift */,
+				ECA17C612CCD3BC700B13270 /* TestingRootViewController.swift */,
+				ECA17C5A2CCD3B6F00B13270 /* Data */,
+				ECA17C5B2CCD3B7500B13270 /* Fakes */,
+				ECA17C5C2CCD3B7B00B13270 /* Tests */,
+				ECA17C632CCD3CE600B13270 /* TestHelpers */,
 				ECA17C252CCD26FB00B13270 /* SLAPTests.swift */,
 			);
 			path = SLAPTests;
 			sourceTree = "<group>";
 		};
-		ECA17C2E2CCD26FB00B13270 /* SLAPUITests */ = {
-			isa = PBXGroup;
-			children = (
-				ECA17C2F2CCD26FB00B13270 /* SLAPUITests.swift */,
-				ECA17C312CCD26FB00B13270 /* SLAPUITestsLaunchTests.swift */,
-			);
-			path = SLAPUITests;
-			sourceTree = "<group>";
-		};
 		ECA17C3E2CCD2DB500B13270 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				ECA17C482CCD329E00B13270 /* AppEnv.swift */,
+				ECA17C522CCD373400B13270 /* Alert.swift */,
+				ECA17C4A2CCD32BE00B13270 /* Config.swift */,
+				ECA17C4C2CCD353500B13270 /* Defaults.swift */,
+				ECA17C4E2CCD36D000B13270 /* Images.swift */,
+				ECA17C502CCD36D800B13270 /* Style.swift */,
 				ECA17C3F2CCD2DC800B13270 /* Secrets.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		ECA17C412CCD317900B13270 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				ECA17C0E2CCD26FA00B13270 /* AppDelegate.swift */,
+				ECA17C462CCD321900B13270 /* AppManager.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		ECA17C422CCD31D800B13270 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				ECA17C432CCD31E800B13270 /* ViewControllerFactory.swift */,
+				ECA17C122CCD26FA00B13270 /* MainViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ECA17C452CCD320300B13270 /* SceneDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				ECA17C102CCD26FA00B13270 /* SceneDelegate.swift */,
+			);
+			path = SceneDelegate;
+			sourceTree = "<group>";
+		};
+		ECA17C542CCD38E100B13270 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ECA17C552CCD390100B13270 /* Logger.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		ECA17C572CCD3AAA00B13270 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				ECA17C582CCD3AE900B13270 /* Completion.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		ECA17C5A2CCD3B6F00B13270 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		ECA17C5B2CCD3B7500B13270 /* Fakes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fakes;
+			sourceTree = "<group>";
+		};
+		ECA17C5C2CCD3B7B00B13270 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		ECA17C632CCD3CE600B13270 /* TestHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				ECA17C642CCD3CF600B13270 /* UIWindow.swift */,
+				ECA17C692CCD3DB000B13270 /* UIImage.swift */,
+			);
+			path = TestHelpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,27 +261,12 @@
 				ECA17C232CCD26FB00B13270 /* PBXTargetDependency */,
 			);
 			name = SLAPTests;
+			packageProductDependencies = (
+				ECA17C672CCD3D4D00B13270 /* CustomDump */,
+			);
 			productName = SLAPTests;
 			productReference = ECA17C212CCD26FB00B13270 /* SLAPTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		ECA17C2A2CCD26FB00B13270 /* SLAPUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = ECA17C3B2CCD26FB00B13270 /* Build configuration list for PBXNativeTarget "SLAPUITests" */;
-			buildPhases = (
-				ECA17C272CCD26FB00B13270 /* Sources */,
-				ECA17C282CCD26FB00B13270 /* Frameworks */,
-				ECA17C292CCD26FB00B13270 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				ECA17C2D2CCD26FB00B13270 /* PBXTargetDependency */,
-			);
-			name = SLAPUITests;
-			productName = SLAPUITests;
-			productReference = ECA17C2B2CCD26FB00B13270 /* SLAPUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -211,10 +285,6 @@
 						CreatedOnToolsVersion = 15.4;
 						TestTargetID = ECA17C0A2CCD26FA00B13270;
 					};
-					ECA17C2A2CCD26FB00B13270 = {
-						CreatedOnToolsVersion = 15.4;
-						TestTargetID = ECA17C0A2CCD26FA00B13270;
-					};
 				};
 			};
 			buildConfigurationList = ECA17C062CCD26F900B13270 /* Build configuration list for PBXProject "SLAP" */;
@@ -226,13 +296,15 @@
 				Base,
 			);
 			mainGroup = ECA17C022CCD26F900B13270;
+			packageReferences = (
+				ECA17C662CCD3D4D00B13270 /* XCRemoteSwiftPackageReference "swift-custom-dump" */,
+			);
 			productRefGroup = ECA17C0C2CCD26FA00B13270 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				ECA17C0A2CCD26FA00B13270 /* SLAP */,
 				ECA17C202CCD26FB00B13270 /* SLAPTests */,
-				ECA17C2A2CCD26FB00B13270 /* SLAPUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -255,13 +327,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ECA17C292CCD26FB00B13270 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -269,10 +334,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECA17C132CCD26FA00B13270 /* ViewController.swift in Sources */,
+				ECA17C4D2CCD353500B13270 /* Defaults.swift in Sources */,
+				ECA17C132CCD26FA00B13270 /* MainViewController.swift in Sources */,
+				ECA17C442CCD31E800B13270 /* ViewControllerFactory.swift in Sources */,
+				ECA17C592CCD3AE900B13270 /* Completion.swift in Sources */,
 				ECA17C402CCD2DC800B13270 /* Secrets.swift in Sources */,
+				ECA17C472CCD321900B13270 /* AppManager.swift in Sources */,
+				ECA17C492CCD329E00B13270 /* AppEnv.swift in Sources */,
+				ECA17C532CCD373400B13270 /* Alert.swift in Sources */,
+				ECA17C4B2CCD32BE00B13270 /* Config.swift in Sources */,
+				ECA17C4F2CCD36D000B13270 /* Images.swift in Sources */,
+				ECA17C562CCD390100B13270 /* Logger.swift in Sources */,
 				ECA17C0F2CCD26FA00B13270 /* AppDelegate.swift in Sources */,
 				ECA17C112CCD26FA00B13270 /* SceneDelegate.swift in Sources */,
+				ECA17C512CCD36D800B13270 /* Style.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,16 +355,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECA17C602CCD3BB800B13270 /* TestingAppDelegate.swift in Sources */,
 				ECA17C262CCD26FB00B13270 /* SLAPTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ECA17C272CCD26FB00B13270 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ECA17C322CCD26FB00B13270 /* SLAPUITestsLaunchTests.swift in Sources */,
-				ECA17C302CCD26FB00B13270 /* SLAPUITests.swift in Sources */,
+				ECA17C652CCD3CF600B13270 /* UIWindow.swift in Sources */,
+				ECA17C6A2CCD3DB000B13270 /* UIImage.swift in Sources */,
+				ECA17C5E2CCD3B9800B13270 /* TestCase.swift in Sources */,
+				ECA17C622CCD3BC700B13270 /* TestingRootViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,11 +371,6 @@
 			isa = PBXTargetDependency;
 			target = ECA17C0A2CCD26FA00B13270 /* SLAP */;
 			targetProxy = ECA17C222CCD26FB00B13270 /* PBXContainerItemProxy */;
-		};
-		ECA17C2D2CCD26FB00B13270 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = ECA17C0A2CCD26FA00B13270 /* SLAP */;
-			targetProxy = ECA17C2C2CCD26FB00B13270 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -543,42 +609,6 @@
 			};
 			name = Release;
 		};
-		ECA17C3C2CCD26FB00B13270 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V9VQ2RXE25;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sonicbunny.SLAPUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SLAP;
-			};
-			name = Debug;
-		};
-		ECA17C3D2CCD26FB00B13270 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V9VQ2RXE25;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sonicbunny.SLAPUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SLAP;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -609,16 +639,26 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ECA17C3B2CCD26FB00B13270 /* Build configuration list for PBXNativeTarget "SLAPUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				ECA17C3C2CCD26FB00B13270 /* Debug */,
-				ECA17C3D2CCD26FB00B13270 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ECA17C662CCD3D4D00B13270 /* XCRemoteSwiftPackageReference "swift-custom-dump" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-custom-dump.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ECA17C672CCD3D4D00B13270 /* CustomDump */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECA17C662CCD3D4D00B13270 /* XCRemoteSwiftPackageReference "swift-custom-dump" */;
+			productName = CustomDump;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ECA17C032CCD26F900B13270 /* Project object */;
 }
