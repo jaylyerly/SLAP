@@ -15,6 +15,9 @@ struct AppEnv {
     let defaults: Defaults
     let style: Style
     let images: Images
+    let api: Api
+    let storage: Storage
+    let webLinks: WebLinks
 }
 
 protocol AppEnvConsumer {
@@ -26,6 +29,9 @@ protocol AppEnvConsumer {
     var defaults: Defaults { get }
     var style: Style { get }
     var images: Images { get }
+    var api: Api { get }
+    var storage: Storage { get }
+    var webLinks: WebLinks { get }
 }
 
 extension AppEnvConsumer {
@@ -34,6 +40,9 @@ extension AppEnvConsumer {
     var defaults: Defaults { appEnv.defaults }
     var style: Style { appEnv.style }
     var images: Images { appEnv.images }
+    var api: Api { appEnv.api }
+    var storage: Storage { appEnv.storage }
+    var webLinks: WebLinks { appEnv.webLinks }
 }
 
 protocol AppViewController: UIViewController, AppEnvConsumer {

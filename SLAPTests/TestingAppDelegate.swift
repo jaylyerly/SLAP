@@ -17,6 +17,9 @@ class TestingAppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         logger.debug("Test App Delegate engaged!")
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = TestingRootViewController()
+        window?.makeKeyAndVisible()
         return true
     }
 

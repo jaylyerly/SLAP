@@ -22,6 +22,8 @@ class FakeDefaults: Defaults {
 
 extension Defaults {
     
-    static func fake(config: Config) -> FakeDefaults { FakeDefaults(config: config) }
+    static func fake(
+        config: Config
+    ) -> FakeDefaults { FakeDefaults(config: config) }
 
 }

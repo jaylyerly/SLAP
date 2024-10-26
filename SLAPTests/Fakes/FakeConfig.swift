@@ -17,6 +17,6 @@ class FakeConfig: Config {
 
 extension Config {
     
-    static let fake = FakeConfig()
+    static func fake() -> Config { FakeConfig() }
     
 }

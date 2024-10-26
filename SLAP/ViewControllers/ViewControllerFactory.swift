@@ -40,4 +40,21 @@ enum ViewControllerFactory {
     static func main(appEnv: AppEnv) -> MainViewController {
         vcFactory("Main", appEnv: appEnv)
     }
+    
+    static func list(appEnv: AppEnv, mode: ListMode) -> ListViewController {
+        vcFactory("List") { coder in
+            ListViewController(coder: coder, appEnv: appEnv, mode: mode)
+        }
+    }
+    
+    static func detail(appEnv: AppEnv, detailId: String) -> DetailViewController {
+        vcFactory("Detail") { coder in
+            DetailViewController(coder: coder, appEnv: appEnv, detailId: detailId)
+        }
+    }
+    
+    static func links(appEnv: AppEnv) -> LinksViewController {
+        LinksViewController(appEnv: appEnv)
+    }
+
 }

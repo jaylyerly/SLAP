@@ -29,6 +29,6 @@ class FakeAlert: Alert {
 
 extension Alert {
     
-    static var fake: FakeAlert { FakeAlert() }
+    static func fake() -> FakeAlert { FakeAlert() }
     
 }

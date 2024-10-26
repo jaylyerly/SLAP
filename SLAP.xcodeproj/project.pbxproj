@@ -35,6 +35,22 @@
 		ECA17C712CCD418400B13270 /* FakeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C702CCD418400B13270 /* FakeConfig.swift */; };
 		ECA17C732CCD418B00B13270 /* FakeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C722CCD418B00B13270 /* FakeAlert.swift */; };
 		ECA17C752CCD419400B13270 /* FakeDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C742CCD419400B13270 /* FakeDefaults.swift */; };
+		ECA17C792CCD664300B13270 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C782CCD664300B13270 /* Api.swift */; };
+		ECA17C7B2CCD664D00B13270 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C7A2CCD664D00B13270 /* Storage.swift */; };
+		ECA17C7D2CCD66A900B13270 /* FakeStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C7C2CCD66A900B13270 /* FakeStorage.swift */; };
+		ECA17C7F2CCD66E400B13270 /* FakeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C7E2CCD66E400B13270 /* FakeApi.swift */; };
+		ECA17C842CCD696900B13270 /* LinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C832CCD696900B13270 /* LinksViewController.swift */; };
+		ECA17C8C2CCD69B900B13270 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C8B2CCD69B900B13270 /* ListViewController.swift */; };
+		ECA17C8E2CCD69C500B13270 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECA17C8D2CCD69C500B13270 /* List.storyboard */; };
+		ECA17C902CCD6BE900B13270 /* ListMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C8F2CCD6BE800B13270 /* ListMode.swift */; };
+		ECA17C932CCD6CD600B13270 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C922CCD6CD600B13270 /* DetailViewController.swift */; };
+		ECA17C952CCD6CE000B13270 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECA17C942CCD6CE000B13270 /* Detail.storyboard */; };
+		ECA17C972CCD71A800B13270 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C962CCD71A800B13270 /* UIView.swift */; };
+		ECA17C992CCD754900B13270 /* MainTabBarTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C982CCD754900B13270 /* MainTabBarTags.swift */; };
+		ECA17C9B2CCD906200B13270 /* WebLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C9A2CCD906200B13270 /* WebLinks.swift */; };
+		ECA17C9D2CCD928000B13270 /* FakeWebLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C9C2CCD928000B13270 /* FakeWebLinks.swift */; };
+		ECA17C9F2CCD962D00B13270 /* NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C9E2CCD962D00B13270 /* NSLayoutConstraint.swift */; };
+		ECA17CA22CCD971200B13270 /* Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CA12CCD971200B13270 /* Spacer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +94,22 @@
 		ECA17C702CCD418400B13270 /* FakeConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeConfig.swift; sourceTree = "<group>"; };
 		ECA17C722CCD418B00B13270 /* FakeAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAlert.swift; sourceTree = "<group>"; };
 		ECA17C742CCD419400B13270 /* FakeDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeDefaults.swift; sourceTree = "<group>"; };
+		ECA17C782CCD664300B13270 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		ECA17C7A2CCD664D00B13270 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		ECA17C7C2CCD66A900B13270 /* FakeStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeStorage.swift; sourceTree = "<group>"; };
+		ECA17C7E2CCD66E400B13270 /* FakeApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeApi.swift; sourceTree = "<group>"; };
+		ECA17C832CCD696900B13270 /* LinksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksViewController.swift; sourceTree = "<group>"; };
+		ECA17C8B2CCD69B900B13270 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		ECA17C8D2CCD69C500B13270 /* List.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = List.storyboard; sourceTree = "<group>"; };
+		ECA17C8F2CCD6BE800B13270 /* ListMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMode.swift; sourceTree = "<group>"; };
+		ECA17C922CCD6CD600B13270 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		ECA17C942CCD6CE000B13270 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
+		ECA17C962CCD71A800B13270 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		ECA17C982CCD754900B13270 /* MainTabBarTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarTags.swift; sourceTree = "<group>"; };
+		ECA17C9A2CCD906200B13270 /* WebLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebLinks.swift; sourceTree = "<group>"; };
+		ECA17C9C2CCD928000B13270 /* FakeWebLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeWebLinks.swift; sourceTree = "<group>"; };
+		ECA17C9E2CCD962D00B13270 /* NSLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraint.swift; sourceTree = "<group>"; };
+		ECA17CA12CCD971200B13270 /* Spacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +155,7 @@
 				ECA17C412CCD317900B13270 /* AppDelegate */,
 				ECA17C3E2CCD2DB500B13270 /* Controllers */,
 				ECA17C422CCD31D800B13270 /* ViewControllers */,
+				ECA17CA02CCD970600B13270 /* Views */,
 				ECA17C542CCD38E100B13270 /* Extensions */,
 				ECA17C572CCD3AAA00B13270 /* Helpers */,
 				ECA17C172CCD26FB00B13270 /* Assets.xcassets */,
@@ -152,11 +185,14 @@
 			children = (
 				ECA17C482CCD329E00B13270 /* AppEnv.swift */,
 				ECA17C522CCD373400B13270 /* Alert.swift */,
+				ECA17C782CCD664300B13270 /* Api.swift */,
 				ECA17C4A2CCD32BE00B13270 /* Config.swift */,
 				ECA17C4C2CCD353500B13270 /* Defaults.swift */,
 				ECA17C4E2CCD36D000B13270 /* Images.swift */,
 				ECA17C502CCD36D800B13270 /* Style.swift */,
 				ECA17C3F2CCD2DC800B13270 /* Secrets.swift */,
+				ECA17C7A2CCD664D00B13270 /* Storage.swift */,
+				ECA17C9A2CCD906200B13270 /* WebLinks.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -176,6 +212,9 @@
 			children = (
 				ECA17C432CCD31E800B13270 /* ViewControllerFactory.swift */,
 				ECA17C6B2CCD3F6200B13270 /* Main */,
+				ECA17C812CCD693C00B13270 /* List */,
+				ECA17C912CCD6CC100B13270 /* Detail */,
+				ECA17C822CCD694F00B13270 /* Links */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -184,6 +223,8 @@
 			isa = PBXGroup;
 			children = (
 				ECA17C552CCD390100B13270 /* Logger.swift */,
+				ECA17C962CCD71A800B13270 /* UIView.swift */,
+				ECA17C9E2CCD962D00B13270 /* NSLayoutConstraint.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -210,6 +251,9 @@
 				ECA17C702CCD418400B13270 /* FakeConfig.swift */,
 				ECA17C722CCD418B00B13270 /* FakeAlert.swift */,
 				ECA17C742CCD419400B13270 /* FakeDefaults.swift */,
+				ECA17C7C2CCD66A900B13270 /* FakeStorage.swift */,
+				ECA17C7E2CCD66E400B13270 /* FakeApi.swift */,
+				ECA17C9C2CCD928000B13270 /* FakeWebLinks.swift */,
 			);
 			path = Fakes;
 			sourceTree = "<group>";
@@ -236,6 +280,7 @@
 			children = (
 				ECA17C122CCD26FA00B13270 /* MainViewController.swift */,
 				ECA17C142CCD26FA00B13270 /* Main.storyboard */,
+				ECA17C982CCD754900B13270 /* MainTabBarTags.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -245,6 +290,41 @@
 			children = (
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		ECA17C812CCD693C00B13270 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				ECA17C8B2CCD69B900B13270 /* ListViewController.swift */,
+				ECA17C8D2CCD69C500B13270 /* List.storyboard */,
+				ECA17C8F2CCD6BE800B13270 /* ListMode.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		ECA17C822CCD694F00B13270 /* Links */ = {
+			isa = PBXGroup;
+			children = (
+				ECA17C832CCD696900B13270 /* LinksViewController.swift */,
+			);
+			path = Links;
+			sourceTree = "<group>";
+		};
+		ECA17C912CCD6CC100B13270 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				ECA17C922CCD6CD600B13270 /* DetailViewController.swift */,
+				ECA17C942CCD6CE000B13270 /* Detail.storyboard */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		ECA17CA02CCD970600B13270 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ECA17CA12CCD971200B13270 /* Spacer.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,6 +418,8 @@
 				ECA17C182CCD26FB00B13270 /* Assets.xcassets in Resources */,
 				ECA17C1B2CCD26FB00B13270 /* Base in Resources */,
 				ECA17C162CCD26FA00B13270 /* Base in Resources */,
+				ECA17C952CCD6CE000B13270 /* Detail.storyboard in Resources */,
+				ECA17C8E2CCD69C500B13270 /* List.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,17 +460,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECA17C4D2CCD353500B13270 /* Defaults.swift in Sources */,
+				ECA17CA22CCD971200B13270 /* Spacer.swift in Sources */,
 				ECA17C132CCD26FA00B13270 /* MainViewController.swift in Sources */,
 				ECA17C442CCD31E800B13270 /* ViewControllerFactory.swift in Sources */,
+				ECA17C792CCD664300B13270 /* Api.swift in Sources */,
 				ECA17C592CCD3AE900B13270 /* Completion.swift in Sources */,
+				ECA17C842CCD696900B13270 /* LinksViewController.swift in Sources */,
 				ECA17C402CCD2DC800B13270 /* Secrets.swift in Sources */,
+				ECA17C9F2CCD962D00B13270 /* NSLayoutConstraint.swift in Sources */,
+				ECA17C932CCD6CD600B13270 /* DetailViewController.swift in Sources */,
 				ECA17C472CCD321900B13270 /* AppManager.swift in Sources */,
+				ECA17C8C2CCD69B900B13270 /* ListViewController.swift in Sources */,
+				ECA17C9B2CCD906200B13270 /* WebLinks.swift in Sources */,
+				ECA17C972CCD71A800B13270 /* UIView.swift in Sources */,
+				ECA17C902CCD6BE900B13270 /* ListMode.swift in Sources */,
 				ECA17C492CCD329E00B13270 /* AppEnv.swift in Sources */,
 				ECA17C532CCD373400B13270 /* Alert.swift in Sources */,
 				ECA17C4B2CCD32BE00B13270 /* Config.swift in Sources */,
+				ECA17C992CCD754900B13270 /* MainTabBarTags.swift in Sources */,
 				ECA17C4F2CCD36D000B13270 /* Images.swift in Sources */,
 				ECA17C562CCD390100B13270 /* Logger.swift in Sources */,
 				ECA17C6D2CCD3FEE00B13270 /* main.swift in Sources */,
+				ECA17C7B2CCD664D00B13270 /* Storage.swift in Sources */,
 				ECA17C0F2CCD26FA00B13270 /* AppDelegate.swift in Sources */,
 				ECA17C512CCD36D800B13270 /* Style.swift in Sources */,
 			);
@@ -399,15 +492,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECA17C712CCD418400B13270 /* FakeConfig.swift in Sources */,
+				ECA17C7F2CCD66E400B13270 /* FakeApi.swift in Sources */,
 				ECA17C602CCD3BB800B13270 /* TestingAppDelegate.swift in Sources */,
 				ECA17C262CCD26FB00B13270 /* SLAPTests.swift in Sources */,
 				ECA17C652CCD3CF600B13270 /* UIWindow.swift in Sources */,
 				ECA17C6A2CCD3DB000B13270 /* UIImage.swift in Sources */,
 				ECA17C6F2CCD414A00B13270 /* AppEnv.swift in Sources */,
 				ECA17C752CCD419400B13270 /* FakeDefaults.swift in Sources */,
+				ECA17C7D2CCD66A900B13270 /* FakeStorage.swift in Sources */,
 				ECA17C5E2CCD3B9800B13270 /* TestCase.swift in Sources */,
 				ECA17C622CCD3BC700B13270 /* TestingRootViewController.swift in Sources */,
 				ECA17C732CCD418B00B13270 /* FakeAlert.swift in Sources */,
+				ECA17C9D2CCD928000B13270 /* FakeWebLinks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,7 +669,6 @@
 				INFOPLIST_FILE = SLAP/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -602,7 +697,6 @@
 				INFOPLIST_FILE = SLAP/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
