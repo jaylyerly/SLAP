@@ -51,6 +51,8 @@
 		ECA17C9D2CCD928000B13270 /* FakeWebLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C9C2CCD928000B13270 /* FakeWebLinks.swift */; };
 		ECA17C9F2CCD962D00B13270 /* NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C9E2CCD962D00B13270 /* NSLayoutConstraint.swift */; };
 		ECA17CA22CCD971200B13270 /* Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CA12CCD971200B13270 /* Spacer.swift */; };
+		ECA17CA52CCD99D000B13270 /* LinksViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CA42CCD99D000B13270 /* LinksViewControllerTests.swift */; };
+		ECA17CA72CCD9B0900B13270 /* UIAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CA62CCD9B0900B13270 /* UIAction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +112,9 @@
 		ECA17C9C2CCD928000B13270 /* FakeWebLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeWebLinks.swift; sourceTree = "<group>"; };
 		ECA17C9E2CCD962D00B13270 /* NSLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraint.swift; sourceTree = "<group>"; };
 		ECA17CA12CCD971200B13270 /* Spacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacer.swift; sourceTree = "<group>"; };
+		ECA17CA42CCD99D000B13270 /* LinksViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksViewControllerTests.swift; sourceTree = "<group>"; };
+		ECA17CA62CCD9B0900B13270 /* UIAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAction.swift; sourceTree = "<group>"; };
+		ECA17CA82CCD9D6900B13270 /* SLAP.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SLAP.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +173,7 @@
 		ECA17C242CCD26FB00B13270 /* SLAPTests */ = {
 			isa = PBXGroup;
 			children = (
+				ECA17CA82CCD9D6900B13270 /* SLAP.xctestplan */,
 				ECA17C5D2CCD3B9700B13270 /* TestCase.swift */,
 				ECA17C5F2CCD3BB800B13270 /* TestingAppDelegate.swift */,
 				ECA17C612CCD3BC700B13270 /* TestingRootViewController.swift */,
@@ -261,6 +267,7 @@
 		ECA17C5C2CCD3B7B00B13270 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				ECA17CA32CCD99C100B13270 /* ViewControllers */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -271,6 +278,7 @@
 				ECA17C642CCD3CF600B13270 /* UIWindow.swift */,
 				ECA17C692CCD3DB000B13270 /* UIImage.swift */,
 				ECA17C6E2CCD414A00B13270 /* AppEnv.swift */,
+				ECA17CA62CCD9B0900B13270 /* UIAction.swift */,
 			);
 			path = TestHelpers;
 			sourceTree = "<group>";
@@ -325,6 +333,14 @@
 				ECA17CA12CCD971200B13270 /* Spacer.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		ECA17CA32CCD99C100B13270 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				ECA17CA42CCD99D000B13270 /* LinksViewControllerTests.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -500,7 +516,9 @@
 				ECA17C6F2CCD414A00B13270 /* AppEnv.swift in Sources */,
 				ECA17C752CCD419400B13270 /* FakeDefaults.swift in Sources */,
 				ECA17C7D2CCD66A900B13270 /* FakeStorage.swift in Sources */,
+				ECA17CA72CCD9B0900B13270 /* UIAction.swift in Sources */,
 				ECA17C5E2CCD3B9800B13270 /* TestCase.swift in Sources */,
+				ECA17CA52CCD99D000B13270 /* LinksViewControllerTests.swift in Sources */,
 				ECA17C622CCD3BC700B13270 /* TestingRootViewController.swift in Sources */,
 				ECA17C732CCD418B00B13270 /* FakeAlert.swift in Sources */,
 				ECA17C9D2CCD928000B13270 /* FakeWebLinks.swift in Sources */,

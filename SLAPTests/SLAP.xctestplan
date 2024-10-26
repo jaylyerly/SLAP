@@ -1,0 +1,30 @@
+{
+  "configurations" : [
+    {
+      "id" : "015B2BD1-354E-43F2-83F0-B78519DD9CBB",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:SLAP.xcodeproj",
+      "identifier" : "ECA17C0A2CCD26FA00B13270",
+      "name" : "SLAP"
+    },
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:SLAP.xcodeproj",
+        "identifier" : "ECA17C202CCD26FB00B13270",
+        "name" : "SLAPTests"
+      }
+    }
+  ],
+  "version" : 1
+}

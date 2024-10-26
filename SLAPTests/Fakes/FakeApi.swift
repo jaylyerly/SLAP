@@ -14,6 +14,8 @@ class FakeApi: Api {
 
 extension Api {
     
-    static func fake() -> FakeApi { FakeApi() }
+    static func fake(config: Config, storage: Storage) -> FakeApi {
+        FakeApi(config: config, storage: storage)
+    }
     
 }

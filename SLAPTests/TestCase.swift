@@ -31,7 +31,7 @@ class TestCase: XCTestCase {
     }()
     
     func testWindow(withViewController viewController: UIViewController,
-                    appEnv: AppEnv = .testEnv(),
+                    appEnv: AppEnv = .fake(),
                     shouldWrapInNavController wrap: Bool = false,
                     frame: CGRect = .zero) -> UIWindow {
         

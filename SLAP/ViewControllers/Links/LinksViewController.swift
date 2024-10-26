@@ -34,13 +34,6 @@ class LinksViewController: UIViewController, AppEnvConsumer {
             self?.storeAction(action)
         }
         return buildButton(action: action)
-        
-//        let button = UIButton(primaryAction: action)
-//        button.widthAnchor.constraint(equalTo: button.heightAnchor,
-//                                      multiplier: 1.0)
-//            .activate("ButtonAspect")
-//
-//        return button
     }()
     
     lazy var websiteButton: UIButton = {
@@ -49,13 +42,6 @@ class LinksViewController: UIViewController, AppEnvConsumer {
             self?.websiteAction(action)
         }
         return buildButton(action: action)
-//        let button = UIButton(primaryAction: action)
-//        button.widthAnchor.constraint(equalTo: button.heightAnchor, multiplier: 1.0)
-//            .activate("ButtonAspect")
-//        button.backgroundColor = .accent
-//        button.tintColor = .white
-//
-//        return button
     }()
 
     lazy var buttonRow1: UIStackView = {
