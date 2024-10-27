@@ -85,3 +85,17 @@ class Rabbit: Codable {
         try container.encode(name, forKey: .rabbitDescription)
     }
 }
+
+extension Rabbit: Identifiable {
+    
+    var id: String { internalId }
+    
+}
+
+extension Rabbit: CustomDebugStringConvertible {
+    
+    var debugDescription: String {
+        "Rabbit<\(Unmanaged.passUnretained(self).toOpaque())>: \(name) (\(id))"
+    }
+    
+}

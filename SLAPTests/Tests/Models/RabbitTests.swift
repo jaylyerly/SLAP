@@ -29,7 +29,16 @@ class RabbitTests: TestCase {
         try super.tearDownWithError()
     }
     
-    func testDecodeSingle() throws {        
+    func testDebugDescription() throws {
+        let rabbit = try JSONDecoder().decode(Rabbit.self, from: singleJsonData)
+        let desc = rabbit.debugDescription
+        // Should look like this:
+        // Rabbit<0x0000600002137b10>: Honey (52423098)
+        XCTAssertTrue(desc.contains("Rabbit<0x"))
+        XCTAssertTrue(desc.contains(">: Honey (52423098)"))
+    }
+    
+    func testDecodeSingle() throws {
         let rabbit = try JSONDecoder().decode(Rabbit.self, from: singleJsonData)
         
         // swiftlint:disable line_length

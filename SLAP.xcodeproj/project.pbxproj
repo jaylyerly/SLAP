@@ -68,6 +68,10 @@
 		ECA17CC92CCE8C9C00B13270 /* RabbitList_Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CC82CCE8C9C00B13270 /* RabbitList_Endpoints.swift */; };
 		ECA17CCD2CCE94F100B13270 /* ImagesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CCC2CCE94F100B13270 /* ImagesTests.swift */; };
 		ECA17CCF2CCE94FC00B13270 /* SecretsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CCE2CCE94FC00B13270 /* SecretsTests.swift */; };
+		ECA17CD22CCEA72700B13270 /* RabbitEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CD12CCEA72700B13270 /* RabbitEndpointTests.swift */; };
+		ECA17CD42CCEA74700B13270 /* RabbitListEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CD32CCEA74600B13270 /* RabbitListEndpointTests.swift */; };
+		ECA17CD62CCEAACC00B13270 /* UrlProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CD52CCEAACC00B13270 /* UrlProtocolMock.swift */; };
+		ECA17CD82CCEABB500B13270 /* ApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CD72CCEABB500B13270 /* ApiTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +149,10 @@
 		ECA17CC82CCE8C9C00B13270 /* RabbitList_Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RabbitList_Endpoints.swift; sourceTree = "<group>"; };
 		ECA17CCC2CCE94F100B13270 /* ImagesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesTests.swift; sourceTree = "<group>"; };
 		ECA17CCE2CCE94FC00B13270 /* SecretsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretsTests.swift; sourceTree = "<group>"; };
+		ECA17CD12CCEA72700B13270 /* RabbitEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RabbitEndpointTests.swift; sourceTree = "<group>"; };
+		ECA17CD32CCEA74600B13270 /* RabbitListEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RabbitListEndpointTests.swift; sourceTree = "<group>"; };
+		ECA17CD52CCEAACC00B13270 /* UrlProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlProtocolMock.swift; sourceTree = "<group>"; };
+		ECA17CD72CCEABB500B13270 /* ApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -312,6 +320,7 @@
 				ECA17C6E2CCD414A00B13270 /* AppEnv.swift */,
 				ECA17CA62CCD9B0900B13270 /* UIAction.swift */,
 				ECA17CB52CCDD0BE00B13270 /* Data.swift */,
+				ECA17CD52CCEAACC00B13270 /* UrlProtocolMock.swift */,
 			);
 			path = TestHelpers;
 			sourceTree = "<group>";
@@ -409,6 +418,7 @@
 		ECA17CC02CCE81C700B13270 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				ECA17CD02CCEA70300B13270 /* API */,
 				ECA17CBE2CCE81C200B13270 /* DefaultsTests.swift */,
 			);
 			path = Controllers;
@@ -442,6 +452,16 @@
 				ECA17CCE2CCE94FC00B13270 /* SecretsTests.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		ECA17CD02CCEA70300B13270 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				ECA17CD12CCEA72700B13270 /* RabbitEndpointTests.swift */,
+				ECA17CD32CCEA74600B13270 /* RabbitListEndpointTests.swift */,
+				ECA17CD72CCEABB500B13270 /* ApiTests.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -619,10 +639,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECA17CD22CCEA72700B13270 /* RabbitEndpointTests.swift in Sources */,
 				ECA17C712CCD418400B13270 /* FakeConfig.swift in Sources */,
 				ECA17C7F2CCD66E400B13270 /* FakeApi.swift in Sources */,
 				ECA17C602CCD3BB800B13270 /* TestingAppDelegate.swift in Sources */,
 				ECA17CCF2CCE94FC00B13270 /* SecretsTests.swift in Sources */,
+				ECA17CD82CCEABB500B13270 /* ApiTests.swift in Sources */,
 				ECA17C652CCD3CF600B13270 /* UIWindow.swift in Sources */,
 				ECA17C6A2CCD3DB000B13270 /* UIImage.swift in Sources */,
 				ECA17C6F2CCD414A00B13270 /* AppEnv.swift in Sources */,
@@ -633,10 +655,12 @@
 				ECA17CA72CCD9B0900B13270 /* UIAction.swift in Sources */,
 				ECA17C5E2CCD3B9800B13270 /* TestCase.swift in Sources */,
 				ECA17CA52CCD99D000B13270 /* LinksViewControllerTests.swift in Sources */,
+				ECA17CD62CCEAACC00B13270 /* UrlProtocolMock.swift in Sources */,
 				ECA17C622CCD3BC700B13270 /* TestingRootViewController.swift in Sources */,
 				ECA17C732CCD418B00B13270 /* FakeAlert.swift in Sources */,
 				ECA17CCD2CCE94F100B13270 /* ImagesTests.swift in Sources */,
 				ECA17C9D2CCD928000B13270 /* FakeWebLinks.swift in Sources */,
+				ECA17CD42CCEA74700B13270 /* RabbitListEndpointTests.swift in Sources */,
 				ECA17CB62CCDD0BE00B13270 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,6 +10,14 @@ import Foundation
 
 class FakeApi: Api {
     
+    override func refreshList() async throws {
+        print("refresh list")
+    }
+    
+    override func refresh(withInternalId internalId: String) async throws {
+        print("refresh single with ID: \(internalId)")
+    }
+    
 }
 
 extension Api {

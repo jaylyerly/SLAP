@@ -10,6 +10,8 @@ import Foundation
 
 class FakeConfig: Config {
     
+    override var apiRoot: URL { URL(string: "https://api.example.com/api/v1/")! }
+    
     override var appVersion: String { "1.2.3" }
     override var buildNumber: String { "42" }
     

@@ -10,7 +10,7 @@ import Foundation
 class Config {
     
     // swiftlint:disable:next force_unwrapping
-    let apiRoot = URL(string: "https://www.shelterluv.com/api/v1/")!
+    var apiRoot: URL { URL(string: "https://www.shelterluv.com/api/v1/")! }
 
     // swiftlint:disable:next force_unwrapping
     let storeUrl = URL(string: "https://shop.trianglerabbits.org")!
