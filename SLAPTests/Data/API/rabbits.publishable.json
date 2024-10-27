@@ -1,0 +1,688 @@
+{
+  "success": 1,
+  "animals": [
+    {
+      "ID": "130",
+      "Internal-ID": "63517731",
+      "Name": "Dancer",
+      "LitterGroupId": "63517731",
+      "Type": "Rabbit, Domestic",
+      "CurrentLocation": null,
+      "Sex": "Female",
+      "Status": "Available Foster",
+      "InFoster": true,
+      "AssociatedPerson": {
+        "FirstName": "Andrea",
+        "LastName": "Gaietto",
+        "OutDateUnixTime": "1704749868",
+        "RelationshipType": "foster"
+      },
+      "CurrentWeightPounds": "",
+      "Size": "",
+      "Altered": "Yes",
+      "DOBUnixTime": 1669841644,
+      "Age": 22,
+      "CoverPhoto": "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2023/01/14/16/20230114165330.png",
+      "Photos": [
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2023/01/14/16/20230114165330.png",
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2023/06/23/06/20230623064111.png",
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2022/12/10/12/20221210125342.png"
+      ],
+      "Videos": [],
+      "Breed": "American",
+      "Color": "Brown",
+      "AdoptionFeeGroup": {
+        "Id": "504894",
+        "Name": "Single Rabbit",
+        "Price": "65.00",
+        "Discount": 0,
+        "Tax": 0
+      },
+      "Description": "Meet Dancer! She is about six months old and very curious about everything. She is a bit nervous with people, but does like the occasional pet on her head. She is curious about the cat and gentle dog in her foster home and will sniff them through the gate. She loves running around, exploring, and chewing everything. Dancer enjoys hanging out in her hidey houses when it's time to relax. She has a great appetite and will try anything, but romaine, basil and cilantro are favorites. She is also an escape artist and has jumped a lower 24-inch x-pen so a taller enclosure would be best for her. She is spayed, vaccinated, and ready for a home of her own. Currently fostering in the Raleigh-Durham area.",
+      "PreviousIds": [],
+      "Microchips": [
+        {
+          "Id": "",
+          "Issuer": "",
+          "ImplantUnixTime": ""
+        }
+      ],
+      "LastIntakeUnixTime": "1670014444",
+      "Attributes": [
+        {
+          "Internal-ID": "157951",
+          "AttributeName": "Vaccinated",
+          "Publish": "Yes"
+        }
+      ],
+      "LastUpdatedUnixTime": "1710788681"
+    },
+    {
+      "ID": "135",
+      "Internal-ID": "63518002",
+      "Name": "Mario (FKA Donner)",
+      "LitterGroupId": "63517731",
+      "Type": "Rabbit, Domestic",
+      "CurrentLocation": null,
+      "Sex": "Male",
+      "Status": "Available Foster",
+      "InFoster": true,
+      "AssociatedPerson": {
+        "FirstName": "Elizabeth",
+        "LastName": "Sanford",
+        "OutDateUnixTime": "1724328173",
+        "RelationshipType": "foster"
+      },
+      "CurrentWeightPounds": "",
+      "Size": "",
+      "Altered": "Yes",
+      "DOBUnixTime": 1669841849,
+      "Age": 22,
+      "CoverPhoto": "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2023/01/14/16/20230114164745.png",
+      "Photos": [
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2023/01/14/16/20230114164745.png",
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2023/04/27/09/20230427092253.png"
+      ],
+      "Videos": [],
+      "Breed": "American",
+      "Color": "Brown",
+      "AdoptionFeeGroup": {
+        "Id": "504894",
+        "Name": "Single Rabbit",
+        "Price": "65.00",
+        "Discount": 0,
+        "Tax": 0
+      },
+      "Description": "Meet Mario! He's about five months old, neutered, and ready for a home of his own. He has beautiful dark brown/gray fur! Mario loves to play with his toss toys and willow sticks are some of his favorite things. He is shy when meeting new people, but warms up once he gets to know you. He enjoys his timothy hay and is always ready for snacks! He is vaccinated for RHDV2. Mario is fostering in the Raleigh-Durham, NC area.",
+      "PreviousIds": [],
+      "Microchips": [
+        {
+          "Id": "",
+          "Issuer": "",
+          "ImplantUnixTime": ""
+        }
+      ],
+      "LastIntakeUnixTime": "1670014649",
+      "Attributes": [
+        {
+          "Internal-ID": "134514",
+          "AttributeName": "Good With Cats",
+          "Publish": "Yes"
+        },
+        {
+          "Internal-ID": "157951",
+          "AttributeName": "Vaccinated",
+          "Publish": "Yes"
+        }
+      ],
+      "LastUpdatedUnixTime": "1724673772"
+    },
+    {
+      "ID": "146",
+      "Internal-ID": "67012337",
+      "Name": "Winnie (Winnifred)",
+      "LitterGroupId": null,
+      "Type": "Rabbit, Domestic",
+      "CurrentLocation": null,
+      "Sex": "Female",
+      "Status": "Available Foster",
+      "InFoster": true,
+      "AssociatedPerson": {
+        "FirstName": "Jenna",
+        "LastName": "Spain",
+        "OutDateUnixTime": "1706213441",
+        "RelationshipType": "foster"
+      },
+      "CurrentWeightPounds": "",
+      "Size": "",
+      "Altered": "Yes",
+      "DOBUnixTime": 1657934096,
+      "Age": 27,
+      "CoverPhoto": "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/07/05/05/20240705050738.png",
+      "Photos": [
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/07/05/05/20240705050738.png",
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2023/07/10/07/20230710071203.png",
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/07/05/05/20240705050825.png",
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/08/26/05/20240826050443.png",
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/08/26/05/20240826050534.png",
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/08/26/05/20240826050633.png",
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/08/26/05/20240826051203.png",
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/08/26/05/20240826051306.png"
+      ],
+      "Videos": [],
+      "Breed": "American/Mix",
+      "Color": "White",
+      "AdoptionFeeGroup": {
+        "Id": "509248",
+        "Name": "Bonded Pair",
+        "Price": "50.00",
+        "Discount": 0,
+        "Tax": 0
+      },
+      "Description": "Meet the dynamic duo Winnie and Sandy! Winnie enjoys pets and tolerates being held as long as treats are involved, but she prefers to lay back and do her own thing. Sandy will tolerate pets but will demand food at the same time. She will jump on your lap for treats and attention, so get ready! Both are very food motivated and will come running when called or when the food bag/jar opens. They are both curious buns who love to explore and prefer to be in a home that offers free roaming options. This is when they show off their real skills with their binkies and zooming. They are working on their improving their litter training, and do better in a bigger space with multiple litter boxes. They love chewing on cardboard and exploring tunnels and hidey spaces. Both Winnie and Sandy are spayed, vaccinated for RHDV2, and ready to find their forever home! They are currently being fostered in the Raleigh-Durham area.",
+      "PreviousIds": [],
+      "Microchips": [
+        {
+          "Id": "",
+          "Issuer": "",
+          "ImplantUnixTime": ""
+        }
+      ],
+      "LastIntakeUnixTime": "1675908896",
+      "Attributes": [
+        {
+          "Internal-ID": "134451",
+          "AttributeName": "Bonded",
+          "Publish": "Yes"
+        },
+        {
+          "Internal-ID": "136673",
+          "AttributeName": "Shy",
+          "Publish": "Yes"
+        },
+        {
+          "Internal-ID": "157951",
+          "AttributeName": "Vaccinated",
+          "Publish": "Yes"
+        }
+      ],
+      "LastUpdatedUnixTime": "1725408180"
+    },
+    {
+      "ID": "147",
+      "Internal-ID": "67012350",
+      "Name": "Sandy (Sandstorm)",
+      "LitterGroupId": null,
+      "Type": "Rabbit, Domestic",
+      "CurrentLocation": null,
+      "Sex": "Female",
+      "Status": "Available Foster",
+      "InFoster": true,
+      "AssociatedPerson": {
+        "FirstName": "Jenna",
+        "LastName": "Spain",
+        "OutDateUnixTime": "1706213443",
+        "RelationshipType": "foster"
+      },
+      "CurrentWeightPounds": "",
+      "Size": "",
+      "Altered": "Yes",
+      "DOBUnixTime": 1636942681,
+      "Age": 35,
+      "CoverPhoto": "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/08/26/05/20240826050840_0.png",
+      "Photos": [
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/08/26/05/20240826050840_0.png",
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/08/26/05/20240826051040.png",
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2023/04/05/08/20230405083952.png",
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2023/07/10/07/20230710071128.png",
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/07/05/05/20240705051044.png",
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/07/05/05/20240705051219.png",
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/08/26/05/20240826050759.png",
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/08/26/05/20240826051008.png"
+      ],
+      "Videos": [],
+      "Breed": "American",
+      "Color": "Brown",
+      "AdoptionFeeGroup": {
+        "Id": "509248",
+        "Name": "Bonded Pair",
+        "Price": "50.00",
+        "Discount": 0,
+        "Tax": 0
+      },
+      "Description": "Meet the dynamic duo Winnie and Sandy! Winnie enjoys pets and tolerates being held as long as treats are involved, but she prefers to lay back and do her own thing. Sandy will tolerate pets but will demand food at the same time. She will jump on your lap for treats and attention, so get ready! Both are very food motivated and will come running when called or when the food bag/jar opens. They are both curious buns who love to explore and prefer to be in a home that offers free roaming options. This is when they show off their real skills with their binkies and zooming. They are working on their improving their litter training, and do better in a bigger space with multiple litter boxes. They love chewing on cardboard and exploring tunnels and hidey spaces. Both Winnie and Sandy are spayed, vaccinated for RHDV2, and ready to find their forever home!  in the Raleigh-Durham area.",
+      "PreviousIds": [],
+      "Microchips": [
+        {
+          "Id": "",
+          "Issuer": "",
+          "ImplantUnixTime": ""
+        }
+      ],
+      "LastIntakeUnixTime": "1675909081",
+      "Attributes": [
+        {
+          "Internal-ID": "134451",
+          "AttributeName": "Bonded",
+          "Publish": "Yes"
+        },
+        {
+          "Internal-ID": "157951",
+          "AttributeName": "Vaccinated",
+          "Publish": "Yes"
+        }
+      ],
+      "LastUpdatedUnixTime": "1725408206"
+    },
+    {
+      "ID": "152",
+      "Internal-ID": "68315694",
+      "Name": "Petra",
+      "LitterGroupId": "68315694",
+      "Type": "Rabbit, Domestic",
+      "CurrentLocation": null,
+      "Sex": "Female",
+      "Status": "Available Foster",
+      "InFoster": true,
+      "AssociatedPerson": {
+        "FirstName": "Julia",
+        "LastName": "Slater",
+        "OutDateUnixTime": "1698194823",
+        "RelationshipType": "foster"
+      },
+      "CurrentWeightPounds": "5.4",
+      "Size": "",
+      "Altered": "Yes",
+      "DOBUnixTime": 1647524308,
+      "Age": 31,
+      "CoverPhoto": "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2023/06/20/18/20230620184411.png",
+      "Photos": [
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2023/06/20/18/20230620184411.png"
+      ],
+      "Videos": [],
+      "Breed": "American",
+      "Color": "Brown",
+      "Description": "Meet Petra and Bijou! Petra is a sweet girl, but still kind of shy. She readily accepts pets, and especially loves to \"purr\" while having her head and neck stroked. She's a whiz with food puzzles, and she especially loves puzzles with her stacking cups. She loves to rearrange things in her space, and will regularly go and redecorate after cleaning. She's not too much of an explorer! She's pretty content to sit on something soft and chill out most of the time. Her favorite treats are dried strawberries and fresh blueberries;\nshe eats most greens and veggies, but her favorites are spinach, arugula, and carrots. Bijou is a little explorer! She loves to investigate new things and spaces in her room, and just recently she's learned about jumping up on the bed and hanging out there! She is still learning to accept pets from humans, but has made a lot of progress; she's much more high-energy and playful than her mom Petra. She loves to chew, so plenty of toys are a must for this girl. Bijou prefers hay and pellets over greens. Her favorite treat is dried strawberries. Both bunnies are spayed and vaccinated and ready for a home of their own. Currently fostering in the Raleigh-Durham, NC area.",
+      "PreviousIds": [
+        {
+          "IdValue": "GCAS-A-8464",
+          "IssuingShelter": "Guilford County Animal Services",
+          "Type": "--"
+        }
+      ],
+      "Microchips": [
+        {
+          "Id": "",
+          "Issuer": "Did Not Attempt to Scan",
+          "ImplantUnixTime": ""
+        }
+      ],
+      "LastIntakeUnixTime": "1680906592",
+      "Attributes": [
+        {
+          "Internal-ID": "134451",
+          "AttributeName": "Bonded",
+          "Publish": "Yes"
+        },
+        {
+          "Internal-ID": "157951",
+          "AttributeName": "Vaccinated",
+          "Publish": "Yes"
+        }
+      ],
+      "LastUpdatedUnixTime": "1725396843"
+    },
+    {
+      "ID": "153",
+      "Internal-ID": "68762374",
+      "Name": "Bijou",
+      "LitterGroupId": "68315694",
+      "Type": "Rabbit, Domestic",
+      "CurrentLocation": null,
+      "Sex": "Female",
+      "Status": "Available Foster",
+      "InFoster": true,
+      "AssociatedPerson": {
+        "FirstName": "Julia",
+        "LastName": "Slater",
+        "OutDateUnixTime": "1698194830",
+        "RelationshipType": "foster"
+      },
+      "CurrentWeightPounds": "",
+      "Size": "",
+      "Altered": "Yes",
+      "DOBUnixTime": 1679923120,
+      "Age": 18,
+      "CoverPhoto": "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2023/06/20/18/20230620184720.png",
+      "Photos": [
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2023/06/20/18/20230620184720.png"
+      ],
+      "Videos": [],
+      "Breed": "American",
+      "Color": "Brown",
+      "Description": "Meet Petra and Bijou! Petra is a sweet girl, but still kind of shy. She readily accepts pets, and especially loves to \"purr\" while having her head and neck stroked. She's a whiz with food puzzles, and she especially loves puzzles with her stacking cups. She loves to rearrange things in her space, and will regularly go and redecorate after cleaning. She's not too much of an explorer! She's pretty content to sit on something soft and chill out most of the time. Her favorite treats are dried strawberries and fresh blueberries;\nshe eats most greens and veggies, but her favorites are spinach, arugula, and carrots. Bijou is a little explorer! She loves to investigate new things and spaces in her room, and just recently she's learned about jumping up on the bed and hanging out there! She is still learning to accept pets from humans, but has made a lot of progress; she's much more high-energy and playful than her mom Petra. She loves to chew, so plenty of toys are a must for this girl. Bijou prefers hay and pellets over greens. Her favorite treat is dried strawberries. Both bunnies are spayed and vaccinated and ready for a home of their own. Currently fostering in the Raleigh-Durham, NC area.",
+      "PreviousIds": [
+        {
+          "IdValue": "GCAS-A-8632",
+          "IssuingShelter": "Guilford County Animal Services",
+          "Type": "--"
+        }
+      ],
+      "Microchips": [
+        {
+          "Id": "",
+          "Issuer": "Did Not Attempt to Scan",
+          "ImplantUnixTime": ""
+        }
+      ],
+      "LastIntakeUnixTime": "1680906932",
+      "Attributes": [
+        {
+          "Internal-ID": "134451",
+          "AttributeName": "Bonded",
+          "Publish": "Yes"
+        },
+        {
+          "Internal-ID": "157951",
+          "AttributeName": "Vaccinated",
+          "Publish": "Yes"
+        }
+      ],
+      "LastUpdatedUnixTime": "1699652627"
+    },
+    {
+      "ID": "172",
+      "Internal-ID": "78512071",
+      "Name": "Maple",
+      "LitterGroupId": "78512055",
+      "Type": "Rabbit, Domestic",
+      "CurrentLocation": null,
+      "Sex": "Male",
+      "Status": "Available Foster",
+      "InFoster": true,
+      "AssociatedPerson": {
+        "FirstName": "Robin",
+        "LastName": "Stern",
+        "OutDateUnixTime": "1727572385",
+        "RelationshipType": "foster"
+      },
+      "CurrentWeightPounds": "",
+      "Size": "",
+      "Altered": "Yes",
+      "DOBUnixTime": 1697504715,
+      "Age": 12,
+      "CoverPhoto": "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/04/01/15/20240401150833.png",
+      "Photos": [
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/04/01/15/20240401150833.png",
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2023/11/30/08/20231130081753.png"
+      ],
+      "Videos": [],
+      "Breed": "Lionhead/Mix",
+      "Color": "White/Tan",
+      "AdoptionFeeGroup": {
+        "Id": "504894",
+        "Name": "Single Rabbit",
+        "Price": "65.00",
+        "Discount": 0,
+        "Tax": 0
+      },
+      "Description": "Maple is a very sweet bunny. He likes exploring the house when he first gets out of his pen and then he will settle down for a rest. He's quite clean and often grooms his fabulous hair. He will need frequent grooming to keep his beautiful coat in good condition. He likes to visit his foster mom while they watch TV and nudge for attention. He also likes to jump up on the couch - climbing is fun! He will climb on tables and shelves to see what is up there so beware! Bunny proofing beyond the floor is a must for this fellow. His favorite treats are apple, banana chips, and carrot. He eats lots of hay and enjoys all his salads. For toys he loves cardboard toys, paper, and palm leaf plates. He has good litter box habits. He is neutered, vaccinated, and ready for home of his own. Currently fostering in the Raleigh-Durham area.",
+      "PreviousIds": [],
+      "Microchips": [
+        {
+          "Id": "",
+          "Issuer": "",
+          "ImplantUnixTime": ""
+        }
+      ],
+      "LastIntakeUnixTime": "1698800715",
+      "Attributes": [],
+      "LastUpdatedUnixTime": "1728869041"
+    },
+    {
+      "ID": "175",
+      "Internal-ID": "78512087",
+      "Name": "Ember",
+      "LitterGroupId": "78512055",
+      "Type": "Rabbit, Domestic",
+      "CurrentLocation": null,
+      "Sex": "Female",
+      "Status": "Available Foster",
+      "InFoster": true,
+      "AssociatedPerson": {
+        "FirstName": "Victoria",
+        "LastName": "Baker",
+        "OutDateUnixTime": "1724582254",
+        "RelationshipType": "foster"
+      },
+      "CurrentWeightPounds": "",
+      "Size": "",
+      "Altered": "Yes",
+      "DOBUnixTime": 1697504846,
+      "Age": 12,
+      "CoverPhoto": "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/05/02/07/20240502075056.png",
+      "Photos": [
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/05/02/07/20240502075056.png",
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2023/11/30/08/20231130081844.png"
+      ],
+      "Videos": [],
+      "Breed": "Lionhead/Mix",
+      "Color": "White/Tan",
+      "AdoptionFeeGroup": {
+        "Id": "504894",
+        "Name": "Single Rabbit",
+        "Price": "65.00",
+        "Discount": 0,
+        "Tax": 0
+      },
+      "Description": "Meet Ember. She is one of Pumpkin's babies and is very laid back. She is great with her litter box and enjoys free roaming. She loves exploring her surroundings and checking everything out. Ember is good with cats and gentle dogs and may even enjoy a bunny friend for company. She will need frequent grooming to keep her beautiful fur in top shape. She isn't a big fan of her spa days but will tolerate brushing and nail trims. She enjoys romaine lettuce, basil, cilantro, and dill in her salads, but is not a big fan of fruit. Her favorite toys are her bunny box hanging toys and palm bowls. She has been a joy to her foster family and will be a wonderful companion. She is about six months old, spayed, vaccinated, and ready for a home of her own. Currently fostering in the Raleigh-Durham area.",
+      "PreviousIds": [],
+      "Microchips": [
+        {
+          "Id": "",
+          "Issuer": "",
+          "ImplantUnixTime": ""
+        }
+      ],
+      "LastIntakeUnixTime": "1698800846",
+      "Attributes": [],
+      "LastUpdatedUnixTime": "1724755053"
+    },
+    {
+      "ID": "187",
+      "Internal-ID": "85368475",
+      "Name": "Cookies",
+      "LitterGroupId": null,
+      "Type": "Rabbit, Domestic",
+      "CurrentLocation": null,
+      "Sex": "Male",
+      "Status": "Available Foster",
+      "InFoster": true,
+      "AssociatedPerson": {
+        "FirstName": "Alice",
+        "LastName": "Broadhead",
+        "OutDateUnixTime": "1712448971",
+        "RelationshipType": "foster"
+      },
+      "CurrentWeightPounds": "",
+      "Size": "",
+      "Altered": "Yes",
+      "DOBUnixTime": 1678314590,
+      "Age": 19,
+      "CoverPhoto": "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/06/08/12/20240608121452.png",
+      "Photos": [
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/06/08/12/20240608121452.png",
+        "https://www.shelterluv.com/sites/default/files/animal_pics/32808/2024/03/08/14/20240308143612.png",
+        "https://www.shelterluv.com/sites/default/files/animal_pics/32808/2024/03/11/13/20240311130318.png",
+        "https://www.shelterluv.com/sites/default/files/animal_pics/32808/2024/03/11/13/20240311130310.png"
+      ],
+      "Videos": [],
+      "Breed": "Dutch",
+      "Color": "Black/White",
+      "Description": "Meet Cookies! This little guy had a rough start. He was found stray, hopping by the side of the road, and was picked up in a dog's mouth. He also had a lot of fur missing from his feet and tail, possibly from urine burns from a rarely cleaned living space. Cookies has done a lot of healing since coming to rescue in March. He's grown back his fur and now this adolescent rabbit loves to run about his foster home at top speed or hop all over, including onto chairs. He loves showing off his binky and racing skills! He's been known to climb furniture and unplug things while chewing on the cord protector (so bunny proofing for the marauding rabbit is a must!). He is getting more comfortable with being pet but doesn't like to snuggle - he has things to do! He is very food motivated, so it's easy to get him in his pen with pellets or salad instead of lifting him. He will gladly hop into his carrier, but expects yummy food there! He is an entertaining and bossy bunny, making his foster family laugh at salad time by snatching his favorite pieces. Picture a tiny rabbit bounding away, head and tail held high, with a piece of kale so big he can barely hold it off the ground! He does still tend to nip stray things like seams in jeans and an errant human standing where he needs to run. He would like a home with lots of bunny proofed room to roam and humans who love him and appreciate his spunk. He is neutered and vaccinated. Currently fostering in the Raleigh-Durham area.",
+      "PreviousIds": [
+        {
+          "IdValue": "GCAS-A-18308",
+          "IssuingShelter": "Guilford County Animal Services",
+          "Type": "--"
+        }
+      ],
+      "Microchips": [],
+      "LastIntakeUnixTime": "1712448970",
+      "Attributes": [
+        {
+          "Internal-ID": "157951",
+          "AttributeName": "Vaccinated",
+          "Publish": "Yes"
+        }
+      ],
+      "LastUpdatedUnixTime": "1717874789"
+    },
+    {
+      "ID": "189",
+      "Internal-ID": "87992141",
+      "Name": "Strudel",
+      "LitterGroupId": null,
+      "Type": "Rabbit, Domestic",
+      "CurrentLocation": null,
+      "Sex": "Female",
+      "Status": "Available Foster",
+      "InFoster": true,
+      "AssociatedPerson": {
+        "FirstName": "Kimberly",
+        "LastName": "Hii",
+        "OutDateUnixTime": "1724754978",
+        "RelationshipType": "foster"
+      },
+      "CurrentWeightPounds": "",
+      "Size": "",
+      "Altered": "Yes",
+      "DOBUnixTime": 1695605014,
+      "Age": 13,
+      "CoverPhoto": "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/04/24/18/20240424182325.png",
+      "Photos": [
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/04/24/18/20240424182325.png"
+      ],
+      "Videos": [],
+      "Breed": "Lop, English",
+      "Color": "Tan",
+      "AdoptionFeeGroup": {
+        "Id": "504894",
+        "Name": "Single Rabbit",
+        "Price": "65.00",
+        "Discount": 0,
+        "Tax": 0
+      },
+      "Description": "Say hello to Strudel! This beautiful girl loves hanging out with her foster family, though she doesn't always like to be pet. She LOVES to run and will do lots of zoomies and binkies all over the room - then she is ready for her nap! She enjoys snoozing on her bed during the day and her favorite way to sleep is completely flopped over. Her favorite chew toys are carpet and baseboards - bunny proofing is a must for this bun! She is super clean with her litter box. She loves treats, but doesn't respond to sounds like the treat jar or people walking around so she may be hard of hearing. She will need a family who doesn't mind giving visual cues so she doesn't get startled. She loves cilantro and leaf lettuce and meadow loops are a favorite treat - she will come running. This sweet girl is spayed, vaccinated, and ready for a home of her own. Currently fostering in the Raleigh-Durham, NC area.",
+      "PreviousIds": [],
+      "Microchips": [
+        {
+          "Id": "",
+          "Issuer": "",
+          "ImplantUnixTime": ""
+        }
+      ],
+      "LastIntakeUnixTime": "1712280214",
+      "Attributes": [
+        {
+          "Internal-ID": "136636",
+          "AttributeName": "Special Need Medical",
+          "Publish": "Yes"
+        }
+      ],
+      "LastUpdatedUnixTime": "1724754978"
+    },
+    {
+      "ID": "195",
+      "Internal-ID": "92548889",
+      "Name": "Remy",
+      "LitterGroupId": null,
+      "Type": "Rabbit, Domestic",
+      "CurrentLocation": null,
+      "Sex": "Female",
+      "Status": "Available Foster",
+      "InFoster": true,
+      "AssociatedPerson": {
+        "FirstName": "Kimberly",
+        "LastName": "Noble",
+        "OutDateUnixTime": "1721583431",
+        "RelationshipType": "foster"
+      },
+      "CurrentWeightPounds": "",
+      "Size": "",
+      "Altered": "Yes",
+      "DOBUnixTime": 1710010934,
+      "Age": 7,
+      "CoverPhoto": "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/07/17/14/20240717145001.png",
+      "Photos": [
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/07/17/14/20240717145001.png",
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/07/18/18/20240718181359.png",
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/07/18/18/20240718181315.png",
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/07/17/14/20240717145607.png"
+      ],
+      "Videos": [],
+      "Breed": "Lionhead/Angora, French",
+      "Color": "White/None",
+      "Description": "Hi! I'm Remy. I am a spunky lionhead mix with a big personality. I love to explore and I don't scare easily. I'm even okay with the vacuum! I love sniffing my foster humans but I'm not a fan of snuggles or being picked up. However, I'll let you pet me while I eat my pellets in the morning and my salad at dinner. A few of my favorites are lavender, basil, sage, and yarrow! I know my schedule well! My human thinks I'm pretty smart and catch on to things quickly. I'm always trying to run out my door to explore and find something to chew on. For that reason, if I'm free roam the room will need to be bunny-proofed. I keep a tidy home and keep myself looking my best. I am my happiest when I have the space to run! I am spayed and vaccinated. Currently fostering in the Raleigh, Durham area. ",
+      "PreviousIds": [
+        {
+          "IdValue": "GCAS-A-22309",
+          "IssuingShelter": "Guilford County Animal Services",
+          "Type": "--"
+        }
+      ],
+      "Microchips": [
+        {
+          "Id": "",
+          "Issuer": "",
+          "ImplantUnixTime": ""
+        }
+      ],
+      "LastIntakeUnixTime": "1721252833",
+      "Attributes": [
+        {
+          "Internal-ID": "134516",
+          "AttributeName": "Extra Grooming Needed",
+          "Publish": "Yes"
+        }
+      ],
+      "LastUpdatedUnixTime": "1727654839"
+    },
+    {
+      "ID": "197",
+      "Internal-ID": "93309348",
+      "Name": "Romeo",
+      "LitterGroupId": null,
+      "Type": "Rabbit, Domestic",
+      "CurrentLocation": null,
+      "Sex": "Male",
+      "Status": "Available Foster",
+      "InFoster": true,
+      "AssociatedPerson": {
+        "FirstName": "Tracy",
+        "LastName": "Allard",
+        "OutDateUnixTime": "1720972085",
+        "RelationshipType": "foster"
+      },
+      "CurrentWeightPounds": "",
+      "Size": "",
+      "Altered": "Unknown",
+      "DOBUnixTime": 1624722484,
+      "Age": 40,
+      "CoverPhoto": "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/07/25/08/20240725084734.png",
+      "Photos": [
+        "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2024/07/25/08/20240725084734.png"
+      ],
+      "Videos": [],
+      "Breed": "Blanc de Hotot/Mix",
+      "Color": "White/Black",
+      "AdoptionFeeGroup": {
+        "Id": "504894",
+        "Name": "Single Rabbit",
+        "Price": "65.00",
+        "Discount": 0,
+        "Tax": 0
+      },
+      "Description": "",
+      "PreviousIds": [],
+      "Microchips": [
+        {
+          "Id": "",
+          "Issuer": "",
+          "ImplantUnixTime": ""
+        }
+      ],
+      "LastIntakeUnixTime": "1720972084",
+      "Attributes": [
+        {
+          "Internal-ID": "237191",
+          "AttributeName": "Wilmington Location",
+          "Publish": "No"
+        }
+      ],
+      "LastUpdatedUnixTime": "1727654856"
+    }
+  ],
+  "has_more": false,
+  "total_count": "12"
+}

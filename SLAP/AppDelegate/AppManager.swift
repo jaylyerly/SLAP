@@ -31,6 +31,11 @@ struct AppManager {
             storage: storage,
             webLinks: webLinks
         )
+        Task {
+            // Refresh the rabbit list right away
+            // FIXME -- this should move to ListVC so it can report errors
+            try? await api.refreshList()
+        }
     }
     
 }

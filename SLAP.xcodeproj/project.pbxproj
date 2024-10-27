@@ -52,6 +52,14 @@
 		ECA17CA22CCD971200B13270 /* Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CA12CCD971200B13270 /* Spacer.swift */; };
 		ECA17CA52CCD99D000B13270 /* LinksViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CA42CCD99D000B13270 /* LinksViewControllerTests.swift */; };
 		ECA17CA72CCD9B0900B13270 /* UIAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CA62CCD9B0900B13270 /* UIAction.swift */; };
+		ECA17CAB2CCDC77000B13270 /* rabbits.json in Resources */ = {isa = PBXBuildFile; fileRef = ECA17CA92CCDC77000B13270 /* rabbits.json */; };
+		ECA17CAC2CCDC77000B13270 /* rabbit.json in Resources */ = {isa = PBXBuildFile; fileRef = ECA17CAA2CCDC77000B13270 /* rabbit.json */; };
+		ECA17CAE2CCDCB8200B13270 /* Rabbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CAD2CCDCB8200B13270 /* Rabbit.swift */; };
+		ECA17CB12CCDCE0500B13270 /* RabbitSex.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CB02CCDCE0500B13270 /* RabbitSex.swift */; };
+		ECA17CB42CCDD04700B13270 /* RabbitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CB32CCDD04700B13270 /* RabbitTests.swift */; };
+		ECA17CB62CCDD0BE00B13270 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CB52CCDD0BE00B13270 /* Data.swift */; };
+		ECA17CB82CCDD6F400B13270 /* RabbitList.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CB72CCDD6F400B13270 /* RabbitList.swift */; };
+		ECA17CBA2CCDD96600B13270 /* rabbits.publishable.json in Resources */ = {isa = PBXBuildFile; fileRef = ECA17CB92CCDD96600B13270 /* rabbits.publishable.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +121,14 @@
 		ECA17CA42CCD99D000B13270 /* LinksViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksViewControllerTests.swift; sourceTree = "<group>"; };
 		ECA17CA62CCD9B0900B13270 /* UIAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAction.swift; sourceTree = "<group>"; };
 		ECA17CA82CCD9D6900B13270 /* SLAP.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SLAP.xctestplan; sourceTree = "<group>"; };
+		ECA17CA92CCDC77000B13270 /* rabbits.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rabbits.json; sourceTree = "<group>"; };
+		ECA17CAA2CCDC77000B13270 /* rabbit.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rabbit.json; sourceTree = "<group>"; };
+		ECA17CAD2CCDCB8200B13270 /* Rabbit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rabbit.swift; sourceTree = "<group>"; };
+		ECA17CB02CCDCE0500B13270 /* RabbitSex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RabbitSex.swift; sourceTree = "<group>"; };
+		ECA17CB32CCDD04700B13270 /* RabbitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RabbitTests.swift; sourceTree = "<group>"; };
+		ECA17CB52CCDD0BE00B13270 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		ECA17CB72CCDD6F400B13270 /* RabbitList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RabbitList.swift; sourceTree = "<group>"; };
+		ECA17CB92CCDD96600B13270 /* rabbits.publishable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rabbits.publishable.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +176,7 @@
 				ECA17C422CCD31D800B13270 /* ViewControllers */,
 				ECA17CA02CCD970600B13270 /* Views */,
 				ECA17C542CCD38E100B13270 /* Extensions */,
+				ECA17CAF2CCDCB8700B13270 /* Models */,
 				ECA17C572CCD3AAA00B13270 /* Helpers */,
 				ECA17C172CCD26FB00B13270 /* Assets.xcassets */,
 				ECA17C192CCD26FB00B13270 /* LaunchScreen.storyboard */,
@@ -264,6 +281,7 @@
 		ECA17C5C2CCD3B7B00B13270 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				ECA17CB22CCDD03B00B13270 /* Models */,
 				ECA17CA32CCD99C100B13270 /* ViewControllers */,
 			);
 			path = Tests;
@@ -276,6 +294,7 @@
 				ECA17C692CCD3DB000B13270 /* UIImage.swift */,
 				ECA17C6E2CCD414A00B13270 /* AppEnv.swift */,
 				ECA17CA62CCD9B0900B13270 /* UIAction.swift */,
+				ECA17CB52CCDD0BE00B13270 /* Data.swift */,
 			);
 			path = TestHelpers;
 			sourceTree = "<group>";
@@ -293,6 +312,9 @@
 		ECA17C762CCD613900B13270 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				ECA17CB92CCDD96600B13270 /* rabbits.publishable.json */,
+				ECA17CAA2CCDC77000B13270 /* rabbit.json */,
+				ECA17CA92CCDC77000B13270 /* rabbits.json */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -338,6 +360,24 @@
 				ECA17CA42CCD99D000B13270 /* LinksViewControllerTests.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		ECA17CAF2CCDCB8700B13270 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ECA17CAD2CCDCB8200B13270 /* Rabbit.swift */,
+				ECA17CB02CCDCE0500B13270 /* RabbitSex.swift */,
+				ECA17CB72CCDD6F400B13270 /* RabbitList.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		ECA17CB22CCDD03B00B13270 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				ECA17CB32CCDD04700B13270 /* RabbitTests.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -440,6 +480,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECA17CAB2CCDC77000B13270 /* rabbits.json in Resources */,
+				ECA17CAC2CCDC77000B13270 /* rabbit.json in Resources */,
+				ECA17CBA2CCDD96600B13270 /* rabbits.publishable.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,8 +527,10 @@
 				ECA17C932CCD6CD600B13270 /* DetailViewController.swift in Sources */,
 				ECA17C472CCD321900B13270 /* AppManager.swift in Sources */,
 				ECA17C8C2CCD69B900B13270 /* ListViewController.swift in Sources */,
+				ECA17CB12CCDCE0500B13270 /* RabbitSex.swift in Sources */,
 				ECA17C9B2CCD906200B13270 /* WebLinks.swift in Sources */,
 				ECA17C972CCD71A800B13270 /* UIView.swift in Sources */,
+				ECA17CB82CCDD6F400B13270 /* RabbitList.swift in Sources */,
 				ECA17C902CCD6BE900B13270 /* ListMode.swift in Sources */,
 				ECA17C492CCD329E00B13270 /* AppEnv.swift in Sources */,
 				ECA17C532CCD373400B13270 /* Alert.swift in Sources */,
@@ -497,6 +542,7 @@
 				ECA17C7B2CCD664D00B13270 /* Storage.swift in Sources */,
 				ECA17C0F2CCD26FA00B13270 /* AppDelegate.swift in Sources */,
 				ECA17C512CCD36D800B13270 /* Style.swift in Sources */,
+				ECA17CAE2CCDCB8200B13270 /* Rabbit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,6 +557,7 @@
 				ECA17C6A2CCD3DB000B13270 /* UIImage.swift in Sources */,
 				ECA17C6F2CCD414A00B13270 /* AppEnv.swift in Sources */,
 				ECA17C752CCD419400B13270 /* FakeDefaults.swift in Sources */,
+				ECA17CB42CCDD04700B13270 /* RabbitTests.swift in Sources */,
 				ECA17C7D2CCD66A900B13270 /* FakeStorage.swift in Sources */,
 				ECA17CA72CCD9B0900B13270 /* UIAction.swift in Sources */,
 				ECA17C5E2CCD3B9800B13270 /* TestCase.swift in Sources */,
@@ -518,6 +565,7 @@
 				ECA17C622CCD3BC700B13270 /* TestingRootViewController.swift in Sources */,
 				ECA17C732CCD418B00B13270 /* FakeAlert.swift in Sources */,
 				ECA17C9D2CCD928000B13270 /* FakeWebLinks.swift in Sources */,
+				ECA17CB62CCDD0BE00B13270 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

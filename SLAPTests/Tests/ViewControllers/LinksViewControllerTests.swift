@@ -30,7 +30,7 @@ class LinksViewControllerTests: TestCase {
         try super.tearDownWithError()
     }
     
-    func testStoreButton() {
+    func testStoreButton() throws {
         XCTAssertNotNil(linksVC.view)
         
         XCTAssertNil(webLinks.lastOpenUrl)
@@ -42,7 +42,7 @@ class LinksViewControllerTests: TestCase {
         XCTAssertTrue(webLinks.lastPresentingViewController === linksVC)
     }
     
-    func testWebsiteButton() {
+    func testWebsiteButton() throws {
         XCTAssertNotNil(linksVC.view)
         
         XCTAssertNil(webLinks.lastOpenUrl)
