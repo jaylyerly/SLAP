@@ -23,13 +23,13 @@ extension ListMode {
         }
     }
     
-    func image(_ images: Images) -> UIImage {
+    var image: UIImage {
         switch self {
             case .adoptables:
-                return images.adoptables
+                return Images.adoptables.img
             case .favorites:
-                return images.favorites
+                return Images.favorites.img
         }
     }
-    
+        
 }

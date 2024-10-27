@@ -22,4 +22,12 @@ class Alert {
         parentVC.present(alert, animated: true, completion: nil)
     }
     
+    func display(_ error: Error, presenter: UIViewController) {
+        let msg = error.localizedDescription
+        let title = "Error"
+        displayErrorWithMessage(msg,
+                                title: title,
+                                presentingViewController: presenter)
+        
+    }
 }

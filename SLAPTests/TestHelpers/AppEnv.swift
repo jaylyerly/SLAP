@@ -14,7 +14,6 @@ extension AppEnv {
                      defaults: Defaults? = nil,
                      alert: Alert = .fake(),
                      style: Style = Style(),
-                     images: Images = Images(),
                      api: Api? = nil,
                      storage: Storage? = nil,
                      webLinks: WebLinks = .fake()) -> AppEnv {
@@ -29,7 +28,6 @@ extension AppEnv {
                       alert: alert,
                       defaults: defaults,
                       style: style,
-                      images: images,
                       api: api,
                       storage: storage,
                       webLinks: webLinks)

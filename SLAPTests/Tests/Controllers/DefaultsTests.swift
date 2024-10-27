@@ -41,7 +41,7 @@ class DefaultsTests: TestCase {
         
         // Check another instance
         let newDefaults = Defaults(config: config, userDefaults: userDefaults)
-        expectNoDifference(defaults.mainTabBarSelection, .links)
+        expectNoDifference(newDefaults.mainTabBarSelection, .links)
     }
     
 }

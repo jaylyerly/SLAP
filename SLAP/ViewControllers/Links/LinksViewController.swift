@@ -16,7 +16,7 @@ class LinksViewController: UIViewController, AppEnvConsumer {
     let logger = Logger.defaultLogger()
     
     lazy var heroImageView: UIImageView = {
-        let banner = images.banner
+        let banner = Images.banner.img
         let aspect = banner.size.height / banner.size.width
         let view = UIImageView(image: banner)
         
@@ -30,7 +30,7 @@ class LinksViewController: UIViewController, AppEnvConsumer {
     
     lazy var storeButton: UIButton = {
         let action = UIAction(title: "Shop", 
-                              image: images.store) { [weak self] action in
+                              image: Images.store.img) { [weak self] action in
             self?.storeAction(action)
         }
         return buildButton(action: action)
@@ -38,7 +38,7 @@ class LinksViewController: UIViewController, AppEnvConsumer {
     
     lazy var websiteButton: UIButton = {
         let action = UIAction(title: "WebSite",
-                              image: images.house) { [weak self] action in
+                              image: Images.house.img) { [weak self] action in
             self?.websiteAction(action)
         }
         return buildButton(action: action)
@@ -70,7 +70,7 @@ class LinksViewController: UIViewController, AppEnvConsumer {
     init(appEnv: AppEnv) {
         self.appEnv = appEnv
         super.init(nibName: nil, bundle: nil)
-        tabBarItem = UITabBarItem(title: "Links", image: images.link, tag: 0)
+        tabBarItem = UITabBarItem(title: "Links", image: Images.link.img, tag: 0)
     }
     
     @available(*, unavailable)

@@ -62,6 +62,12 @@
 		ECA17CBA2CCDD96600B13270 /* rabbits.publishable.json in Resources */ = {isa = PBXBuildFile; fileRef = ECA17CB92CCDD96600B13270 /* rabbits.publishable.json */; };
 		ECA17CBD2CCE7EB600B13270 /* Storage_Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CBC2CCE7EB600B13270 /* Storage_Api.swift */; };
 		ECA17CBF2CCE81C200B13270 /* DefaultsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CBE2CCE81C200B13270 /* DefaultsTests.swift */; };
+		ECA17CC32CCE87DF00B13270 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CC22CCE87DF00B13270 /* Endpoint.swift */; };
+		ECA17CC52CCE882600B13270 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CC42CCE882600B13270 /* Server.swift */; };
+		ECA17CC72CCE8B7300B13270 /* Rabbit_Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CC62CCE8B7300B13270 /* Rabbit_Endpoints.swift */; };
+		ECA17CC92CCE8C9C00B13270 /* RabbitList_Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CC82CCE8C9C00B13270 /* RabbitList_Endpoints.swift */; };
+		ECA17CCD2CCE94F100B13270 /* ImagesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CCC2CCE94F100B13270 /* ImagesTests.swift */; };
+		ECA17CCF2CCE94FC00B13270 /* SecretsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CCE2CCE94FC00B13270 /* SecretsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +139,12 @@
 		ECA17CB92CCDD96600B13270 /* rabbits.publishable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rabbits.publishable.json; sourceTree = "<group>"; };
 		ECA17CBC2CCE7EB600B13270 /* Storage_Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage_Api.swift; sourceTree = "<group>"; };
 		ECA17CBE2CCE81C200B13270 /* DefaultsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsTests.swift; sourceTree = "<group>"; };
+		ECA17CC22CCE87DF00B13270 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		ECA17CC42CCE882600B13270 /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		ECA17CC62CCE8B7300B13270 /* Rabbit_Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rabbit_Endpoints.swift; sourceTree = "<group>"; };
+		ECA17CC82CCE8C9C00B13270 /* RabbitList_Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RabbitList_Endpoints.swift; sourceTree = "<group>"; };
+		ECA17CCC2CCE94F100B13270 /* ImagesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesTests.swift; sourceTree = "<group>"; };
+		ECA17CCE2CCE94FC00B13270 /* SecretsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,8 +191,9 @@
 				ECA17C3E2CCD2DB500B13270 /* Controllers */,
 				ECA17C422CCD31D800B13270 /* ViewControllers */,
 				ECA17CA02CCD970600B13270 /* Views */,
-				ECA17C542CCD38E100B13270 /* Extensions */,
 				ECA17CAF2CCDCB8700B13270 /* Models */,
+				ECA17CCA2CCE91FA00B13270 /* Constants */,
+				ECA17C542CCD38E100B13270 /* Extensions */,
 				ECA17C572CCD3AAA00B13270 /* Helpers */,
 				ECA17C172CCD26FB00B13270 /* Assets.xcassets */,
 				ECA17C192CCD26FB00B13270 /* LaunchScreen.storyboard */,
@@ -209,12 +222,10 @@
 			children = (
 				ECA17C482CCD329E00B13270 /* AppEnv.swift */,
 				ECA17C522CCD373400B13270 /* Alert.swift */,
-				ECA17C782CCD664300B13270 /* Api.swift */,
+				ECA17CC12CCE87D200B13270 /* Api */,
 				ECA17C4A2CCD32BE00B13270 /* Config.swift */,
 				ECA17C4C2CCD353500B13270 /* Defaults.swift */,
-				ECA17C4E2CCD36D000B13270 /* Images.swift */,
 				ECA17C502CCD36D800B13270 /* Style.swift */,
-				ECA17C3F2CCD2DC800B13270 /* Secrets.swift */,
 				ECA17CBB2CCE7EA100B13270 /* Storage */,
 				ECA17C9A2CCD906200B13270 /* WebLinks.swift */,
 			);
@@ -288,6 +299,7 @@
 				ECA17CC02CCE81C700B13270 /* Controllers */,
 				ECA17CB22CCDD03B00B13270 /* Models */,
 				ECA17CA32CCD99C100B13270 /* ViewControllers */,
+				ECA17CCB2CCE94D200B13270 /* Constants */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -400,6 +412,36 @@
 				ECA17CBE2CCE81C200B13270 /* DefaultsTests.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		ECA17CC12CCE87D200B13270 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				ECA17C782CCD664300B13270 /* Api.swift */,
+				ECA17CC62CCE8B7300B13270 /* Rabbit_Endpoints.swift */,
+				ECA17CC82CCE8C9C00B13270 /* RabbitList_Endpoints.swift */,
+				ECA17CC22CCE87DF00B13270 /* Endpoint.swift */,
+				ECA17CC42CCE882600B13270 /* Server.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		ECA17CCA2CCE91FA00B13270 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				ECA17C4E2CCD36D000B13270 /* Images.swift */,
+				ECA17C3F2CCD2DC800B13270 /* Secrets.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		ECA17CCB2CCE94D200B13270 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				ECA17CCC2CCE94F100B13270 /* ImagesTests.swift */,
+				ECA17CCE2CCE94FC00B13270 /* SecretsTests.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -539,8 +581,10 @@
 			files = (
 				ECA17C4D2CCD353500B13270 /* Defaults.swift in Sources */,
 				ECA17CA22CCD971200B13270 /* Spacer.swift in Sources */,
+				ECA17CC52CCE882600B13270 /* Server.swift in Sources */,
 				ECA17C132CCD26FA00B13270 /* MainViewController.swift in Sources */,
 				ECA17C442CCD31E800B13270 /* ViewControllerFactory.swift in Sources */,
+				ECA17CC32CCE87DF00B13270 /* Endpoint.swift in Sources */,
 				ECA17C792CCD664300B13270 /* Api.swift in Sources */,
 				ECA17C592CCD3AE900B13270 /* Completion.swift in Sources */,
 				ECA17C842CCD696900B13270 /* LinksViewController.swift in Sources */,
@@ -557,11 +601,13 @@
 				ECA17C902CCD6BE900B13270 /* ListMode.swift in Sources */,
 				ECA17C492CCD329E00B13270 /* AppEnv.swift in Sources */,
 				ECA17C532CCD373400B13270 /* Alert.swift in Sources */,
+				ECA17CC92CCE8C9C00B13270 /* RabbitList_Endpoints.swift in Sources */,
 				ECA17C4B2CCD32BE00B13270 /* Config.swift in Sources */,
 				ECA17C992CCD754900B13270 /* MainTabBarTag.swift in Sources */,
 				ECA17C4F2CCD36D000B13270 /* Images.swift in Sources */,
 				ECA17C562CCD390100B13270 /* Logger.swift in Sources */,
 				ECA17C6D2CCD3FEE00B13270 /* main.swift in Sources */,
+				ECA17CC72CCE8B7300B13270 /* Rabbit_Endpoints.swift in Sources */,
 				ECA17C7B2CCD664D00B13270 /* Storage.swift in Sources */,
 				ECA17C0F2CCD26FA00B13270 /* AppDelegate.swift in Sources */,
 				ECA17C512CCD36D800B13270 /* Style.swift in Sources */,
@@ -576,6 +622,7 @@
 				ECA17C712CCD418400B13270 /* FakeConfig.swift in Sources */,
 				ECA17C7F2CCD66E400B13270 /* FakeApi.swift in Sources */,
 				ECA17C602CCD3BB800B13270 /* TestingAppDelegate.swift in Sources */,
+				ECA17CCF2CCE94FC00B13270 /* SecretsTests.swift in Sources */,
 				ECA17C652CCD3CF600B13270 /* UIWindow.swift in Sources */,
 				ECA17C6A2CCD3DB000B13270 /* UIImage.swift in Sources */,
 				ECA17C6F2CCD414A00B13270 /* AppEnv.swift in Sources */,
@@ -588,6 +635,7 @@
 				ECA17CA52CCD99D000B13270 /* LinksViewControllerTests.swift in Sources */,
 				ECA17C622CCD3BC700B13270 /* TestingRootViewController.swift in Sources */,
 				ECA17C732CCD418B00B13270 /* FakeAlert.swift in Sources */,
+				ECA17CCD2CCE94F100B13270 /* ImagesTests.swift in Sources */,
 				ECA17C9D2CCD928000B13270 /* FakeWebLinks.swift in Sources */,
 				ECA17CB62CCDD0BE00B13270 /* Data.swift in Sources */,
 			);
