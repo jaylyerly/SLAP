@@ -7,16 +7,20 @@
 
 import Foundation
 
+protocol ApiDelegate: AnyObject {
+    func api(_ api: Api, didReceive object: Decodable)
+}
+
 class Api {
     
     let config: Config
-    let storage: Storage
+    
+    weak var delegate: ApiDelegate?
     
     private let session: URLSession
     
-    init(config: Config, storage: Storage) {
+    init(config: Config) {
         self.config = config
-        self.storage = storage
         
         let sessionConfig = URLSessionConfiguration.default
         sessionConfig.httpAdditionalHeaders = [
@@ -47,6 +51,5 @@ class Api {
         }
         return url
     }
-    
     
 }

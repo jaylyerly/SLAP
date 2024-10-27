@@ -12,7 +12,6 @@ import XCTest
 
 private let defaultTimeoutFactor = 1.0
 
-@MainActor
 class TestCase: XCTestCase {
     
     var testWindows = [UIWindow]()

@@ -21,7 +21,9 @@ extension AppEnv {
     
         let defaults = defaults ?? .fake(config: config)
         let storage = storage ?? .fake()
-        let api = api ?? .fake(config: config, storage: storage)
+        let api = api ?? .fake(config: config)
+        
+        api.delegate = storage
         
         return AppEnv(config: config,
                       alert: alert,

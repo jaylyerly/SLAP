@@ -15,11 +15,14 @@ struct AppManager {
         let config = Config()
         let defaults = Defaults(config: config)
         let storage = Storage()
-        let api = Api(config: config, storage: storage)
+        let api = Api(config: config)
         let images = Images()
         let style = Style()
         let alert = Alert()
         let webLinks = WebLinks()
+        
+        // Connect up the delegates
+        api.delegate = storage
         
         appEnv = AppEnv(
             config: config,

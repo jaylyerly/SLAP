@@ -8,7 +8,7 @@
 import Foundation
 import OSLog
 
-private let searchTermKey = "searchTerm"
+private let mainTabBarSelectionKey = "mainTabBarSelection"
 
 class Defaults {
     
@@ -16,9 +16,14 @@ class Defaults {
     var defaults: UserDefaults
     private let logger = Logger.defaultLogger()
     
-    var searchTerm: String? {
-        get { defaults.string(forKey: searchTermKey) }
-        set { defaults.setValue(newValue, forKey: searchTermKey) }
+    var mainTabBarSelection: MainTabBarTag {
+        get {
+            // NB: integer(forKey:) returns 0 if not found
+            let value = defaults.integer(forKey: mainTabBarSelectionKey)
+            return MainTabBarTag(rawValue: value) ?? .adoptables
+        }
+        set { defaults.setValue(newValue.rawValue, forKey: mainTabBarSelectionKey) }
+
     }
     
     init(config: Config, userDefaults: UserDefaults = UserDefaults.standard) {

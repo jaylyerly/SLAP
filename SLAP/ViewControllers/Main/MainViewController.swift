@@ -26,6 +26,7 @@ class MainViewController: UITabBarController, AppViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        delegate = self
 
         let adoptVC = ViewControllerFactory.list(appEnv: appEnv, mode: .adoptables)
         let adoptNavVC = UINavigationController(rootViewController: adoptVC)
@@ -34,11 +35,20 @@ class MainViewController: UITabBarController, AppViewController {
         let favNavVC = UINavigationController(rootViewController: favoritesVC)
 
         let storeVC = ViewControllerFactory.links(appEnv: appEnv)
-        storeVC.tabBarItem.tag = MainTabBarTags.store.rawValue
+        storeVC.tabBarItem.tag = MainTabBarTag.links.rawValue
         
         setViewControllers([adoptNavVC, favNavVC, storeVC], animated: false)
         
-        selectedViewController = adoptNavVC
+        selectedIndex = defaults.mainTabBarSelection.rawValue
+    }
+    
+}
+
+extension MainViewController: UITabBarControllerDelegate {
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        guard let selection = MainTabBarTag(rawValue: item.tag) else { return }
+        defaults.mainTabBarSelection = selection
     }
     
 }

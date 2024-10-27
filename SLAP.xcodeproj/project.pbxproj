@@ -45,7 +45,7 @@
 		ECA17C932CCD6CD600B13270 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C922CCD6CD600B13270 /* DetailViewController.swift */; };
 		ECA17C952CCD6CE000B13270 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECA17C942CCD6CE000B13270 /* Detail.storyboard */; };
 		ECA17C972CCD71A800B13270 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C962CCD71A800B13270 /* UIView.swift */; };
-		ECA17C992CCD754900B13270 /* MainTabBarTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C982CCD754900B13270 /* MainTabBarTags.swift */; };
+		ECA17C992CCD754900B13270 /* MainTabBarTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C982CCD754900B13270 /* MainTabBarTag.swift */; };
 		ECA17C9B2CCD906200B13270 /* WebLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C9A2CCD906200B13270 /* WebLinks.swift */; };
 		ECA17C9D2CCD928000B13270 /* FakeWebLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C9C2CCD928000B13270 /* FakeWebLinks.swift */; };
 		ECA17C9F2CCD962D00B13270 /* NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C9E2CCD962D00B13270 /* NSLayoutConstraint.swift */; };
@@ -60,6 +60,8 @@
 		ECA17CB62CCDD0BE00B13270 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CB52CCDD0BE00B13270 /* Data.swift */; };
 		ECA17CB82CCDD6F400B13270 /* RabbitList.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CB72CCDD6F400B13270 /* RabbitList.swift */; };
 		ECA17CBA2CCDD96600B13270 /* rabbits.publishable.json in Resources */ = {isa = PBXBuildFile; fileRef = ECA17CB92CCDD96600B13270 /* rabbits.publishable.json */; };
+		ECA17CBD2CCE7EB600B13270 /* Storage_Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CBC2CCE7EB600B13270 /* Storage_Api.swift */; };
+		ECA17CBF2CCE81C200B13270 /* DefaultsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CBE2CCE81C200B13270 /* DefaultsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,7 +115,7 @@
 		ECA17C922CCD6CD600B13270 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		ECA17C942CCD6CE000B13270 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 		ECA17C962CCD71A800B13270 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		ECA17C982CCD754900B13270 /* MainTabBarTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarTags.swift; sourceTree = "<group>"; };
+		ECA17C982CCD754900B13270 /* MainTabBarTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarTag.swift; sourceTree = "<group>"; };
 		ECA17C9A2CCD906200B13270 /* WebLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebLinks.swift; sourceTree = "<group>"; };
 		ECA17C9C2CCD928000B13270 /* FakeWebLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeWebLinks.swift; sourceTree = "<group>"; };
 		ECA17C9E2CCD962D00B13270 /* NSLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraint.swift; sourceTree = "<group>"; };
@@ -129,6 +131,8 @@
 		ECA17CB52CCDD0BE00B13270 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		ECA17CB72CCDD6F400B13270 /* RabbitList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RabbitList.swift; sourceTree = "<group>"; };
 		ECA17CB92CCDD96600B13270 /* rabbits.publishable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rabbits.publishable.json; sourceTree = "<group>"; };
+		ECA17CBC2CCE7EB600B13270 /* Storage_Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage_Api.swift; sourceTree = "<group>"; };
+		ECA17CBE2CCE81C200B13270 /* DefaultsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,7 +215,7 @@
 				ECA17C4E2CCD36D000B13270 /* Images.swift */,
 				ECA17C502CCD36D800B13270 /* Style.swift */,
 				ECA17C3F2CCD2DC800B13270 /* Secrets.swift */,
-				ECA17C7A2CCD664D00B13270 /* Storage.swift */,
+				ECA17CBB2CCE7EA100B13270 /* Storage */,
 				ECA17C9A2CCD906200B13270 /* WebLinks.swift */,
 			);
 			path = Controllers;
@@ -281,6 +285,7 @@
 		ECA17C5C2CCD3B7B00B13270 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				ECA17CC02CCE81C700B13270 /* Controllers */,
 				ECA17CB22CCDD03B00B13270 /* Models */,
 				ECA17CA32CCD99C100B13270 /* ViewControllers */,
 			);
@@ -304,7 +309,7 @@
 			children = (
 				ECA17C122CCD26FA00B13270 /* MainViewController.swift */,
 				ECA17C142CCD26FA00B13270 /* Main.storyboard */,
-				ECA17C982CCD754900B13270 /* MainTabBarTags.swift */,
+				ECA17C982CCD754900B13270 /* MainTabBarTag.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -378,6 +383,23 @@
 				ECA17CB32CCDD04700B13270 /* RabbitTests.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		ECA17CBB2CCE7EA100B13270 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				ECA17C7A2CCD664D00B13270 /* Storage.swift */,
+				ECA17CBC2CCE7EB600B13270 /* Storage_Api.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		ECA17CC02CCE81C700B13270 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ECA17CBE2CCE81C200B13270 /* DefaultsTests.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -522,6 +544,7 @@
 				ECA17C792CCD664300B13270 /* Api.swift in Sources */,
 				ECA17C592CCD3AE900B13270 /* Completion.swift in Sources */,
 				ECA17C842CCD696900B13270 /* LinksViewController.swift in Sources */,
+				ECA17CBD2CCE7EB600B13270 /* Storage_Api.swift in Sources */,
 				ECA17C402CCD2DC800B13270 /* Secrets.swift in Sources */,
 				ECA17C9F2CCD962D00B13270 /* NSLayoutConstraint.swift in Sources */,
 				ECA17C932CCD6CD600B13270 /* DetailViewController.swift in Sources */,
@@ -535,7 +558,7 @@
 				ECA17C492CCD329E00B13270 /* AppEnv.swift in Sources */,
 				ECA17C532CCD373400B13270 /* Alert.swift in Sources */,
 				ECA17C4B2CCD32BE00B13270 /* Config.swift in Sources */,
-				ECA17C992CCD754900B13270 /* MainTabBarTags.swift in Sources */,
+				ECA17C992CCD754900B13270 /* MainTabBarTag.swift in Sources */,
 				ECA17C4F2CCD36D000B13270 /* Images.swift in Sources */,
 				ECA17C562CCD390100B13270 /* Logger.swift in Sources */,
 				ECA17C6D2CCD3FEE00B13270 /* main.swift in Sources */,
@@ -559,6 +582,7 @@
 				ECA17C752CCD419400B13270 /* FakeDefaults.swift in Sources */,
 				ECA17CB42CCDD04700B13270 /* RabbitTests.swift in Sources */,
 				ECA17C7D2CCD66A900B13270 /* FakeStorage.swift in Sources */,
+				ECA17CBF2CCE81C200B13270 /* DefaultsTests.swift in Sources */,
 				ECA17CA72CCD9B0900B13270 /* UIAction.swift in Sources */,
 				ECA17C5E2CCD3B9800B13270 /* TestCase.swift in Sources */,
 				ECA17CA52CCD99D000B13270 /* LinksViewControllerTests.swift in Sources */,
