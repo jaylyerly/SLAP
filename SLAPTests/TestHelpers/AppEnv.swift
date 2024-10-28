@@ -16,10 +16,11 @@ extension AppEnv {
                      style: Style = Style(),
                      api: Api? = nil,
                      storage: Storage? = nil,
-                     webLinks: WebLinks = .fake()) -> AppEnv {
+                     webLinks: WebLinks = .fake(),
+                     notificationCenter: NotificationCenter = .fake()) -> AppEnv {
     
         let defaults = defaults ?? .fake(config: config)
-        let storage = storage ?? .fake()
+        let storage = storage ?? .fake(notificationCenter: notificationCenter)
         let api = api ?? .fake(config: config)
         
         api.delegate = storage
@@ -30,7 +31,8 @@ extension AppEnv {
                       style: style,
                       api: api,
                       storage: storage,
-                      webLinks: webLinks)
+                      webLinks: webLinks,
+                      notificationCenter: notificationCenter)
         
     }
     

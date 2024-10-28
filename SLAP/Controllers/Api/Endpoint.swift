@@ -14,14 +14,18 @@ enum EndpointHttpMethod: String {
     case delete = "DELETE"
 }
 
+typealias EndpointName = String
+
 struct Endpoint<T: Codable> {
     
+    let name: EndpointName
     let pathPrefix: String
     let objId: String?
     let method: EndpointHttpMethod
     let queryParams: [String: String]?
     
-    init(pathPrefix: String,
+    init(name: EndpointName,
+         pathPrefix: String,
          method: EndpointHttpMethod = .get,
          objId: String? = nil,
          queryParams: [String: String]? = nil) {
@@ -29,6 +33,7 @@ struct Endpoint<T: Codable> {
         self.objId = objId
         self.method = method
         self.queryParams = queryParams
+        self.name = name
     }
     
     func url(forBaseUrl baseUrl: URL) -> URL {

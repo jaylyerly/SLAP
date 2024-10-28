@@ -69,6 +69,8 @@ class RabbitTests: TestCase {
         XCTAssertEqual(rabbit.coverPhoto, url1)
         XCTAssertEqual(rabbit.photos, [url1, url2])
         
+        // Non-JSON properties should just be the defaults
+        XCTAssertFalse(rabbit.isFavorite)
     }
     
     func testDecodeList() throws {

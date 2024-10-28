@@ -17,6 +17,7 @@ struct AppEnv {
     let api: Api
     let storage: Storage
     let webLinks: WebLinks
+    let notificationCenter: NotificationCenter
 }
 
 protocol AppEnvConsumer {
@@ -30,6 +31,7 @@ protocol AppEnvConsumer {
     var api: Api { get }
     var storage: Storage { get }
     var webLinks: WebLinks { get }
+    var notificationCenter: NotificationCenter { get }
 }
 
 extension AppEnvConsumer {
@@ -40,6 +42,7 @@ extension AppEnvConsumer {
     var api: Api { appEnv.api }
     var storage: Storage { appEnv.storage }
     var webLinks: WebLinks { appEnv.webLinks }
+    var notificationCenter: NotificationCenter { appEnv.notificationCenter }
 }
 
 protocol AppViewController: UIViewController, AppEnvConsumer {

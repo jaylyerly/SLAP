@@ -13,6 +13,7 @@ import XCTest
 class ApiTests: TestCase {
     
     var receivedObjects = [Decodable]()
+    var receivedObjectLists = [[Decodable]]()   // yes, a list of lists
     var api: Api!
     var config = FakeConfig()
 
@@ -55,7 +56,8 @@ class ApiTests: TestCase {
         try await api.refresh(withInternalId: "OU812")
         
         expectNoDifference(receivedObjects.count, 1)
-        
+        expectNoDifference(receivedObjectLists.count, 0)
+
         let obj = try XCTUnwrap(receivedObjects.first)
         let rabbit = try XCTUnwrap(obj as? Rabbit)
         expectNoDifference(rabbit.name, "Honey")
@@ -69,9 +71,13 @@ class ApiTests: TestCase {
         
         try await api.refreshList()
         
-        expectNoDifference(receivedObjects.count, 12)
+        expectNoDifference(receivedObjects.count, 0)
+        expectNoDifference(receivedObjectLists.count, 1)
+        let receivedList = try XCTUnwrap(receivedObjectLists.first)
+
+        expectNoDifference(receivedList.count, 12)
         
-        let obj = try XCTUnwrap(receivedObjects.last)
+        let obj = try XCTUnwrap(receivedList.last)
         let rabbit = try XCTUnwrap(obj as? Rabbit)
         expectNoDifference(rabbit.name, "Romeo")
         expectNoDifference(rabbit.age, 3)
@@ -82,8 +88,12 @@ class ApiTests: TestCase {
 
 extension ApiTests: ApiDelegate {
     
-    func api(_ api: Api, didReceive object: any Decodable) {
+    func api(_ api: Api, didReceive object: any Decodable, forEndpointName name: EndpointName) {
         receivedObjects.append(object)
     }
     
+    func api(_ api: Api, didReceiveList objects: [any Decodable], forEndpointName name: EndpointName) {
+        receivedObjectLists.append(objects)
+    }
+        
 }

@@ -8,7 +8,8 @@
 import Foundation
 
 protocol ApiDelegate: AnyObject {
-    func api(_ api: Api, didReceive object: Decodable)
+    func api(_ api: Api, didReceive object: Decodable, forEndpointName name: EndpointName)
+    func api(_ api: Api, didReceiveList objects: [Decodable], forEndpointName name: EndpointName)
 }
 
 class Api {
@@ -37,15 +38,17 @@ class Api {
     
     func refreshList() async throws {
         let list = try await server.load(endpoint: RabbitList.publishable())
-        for rabbit in list.animals {
-            delegate?.api(self, didReceive: rabbit)
-        }
+        delegate?.api(
+            self,
+            didReceiveList: list.animals,
+            forEndpointName: RabbitList.publishableEndpointName
+        )
     }
     
     func refresh(withInternalId internalId: String) async throws {
         let rabbit = try await server
             .load(endpoint: Rabbit.detail(forId: internalId))
-        delegate?.api(self, didReceive: rabbit)
+        delegate?.api(self, didReceive: rabbit, forEndpointName: Rabbit.detailEndpointName)
     }
         
 }

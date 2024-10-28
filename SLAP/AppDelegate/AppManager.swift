@@ -14,7 +14,7 @@ struct AppManager {
     init() {
         let config = Config()
         let defaults = Defaults(config: config)
-        let storage = Storage()
+        let storage = Storage(notificationCenter: .default)
         let api = Api(config: config)
         let style = Style()
         let alert = Alert()
@@ -30,7 +30,8 @@ struct AppManager {
             style: style,
             api: api,
             storage: storage,
-            webLinks: webLinks
+            webLinks: webLinks,
+            notificationCenter: NotificationCenter.default
         )
     }
     

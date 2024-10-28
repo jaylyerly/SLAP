@@ -11,9 +11,15 @@ typealias RabbitListEndpoint = Endpoint<RabbitList>
 
 extension RabbitList {
     
+    static let publishableEndpointName = "PublishedRabbitList"
+    
     static func publishable() -> RabbitListEndpoint {
         let params = ["status_type": "publishable"]
-        return RabbitListEndpoint(pathPrefix: "animals", queryParams: params)
+        return RabbitListEndpoint(
+            name: publishableEndpointName,
+            pathPrefix: "animals",
+            queryParams: params
+        )
     }
     
 }

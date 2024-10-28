@@ -11,8 +11,10 @@ typealias RabbitEndpoint = Endpoint<Rabbit>
 
 extension Rabbit {
     
+    static let detailEndpointName = "RabbitDetail"
+    
     static func detail(forId objId: String) -> RabbitEndpoint {
-        RabbitEndpoint(pathPrefix: "animals", objId: objId)
+        RabbitEndpoint(name: detailEndpointName, pathPrefix: "animals", objId: objId)
     }
     
 }

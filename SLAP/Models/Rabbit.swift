@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class Rabbit: Codable {
+class Rabbit: Codable {    
     enum CodingKeys: String, CodingKey {
         case internalId = "Internal-ID"
         case name = "Name"
@@ -23,7 +23,10 @@ class Rabbit: Codable {
         case rabbitDescription = "Description"
     }
 
+    // Stored properties from JSON
+    @Attribute(.unique)
     var internalId: String
+    
     var name: String
     var rawSex: String?
     var status: String?
@@ -34,6 +37,10 @@ class Rabbit: Codable {
     var rawPhotos: [String]?
     var rabbitDescription: String?
 
+    // Non-JSON stored properties
+    var isFavorite = false
+    
+    // Synthetic properties
     var sex: RabbitSex { RabbitSex(str: rawSex) }
     var weight: Int? {
         guard let rawWeight, let doubleWeight = Double(rawWeight) else { return nil }
@@ -86,16 +93,16 @@ class Rabbit: Codable {
     }
 }
 
-extension Rabbit: Identifiable {
-    
-    var id: String { internalId }
-    
-}
+// extension Rabbit: Identifiable {
+//
+//    var id: String { internalId }
+//    
+// }
 
 extension Rabbit: CustomDebugStringConvertible {
     
     var debugDescription: String {
-        "Rabbit<\(Unmanaged.passUnretained(self).toOpaque())>: \(name) (\(id))"
+        "Rabbit<\(Unmanaged.passUnretained(self).toOpaque())>: \(name) (\(internalId))"
     }
     
 }
