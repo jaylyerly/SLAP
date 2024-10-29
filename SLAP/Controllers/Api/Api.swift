@@ -47,8 +47,8 @@ class Api {
     
     func refresh(withInternalId internalId: String) async throws {
         let rabbit = try await server
-            .load(endpoint: Rabbit.detail(forId: internalId))
-        delegate?.api(self, didReceive: rabbit, forEndpointName: Rabbit.detailEndpointName)
+            .load(endpoint: RabbitStruct.detail(forId: internalId))
+        delegate?.api(self, didReceive: rabbit, forEndpointName: RabbitStruct.detailEndpointName)
     }
         
 }

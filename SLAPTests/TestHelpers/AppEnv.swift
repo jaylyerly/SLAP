@@ -20,7 +20,7 @@ extension AppEnv {
                      notificationCenter: NotificationCenter = .fake()) -> AppEnv {
     
         let defaults = defaults ?? .fake(config: config)
-        let storage = storage ?? .fake(notificationCenter: notificationCenter)
+        let storage = storage ?? .fake()
         let api = api ?? .fake(config: config)
         
         api.delegate = storage

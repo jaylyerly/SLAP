@@ -8,13 +8,10 @@
 import CustomDump
 import Foundation
 @testable import SLAP
-import SwiftData
 import XCTest
 
 class RabbitListEndpointTests: TestCase {
     
-    let modelContainer = try! ModelContainer(for: Rabbit.self)
-
     var baseUrl = FakeConfig().apiRoot
     var baseUrlString: String { baseUrl.absoluteString }
     

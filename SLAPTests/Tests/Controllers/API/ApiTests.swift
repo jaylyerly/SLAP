@@ -59,10 +59,10 @@ class ApiTests: TestCase {
         expectNoDifference(receivedObjectLists.count, 0)
 
         let obj = try XCTUnwrap(receivedObjects.first)
-        let rabbit = try XCTUnwrap(obj as? Rabbit)
+        let rabbit = try XCTUnwrap(obj as? RabbitStruct)
         expectNoDifference(rabbit.name, "Honey")
-        expectNoDifference(rabbit.age, 2)
-        expectNoDifference(rabbit.weight, 4)
+        XCTAssertEqual(try XCTUnwrap(rabbit.age), 2.666666, accuracy: 0.0001)
+        expectNoDifference(rabbit.weight, 4.0962)
     }
     
     func testList() async throws {
@@ -78,9 +78,9 @@ class ApiTests: TestCase {
         expectNoDifference(receivedList.count, 12)
         
         let obj = try XCTUnwrap(receivedList.last)
-        let rabbit = try XCTUnwrap(obj as? Rabbit)
+        let rabbit = try XCTUnwrap(obj as? RabbitStruct)
         expectNoDifference(rabbit.name, "Romeo")
-        expectNoDifference(rabbit.age, 3)
+        XCTAssertEqual(try XCTUnwrap(rabbit.age), 3.33333, accuracy: 0.0001)
         expectNoDifference(rabbit.weight, nil)
     }
 

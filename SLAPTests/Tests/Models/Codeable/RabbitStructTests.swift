@@ -1,5 +1,5 @@
 //
-//  RabbitTests.swift
+//  RabbitStructTests.swift
 //  SLAPTests
 //
 //  Created by Jay Lyerly on 10/26/24.
@@ -10,7 +10,7 @@ import Foundation
 @testable import SLAP
 import XCTest
 
-class RabbitTests: TestCase {
+class RabbitStructTests: TestCase {
     
     var singleJsonData: Data!
     var listJsonData: Data!
@@ -30,7 +30,7 @@ class RabbitTests: TestCase {
     }
     
     func testDebugDescription() throws {
-        let rabbit = try JSONDecoder().decode(Rabbit.self, from: singleJsonData)
+        let rabbit = try JSONDecoder().decode(RabbitStruct.self, from: singleJsonData)
         let desc = rabbit.debugDescription
         // Should look like this:
         // Rabbit<0x0000600002137b10>: Honey (52423098)
@@ -39,7 +39,7 @@ class RabbitTests: TestCase {
     }
     
     func testDecodeSingle() throws {
-        let rabbit = try JSONDecoder().decode(Rabbit.self, from: singleJsonData)
+        let rabbit = try JSONDecoder().decode(RabbitStruct.self, from: singleJsonData)
         
         // swiftlint:disable line_length
         let desc = "Meet Honey & Juniper! These two sisters are about 7 months old and must be adopted together. They may be small, but they need a lot of space to play and more importantly, to get away from each other when they want some alone time. They are currently living in a 10x11 bunny proofed room, but if they could talk, they would probably say they could use a little more square footage. They love to munch on hay all day long, but in the morning they circle like sharks for pellets. They also enjoy eating veggies twice a day. They are still pretty shy, but they will warm up to you if you give them time. They are also quite active and would prefer to run around than be pet. They make great bunny entertainment AKA bunny TV! Currently fostering in the Charlotte area."
@@ -63,14 +63,12 @@ class RabbitTests: TestCase {
         let url2 = try XCTUnwrap(URL(string: photo2))
         // Check derived values
         XCTAssertEqual(rabbit.sex, .female)
-        XCTAssertEqual(rabbit.weight, 4)
+        XCTAssertEqual(try XCTUnwrap(rabbit.weight), 4.0962, accuracy: 0.001)
         XCTAssertTrue(rabbit.altered)
-        XCTAssertEqual(rabbit.age, 2)
+        XCTAssertEqual(try XCTUnwrap(rabbit.age), 2.66666, accuracy: 0.001)
         XCTAssertEqual(rabbit.coverPhoto, url1)
         XCTAssertEqual(rabbit.photos, [url1, url2])
         
-        // Non-JSON properties should just be the defaults
-        XCTAssertFalse(rabbit.isFavorite)
     }
     
     func testDecodeList() throws {

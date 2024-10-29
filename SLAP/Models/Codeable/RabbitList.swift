@@ -17,7 +17,7 @@ struct RabbitList: Codable {
     }
 
     var success: Int
-    var animals: [Rabbit]
+    var animals: [RabbitStruct]
     var rawTotalCount: String
     var hasMore: Bool
     

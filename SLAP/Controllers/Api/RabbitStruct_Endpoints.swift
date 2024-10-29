@@ -1,5 +1,5 @@
 //
-//  Rabbit_Endpoints.swift
+//  RabbitStruct_Endpoints.swift
 //  SLAP
 //
 //  Created by Jay Lyerly on 10/27/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-typealias RabbitEndpoint = Endpoint<Rabbit>
+typealias RabbitEndpoint = Endpoint<RabbitStruct>
 
-extension Rabbit {
+extension RabbitStruct {
     
     static let detailEndpointName = "RabbitDetail"
     

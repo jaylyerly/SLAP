@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum RabbitSex {
+enum RabbitSex: String {
     case male
     case female
     case unknown
