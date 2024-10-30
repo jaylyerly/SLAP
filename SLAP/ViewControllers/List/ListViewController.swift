@@ -67,6 +67,7 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
         super.viewDidLoad()
 
         collectionView.setCollectionViewLayout(getLayout(), animated: false)
+        collectionView.backgroundColor = .black
         title = mode.title
         
         configureDataSource()
@@ -108,8 +109,7 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
     
     private func configureDataSource() {
 
-        let cellRegistration = UICollectionView.CellRegistration<ListCell, ListItem> {
-            [weak self] cell, _, item in
+        let cellRegistration = UICollectionView.CellRegistration<ListCell, ListItem> { [weak self] cell, _, item in
             guard let self else { return }
             
             cell.configureFor(listItem: item, appEnv: appEnv)
@@ -125,9 +125,9 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
                 }
             }
         }
-    
-        dataSource = UICollectionViewDiffableDataSource<ListSection, ListItem>(collectionView: collectionView) {
-            (collectionView: UICollectionView, indexPath: IndexPath, item: ListItem) -> UICollectionViewCell? in
+        
+        dataSource = UICollectionViewDiffableDataSource<ListSection, ListItem>(collectionView: collectionView)
+        { (collectionView: UICollectionView, indexPath: IndexPath, item: ListItem) -> UICollectionViewCell? in
             
             let cell = collectionView
                 .dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
@@ -173,4 +173,21 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
         }
         
     }
+}
+
+extension ListViewController {
+    
+    override func collectionView(_ collectionView: UICollectionView,
+                                 didSelectItemAt indexPath: IndexPath) {
+        guard let item = dataSource?.itemIdentifier(for: indexPath),
+              let internalId = item.rabbitInternalId else {
+            collectionView.deselectItem(at: indexPath, animated: true)
+            return
+        }
+
+        let detailVC = ViewControllerFactory.detail(appEnv: appEnv, internalId: internalId)
+        navigationController?.pushViewController(detailVC, animated: true)
+        
+    }
+    
 }

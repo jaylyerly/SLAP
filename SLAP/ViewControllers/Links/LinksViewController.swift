@@ -82,6 +82,7 @@ class LinksViewController: UIViewController, AppEnvConsumer {
         super.viewDidLoad()
         setupInterface()
         
+        title = "Links"
     }
     
     private func setupInterface() {

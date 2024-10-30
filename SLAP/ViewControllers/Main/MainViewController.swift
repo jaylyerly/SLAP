@@ -29,19 +29,43 @@ class MainViewController: UITabBarController, AppViewController {
         delegate = self
 
         let adoptVC = ViewControllerFactory.list(appEnv: appEnv, mode: .adoptables)
+        adoptVC.tabBarItem.tag = MainTabBarTag.adoptables.rawValue
         let adoptNavVC = UINavigationController(rootViewController: adoptVC)
+        style(adoptNavVC)
         
         let favoritesVC = ViewControllerFactory.list(appEnv: appEnv, mode: .favorites)
+        favoritesVC.tabBarItem.tag = MainTabBarTag.favorites.rawValue
         let favNavVC = UINavigationController(rootViewController: favoritesVC)
-
-        let storeVC = ViewControllerFactory.links(appEnv: appEnv)
-        storeVC.tabBarItem.tag = MainTabBarTag.links.rawValue
+        style(favNavVC)
         
-        setViewControllers([adoptNavVC, favNavVC, storeVC], animated: false)
+        let linksVC = ViewControllerFactory.links(appEnv: appEnv)
+        linksVC.tabBarItem.tag = MainTabBarTag.links.rawValue
+        let linksNavVC = UINavigationController(rootViewController: linksVC)
+        style(linksNavVC)
+
+        setViewControllers([adoptNavVC, favNavVC, linksNavVC], animated: false)
         
         selectedIndex = defaults.mainTabBarSelection.rawValue
+        
+        styleTabBar()
     }
     
+    func styleTabBar() {
+        let appearance = UITabBarAppearance()
+        appearance.backgroundColor = Style.accentBackgroundColor
+//        appearance.
+        tabBar.standardAppearance = appearance
+    }
+    
+    func style(_ navVC: UINavigationController) {
+        navVC.navigationBar.barStyle = .default
+        navVC.navigationBar.isTranslucent = true
+        navVC.navigationBar.titleTextAttributes = [
+            .foregroundColor: Style.accentForegroundColor,
+            .font: Style.accentFont,
+        ]
+
+    }
 }
 
 extension MainViewController: UITabBarControllerDelegate {

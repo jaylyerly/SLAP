@@ -255,7 +255,6 @@
 				ECA17CC12CCE87D200B13270 /* Api */,
 				ECA17C4A2CCD32BE00B13270 /* Config.swift */,
 				ECA17C4C2CCD353500B13270 /* Defaults.swift */,
-				ECA17C502CCD36D800B13270 /* Style.swift */,
 				ECA17CBB2CCE7EA100B13270 /* Storage */,
 				ECA17C9A2CCD906200B13270 /* WebLinks.swift */,
 			);
@@ -470,6 +469,7 @@
 			children = (
 				ECA17C4E2CCD36D000B13270 /* Images.swift */,
 				ECA17C3F2CCD2DC800B13270 /* Secrets.swift */,
+				ECA17C502CCD36D800B13270 /* Style.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";

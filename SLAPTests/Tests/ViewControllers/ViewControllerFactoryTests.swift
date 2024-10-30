@@ -27,7 +27,7 @@ class ViewControllerFactoryTests: TestCase {
         XCTAssertNotNil(ViewControllerFactory.main(appEnv: appEnv))
         XCTAssertNotNil(ViewControllerFactory.links(appEnv: appEnv))
         XCTAssertNotNil(ViewControllerFactory.list(appEnv: appEnv, mode: .adoptables))
-        XCTAssertNotNil(ViewControllerFactory.detail(appEnv: appEnv, detailId: ""))
+        XCTAssertNotNil(ViewControllerFactory.detail(appEnv: appEnv, internalId: ""))
     }
     
 }

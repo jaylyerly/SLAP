@@ -45,7 +45,14 @@ class ListCell: UICollectionViewCell {
         imageView.backgroundColor = .secondarySystemBackground
         imageView.clipsToBounds = true
         
-        nameView.text = "<NAME>"
+        nameView.text = ""
+        nameView.font = Style.accentFont
+        nameView.backgroundColor = Style.accentBackgroundColor
+        nameView.textColor = Style.accentForegroundColor
+        nameView.textAlignment = .center
+        nameView.heightAnchor.constraint(equalToConstant: nameView.font.lineHeight + 16)
+            .isActive = true
+        nameView.roundCorners(.allCorners, radius: 8)
         
         contentView.addSubViewEdgeToSafeEdge(imageView)
         
@@ -59,6 +66,7 @@ class ListCell: UICollectionViewCell {
         safe.bottomAnchor.constraint(equalTo: nameView.bottomAnchor, constant: 12).isActive = true
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

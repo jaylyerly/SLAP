@@ -16,7 +16,6 @@ struct AppManager {
         let defaults = Defaults(config: config)
         let storage = Storage()
         let api = Api(config: config)
-        let style = Style()
         let alert = Alert()
         let webLinks = WebLinks()
         
@@ -27,7 +26,6 @@ struct AppManager {
             config: config,
             alert: alert,
             defaults: defaults,
-            style: style,
             api: api,
             storage: storage,
             webLinks: webLinks,
@@ -36,6 +34,7 @@ struct AppManager {
         
         // Start things up once the frameworks are in place.
         storage.start()
+        Style.initialize()
     }
     
 }
