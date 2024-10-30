@@ -35,7 +35,8 @@ extension Storage {
         }
     }
     
-    func toggle(favoriteRabbit rabbit: Rabbit) throws {
+    func toggle(favoriteRabbit rabbit: Rabbit?) throws {
+        guard let rabbit else { return }
         rabbit.isFavorite.toggle()
         try save(failureMessage: "Failed to save Rabbit")
     }

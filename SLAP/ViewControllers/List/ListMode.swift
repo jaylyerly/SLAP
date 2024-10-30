@@ -5,6 +5,7 @@
 //  Created by Jay Lyerly on 10/26/24.
 //
 
+import CoreData
 import UIKit
 
 enum ListMode {
@@ -32,4 +33,27 @@ extension ListMode {
         }
     }
         
+}
+
+extension ListMode {
+    
+    func fetchResultsController(storage: Storage) -> NSFetchedResultsController<Rabbit> {
+        let fetchRequest: NSFetchRequest<Rabbit> = Rabbit.fetchRequest()
+        
+        if self == .favorites {
+            fetchRequest.predicate = NSPredicate(format: "%K == %d", #keyPath(Rabbit.isFavorite), true)
+        }
+        
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+
+        let fetchedResultsController = NSFetchedResultsController(
+            fetchRequest: fetchRequest,
+            managedObjectContext: storage.persistentContainer.viewContext,
+            sectionNameKeyPath: nil,
+            cacheName: nil)
+
+        return fetchedResultsController
+    }
+    
 }

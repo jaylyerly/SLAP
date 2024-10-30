@@ -5,6 +5,7 @@
 //  Created by Jay Lyerly on 10/26/24.
 //
 
+import CoreData
 import OSLog
 import UIKit
 
@@ -13,20 +14,20 @@ class DetailViewController: UIViewController, AppEnvConsumer {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
-    @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var contentStack: UIStackView!
     
     var appEnv: AppEnv
     let logger = Logger.defaultLogger()
-    let internalId: String
+    let objectId: NSManagedObjectID
     let rabbit: Rabbit?
+    var favoritesButtonItem: UIBarButtonItem?
     
     required init?(coder: NSCoder,
                    appEnv: AppEnv,
-                   internalId: String) {
+                   objectId: NSManagedObjectID) {
         self.appEnv = appEnv
-        self.internalId = internalId
-        self.rabbit = try? appEnv.storage.rabbit(withInternalId: internalId)
+        self.objectId = objectId
+        self.rabbit = try? appEnv.storage.rabbit(withId: objectId)
         
         super.init(coder: coder)
     }
@@ -39,7 +40,9 @@ class DetailViewController: UIViewController, AppEnvConsumer {
     override func viewDidLoad() {
         super.viewDidLoad()
         Task {
-            try await api.refresh(withInternalId: internalId)
+            if let internalId = rabbit?.internalId {
+                try await api.refresh(withInternalId: internalId)
+            }
         }
         setupInterface()
         updateInterface()
@@ -52,8 +55,16 @@ class DetailViewController: UIViewController, AppEnvConsumer {
     }
     
     func setupInterface() {
-
+        let fabButtonItem = UIBarButtonItem(image: Images.isNotFavorite.img,
+                                            style: .plain,
+                                            target: self,
+                                            action: #selector(DetailViewController.toggleFavorite(_:)))
+        navigationItem.rightBarButtonItem = fabButtonItem
+        favoritesButtonItem = fabButtonItem
+        
         guard let rabbit else { return }
+        
+        title = rabbit.name
         
         rabbit.photos.forEach { iModel in
             let imageView = buildImageView()
@@ -78,5 +89,15 @@ class DetailViewController: UIViewController, AppEnvConsumer {
         infoLabel.text = "Age: \(rabbit.age)  Weight: \(rabbit.weight)"
         descriptionLabel.text = rabbit.rabbitDescription
         
+        favoritesButtonItem?.image = rabbit.isFavorite ? Images.isFavorite.img : Images.isNotFavorite.img
+    }
+    
+    @IBAction func toggleFavorite(_ sender: Any?) {
+        do {
+            try storage.toggle(favoriteRabbit: rabbit)
+        } catch {
+            logger.error("Failed to toggle favorite: \(error)")
+        }
+        updateInterface()
     }
 }

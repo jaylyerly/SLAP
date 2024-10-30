@@ -5,29 +5,28 @@
 //  Created by Jay Lyerly on 10/26/24.
 //
 
+import CoreData
 import OSLog
 import UIKit
 
-enum ListSection: Int {
-    case main = 0
-}
+private let mainListSection = "main"
 
-enum ListItem: Hashable {
-    
-    case rabbit(String) // uniqueId
-    
-    var rabbitInternalId: String? {
-        switch self {
-            case .rabbit(let internalId):
-                return internalId
-        }
-    }
-    
-    func rabbit(fromStorage storage: Storage) -> Rabbit? {
-        guard let internalId = rabbitInternalId else { return nil }
-        return try? storage.rabbit(withInternalId: internalId)
-    }
-}
+//enum ListItem: Hashable {
+//
+//    case rabbit(String) // uniqueId
+//
+//    var rabbitInternalId: String? {
+//        switch self {
+//            case .rabbit(let internalId):
+//                return internalId
+//        }
+//    }
+//
+//    func rabbit(fromStorage storage: Storage) -> Rabbit? {
+//        guard let internalId = rabbitInternalId else { return nil }
+//        return try? storage.rabbit(withInternalId: internalId)
+//    }
+//}
 
 class ListViewController: UICollectionViewController, AppEnvConsumer {
     
@@ -35,8 +34,9 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
     let logger = Logger.defaultLogger()
     let mode: ListMode
 
-    var dataSource: UICollectionViewDiffableDataSource<ListSection, ListItem>?
-
+    var dataSource: UICollectionViewDiffableDataSource<String, NSManagedObjectID>?
+    var fetchResultsController: NSFetchedResultsController<Rabbit>?
+    
     let configuration: UICollectionLayoutListConfiguration = {
         var config = UICollectionLayoutListConfiguration(appearance: .sidebar)
         config.headerMode = .firstItemInSection
@@ -65,14 +65,31 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // Suppress the title on the back button for sub VCs
+        navigationItem.backBarButtonItem = UIBarButtonItem(
+            title: "",
+            style: .plain,
+            target: nil,
+            action: nil
+        )
+        
         collectionView.setCollectionViewLayout(getLayout(), animated: false)
         collectionView.backgroundColor = .black
         title = mode.title
         
         configureDataSource()
 
-        loadInitialData()
+//        loadInitialData()
+        
+        fetchResultsController = mode.fetchResultsController(storage: storage)
+        fetchResultsController?.delegate = self
+        do {
+            try fetchResultsController?.performFetch()
+        } catch {
+            logger.error("Failed to perform fetch on FRC: \(error)")
+        }
+        
         refreshData()
     }
     
@@ -94,28 +111,22 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
             return section
         }()
         
-        let layout = UICollectionViewCompositionalLayout { sectionIndex, _ in
-            guard let section = ListSection(rawValue: sectionIndex) else {
-                return mainSection
-            }
-            
-            switch section {
-                case .main:
-                    return mainSection
-            }
+        let layout = UICollectionViewCompositionalLayout { _, _ in
+            mainSection
         }
         return layout
     }
     
     private func configureDataSource() {
 
-        let cellRegistration = UICollectionView.CellRegistration<ListCell, ListItem> { [weak self] cell, _, item in
+        let cellRegistration = UICollectionView.CellRegistration<ListCell, NSManagedObjectID> { [weak self] cell, _, item in
             guard let self else { return }
             
-            cell.configureFor(listItem: item, appEnv: appEnv)
+            cell.configureFor(objectId: item, appEnv: appEnv)
             
             // Cause the cover photo to load if its not cached in the DB.
-            if let coverPhoto = item.rabbit(fromStorage: storage)?.coverPhoto {
+            if let rabbit = try? storage.rabbit(withId: item),
+               let coverPhoto = rabbit.coverPhoto {
                 if !coverPhoto.hasImageData {
                     logger.info("Loading cover photo")
                     coverPhoto.load(storage: storage) { [weak self] _ in
@@ -126,8 +137,8 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
             }
         }
         
-        dataSource = UICollectionViewDiffableDataSource<ListSection, ListItem>(collectionView: collectionView)
-        { (collectionView: UICollectionView, indexPath: IndexPath, item: ListItem) -> UICollectionViewCell? in
+        dataSource = UICollectionViewDiffableDataSource<String, NSManagedObjectID>(collectionView: collectionView)
+        { (collectionView: UICollectionView, indexPath: IndexPath, item: NSManagedObjectID) -> UICollectionViewCell? in
             
             let cell = collectionView
                 .dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
@@ -136,7 +147,7 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
         
     }
     
-    private func reconfigure(withItem item: ListItem) {
+    private func reconfigure(withItem item: NSManagedObjectID) {
         guard let dataSource else { return }
         var snapshot = dataSource.snapshot()
         snapshot.reconfigureItems([item])
@@ -144,13 +155,12 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
     }
     
     func loadInitialData() {
-        var snapshot = NSDiffableDataSourceSnapshot<ListSection, ListItem>()
-        snapshot.appendSections([.main])
+        var snapshot = NSDiffableDataSourceSnapshot<String, NSManagedObjectID>()
+        snapshot.appendSections([mainListSection])
         let items = storage.rabbits
-            .compactMap { $0.internalId }
-            .map { ListItem.rabbit($0) }
+            .compactMap { $0.objectID }
         if items.isEmpty {
-            // FIXEM -- add some 'empty content' cell here
+            // FIXME -- add some 'empty content' cell here
         } else {
             snapshot.appendItems(items)
         }
@@ -179,15 +189,28 @@ extension ListViewController {
     
     override func collectionView(_ collectionView: UICollectionView,
                                  didSelectItemAt indexPath: IndexPath) {
-        guard let item = dataSource?.itemIdentifier(for: indexPath),
-              let internalId = item.rabbitInternalId else {
+        guard let item = dataSource?.itemIdentifier(for: indexPath) else {
             collectionView.deselectItem(at: indexPath, animated: true)
             return
         }
 
-        let detailVC = ViewControllerFactory.detail(appEnv: appEnv, internalId: internalId)
+        let detailVC = ViewControllerFactory.detail(appEnv: appEnv, objectId: item)
         navigationController?.pushViewController(detailVC, animated: true)
         
     }
     
+}
+
+extension ListViewController: NSFetchedResultsControllerDelegate {
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                    didChangeContentWith snapshotRef: NSDiffableDataSourceSnapshotReference) {
+        
+        let snapshot = snapshotRef as NSDiffableDataSourceSnapshot<String, NSManagedObjectID>
+        
+        if mode == .favorites {
+            logger.info("Updating favorites list with \(snapshot.numberOfItems) items")
+        }
+        dataSource?.apply(snapshot, animatingDifferences: true)
+    }
 }

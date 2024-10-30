@@ -62,6 +62,7 @@ class MainViewController: UITabBarController, AppViewController {
         navVC.navigationBar.isTranslucent = true
         navVC.navigationBar.titleTextAttributes = [
             .foregroundColor: Style.accentForegroundColor,
+            .backgroundColor: Style.accentBackgroundColor,
             .font: Style.accentFont,
         ]
 

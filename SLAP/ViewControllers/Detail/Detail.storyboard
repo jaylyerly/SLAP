@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DoZ-4J-lRl">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yj9-La-Pzt">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="61"/>
@@ -63,6 +63,8 @@
                             <constraint firstItem="DoZ-4J-lRl" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="g2A-DT-4vU"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="contentStack" destination="yj9-La-Pzt" id="EGo-FY-Hyf"/>
                         <outlet property="descriptionLabel" destination="Enb-LG-sSu" id="SjR-Hc-bFM"/>

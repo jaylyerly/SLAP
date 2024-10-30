@@ -10,9 +10,11 @@ import UIKit
 enum Images: String, CaseIterable {
     case store = "􁽇"
     case adoptables = "􀓎"
-    case favorites = "􀊴"
+    case favorites = "􀊴􀊴"
     case house = "􀎞"
     case link = "􀉣"
+    case isFavorite = "􀊵"
+    case isNotFavorite = "􀊴"
     case banner
     case placeholderRabbit
 }
@@ -32,6 +34,10 @@ extension Images {
                 UIImage(systemName: "house")!
             case .link:
                 UIImage(systemName: "link")!
+            case .isFavorite:
+                UIImage(systemName: "heart.fill")!
+            case .isNotFavorite:
+                UIImage(systemName: "heart")!
             case .banner:
                 UIImage(named: "Banner")!
             case .placeholderRabbit:

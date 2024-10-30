@@ -5,6 +5,7 @@
 //  Created by Jay Lyerly on 10/29/24.
 //
 
+import CoreData
 import UIKit
 
 class ListCell: UICollectionViewCell {
@@ -71,8 +72,8 @@ class ListCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
         
-    func configureFor(listItem item: ListItem, appEnv: AppEnv) {
-        guard let rabbit = item.rabbit(fromStorage: appEnv.storage) else { return }
+    func configureFor(objectId: NSManagedObjectID, appEnv: AppEnv) {
+        guard let rabbit = try? appEnv.storage.rabbit(withId: objectId) else { return }
         
         nameView.text = rabbit.name
         if let coverImageData = rabbit.coverPhoto?.pngData {
