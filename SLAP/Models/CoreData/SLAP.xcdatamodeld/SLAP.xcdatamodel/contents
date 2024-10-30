@@ -2,7 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22758" systemVersion="23G93" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
     <entity name="ImageModel" representedClassName=".ImageModel" syncable="YES" codeGenerationType="category">
         <attribute name="isCover" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="uiImage" optional="YES" attributeType="Transformable" valueTransformerName="UIImageTransformer" customClassName="UIKit.UIImage"/>
+        <attribute name="pngData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="url" attributeType="String"/>
         <relationship name="rabbit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Rabbit" inverseName="imageModels" inverseEntity="Rabbit"/>
     </entity>

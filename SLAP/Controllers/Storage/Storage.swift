@@ -40,9 +40,6 @@ class Storage {
     private let storeType: StoreType
     
     init(storeType: StoreType = .persisted) {
-        ValueTransformer.setValueTransformer(UIImageTransformer(),
-                                             forName: NSValueTransformerName("UIImageTransformer"))
-        
         self.storeType = storeType
         persistentContainer = NSPersistentContainer(name: "SLAPContainer",
                                                     managedObjectModel: Self.managedObjectModel)

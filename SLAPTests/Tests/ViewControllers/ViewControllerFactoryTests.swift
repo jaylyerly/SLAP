@@ -5,8 +5,8 @@
 //  Created by Jay Lyerly on 10/29/24.
 //
 
-import UIKit
 @testable import SLAP
+import UIKit
 import XCTest
 
 class ViewControllerFactoryTests: TestCase {

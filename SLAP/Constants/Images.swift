@@ -14,6 +14,7 @@ enum Images: String, CaseIterable {
     case house = "􀎞"
     case link = "􀉣"
     case banner
+    case placeholderRabbit
 }
 
 extension Images {
@@ -33,6 +34,8 @@ extension Images {
                 UIImage(systemName: "link")!
             case .banner:
                 UIImage(named: "Banner")!
+            case .placeholderRabbit:
+                UIImage(named: "PlaceholderRabbit")!
         }
         // swiftlint:enable force_unwrapping
     }

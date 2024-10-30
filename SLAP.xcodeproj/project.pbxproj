@@ -78,11 +78,11 @@
 		ECA17CE32CD05EBB00B13270 /* Rabbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CE22CD05EBB00B13270 /* Rabbit.swift */; };
 		ECA17CE52CD060AD00B13270 /* GenericError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CE42CD060AD00B13270 /* GenericError.swift */; };
 		ECA17CE72CD061F500B13270 /* Storage_Rabbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CE62CD061F500B13270 /* Storage_Rabbit.swift */; };
-		ECA17CE92CD0665000B13270 /* UIImageTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CE82CD0665000B13270 /* UIImageTransformer.swift */; };
 		ECA17CEB2CD070F500B13270 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CEA2CD070F500B13270 /* ImageModel.swift */; };
 		ECA17CED2CD0713400B13270 /* Storage_ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CEC2CD0713400B13270 /* Storage_ImageModel.swift */; };
 		ECA17CF12CD07F3300B13270 /* RabbitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CF02CD07F3300B13270 /* RabbitTests.swift */; };
 		ECA17D322CD1796700B13270 /* ViewControllerFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17D312CD1796700B13270 /* ViewControllerFactoryTests.swift */; };
+		ECA17D362CD180E800B13270 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17D352CD180E800B13270 /* ListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,11 +170,11 @@
 		ECA17CE22CD05EBB00B13270 /* Rabbit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rabbit.swift; sourceTree = "<group>"; };
 		ECA17CE42CD060AD00B13270 /* GenericError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericError.swift; sourceTree = "<group>"; };
 		ECA17CE62CD061F500B13270 /* Storage_Rabbit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage_Rabbit.swift; sourceTree = "<group>"; };
-		ECA17CE82CD0665000B13270 /* UIImageTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageTransformer.swift; sourceTree = "<group>"; };
 		ECA17CEA2CD070F500B13270 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		ECA17CEC2CD0713400B13270 /* Storage_ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage_ImageModel.swift; sourceTree = "<group>"; };
 		ECA17CF02CD07F3300B13270 /* RabbitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RabbitTests.swift; sourceTree = "<group>"; };
 		ECA17D312CD1796700B13270 /* ViewControllerFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactoryTests.swift; sourceTree = "<group>"; };
+		ECA17D352CD180E800B13270 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,7 +299,6 @@
 			children = (
 				ECA17C582CCD3AE900B13270 /* Completion.swift */,
 				ECA17CE42CD060AD00B13270 /* GenericError.swift */,
-				ECA17CE82CD0665000B13270 /* UIImageTransformer.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -374,6 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				ECA17C8B2CCD69B900B13270 /* ListViewController.swift */,
+				ECA17D352CD180E800B13270 /* ListCell.swift */,
 				ECA17C8D2CCD69C500B13270 /* List.storyboard */,
 				ECA17C8F2CCD6BE800B13270 /* ListMode.swift */,
 			);
@@ -667,6 +667,7 @@
 				ECA17C4D2CCD353500B13270 /* Defaults.swift in Sources */,
 				ECA17CA22CCD971200B13270 /* Spacer.swift in Sources */,
 				ECA17CC52CCE882600B13270 /* Server.swift in Sources */,
+				ECA17D362CD180E800B13270 /* ListCell.swift in Sources */,
 				ECA17C132CCD26FA00B13270 /* MainViewController.swift in Sources */,
 				ECA17C442CCD31E800B13270 /* ViewControllerFactory.swift in Sources */,
 				ECA17CC32CCE87DF00B13270 /* Endpoint.swift in Sources */,
@@ -696,7 +697,6 @@
 				ECA17C4F2CCD36D000B13270 /* Images.swift in Sources */,
 				ECA17C562CCD390100B13270 /* Logger.swift in Sources */,
 				ECA17C6D2CCD3FEE00B13270 /* main.swift in Sources */,
-				ECA17CE92CD0665000B13270 /* UIImageTransformer.swift in Sources */,
 				ECA17CC72CCE8B7300B13270 /* RabbitStruct_Endpoints.swift in Sources */,
 				ECA17C7B2CCD664D00B13270 /* Storage.swift in Sources */,
 				ECA17C0F2CCD26FA00B13270 /* AppDelegate.swift in Sources */,
