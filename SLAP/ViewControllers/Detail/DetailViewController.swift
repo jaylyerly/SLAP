@@ -22,7 +22,6 @@ class DetailViewController: UIViewController, AppEnvConsumer {
         try? storage.rabbit(withInternalId: internalId)
     }
 
-    
     private var ageText: String {
         guard let rabbit else { return "" }
 
@@ -114,7 +113,6 @@ class DetailViewController: UIViewController, AppEnvConsumer {
             logger.error("Failed to start FRC to monitor changes in detail controller: \(error)")
         }
         fetchController = frc
-        print("frc contents:", frc.fetchedObjects)
     }
     
     func refreshData() {
@@ -183,7 +181,6 @@ class DetailViewController: UIViewController, AppEnvConsumer {
 extension DetailViewController: NSFetchedResultsControllerDelegate {
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<any NSFetchRequestResult>) {
-        print("Detail FRC update")
         updateInterface()
     }
     

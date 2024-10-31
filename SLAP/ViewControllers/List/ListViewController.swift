@@ -264,13 +264,14 @@ extension ListViewController: NSFetchedResultsControllerDelegate {
         }
         
         // The snapshot from the FRC is based on the managed object ID changes
-        var managedSnapshot = snapshotRef as NSDiffableDataSourceSnapshot<String, NSManagedObjectID>
+        let managedSnapshot = snapshotRef as NSDiffableDataSourceSnapshot<String, NSManagedObjectID>
         // The real snapshot is based on ListItem identifiers
         var listItemSnapshot = dataSource.snapshot()
         
         let reloadIdentifiers: [ListItem] = managedSnapshot.itemIdentifiers.compactMap { objectId -> ListItem? in
             // get the internalID associated with the managed object for the objectId
-            guard let rabbit = try? storage.rabbit(withId: objectId), let internalId = rabbit.internalId else { return nil }
+            guard let rabbit = try? storage.rabbit(withId: objectId), 
+                    let internalId = rabbit.internalId else { return nil }
             let item = ListItem.rabbit(internalId)
             
             // Compare the new and old indices, make sure they match
@@ -280,10 +281,6 @@ extension ListViewController: NSFetchedResultsControllerDelegate {
                 return nil
             }
   
-            // This checks the 'isUpdated' flag to confirm changes, but that's only unsaved changes, so changed that
-            // were already saved wouldn't be considered?  Skip this for now.
-//            guard let existingObject = try? controller.managedObjectContext.existingObject(with: itemIdentifier),
-//            existingObject.isUpdated else { return nil }
             return item
         }
         
@@ -299,23 +296,6 @@ extension ListViewController: NSFetchedResultsControllerDelegate {
             
         snapshot.appendItems(items)
         
-        dataSource.apply(snapshot, animatingDifferences: true)
-        
-//
-//        if mode == .favorites {
-//            logger.info("Updating favorites list with \(snapshot.numberOfItems) items")
-//        }
-//        dataSource?.apply(snapshot, animatingDifferences: true)
-        
-        // FIXME!! Do smarter here (this doesn't work for favs!)
-//        dataSource.apply(snapshotFromStorage(), animatingDifferences: true)
+        dataSource.apply(snapshot, animatingDifferences: true)        
     }
 }
-
-//private extension Storage {
-//    
-//    func rabbitInternalId(forObjectId objId: NSManagedObjectID) -> String? {
-//        try? rabbit(withId: objId).internalId
-//    }
-//    
-//}

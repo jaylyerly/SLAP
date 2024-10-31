@@ -16,36 +16,12 @@ extension Storage {
         rabbits(fromContext: persistentContainer.viewContext)
     }
     
-    func rabbits(fromContext context: NSManagedObjectContext,
-                 withPredicate predicate: NSPredicate? = nil) -> [Rabbit] {
-        let fetchRequest: NSFetchRequest<Rabbit> = Rabbit.fetchRequest()
-        fetchRequest.predicate = predicate
-        
-        do {
-//            return try persistentContainer.viewContext.fetch(fetchRequest)
-            return try context.fetch(fetchRequest)
-        } catch {
-            logger.error("Failed to fetch rabbits: \(error)")
-            return []
-        }
-
-    }
-    
     var favoritePredicate: NSPredicate {
         NSPredicate(format: "%K == %d", #keyPath(Rabbit.isFavorite), true)
     }
     
     var favoriteRabbits: [Rabbit] {
         rabbits(fromContext: persistentContainer.viewContext, withPredicate: favoritePredicate)
-//        let req = Rabbit.fetchRequest()
-//        req.predicate = NSPredicate(format: "%K == %d", #keyPath(Rabbit.isFavorite), true)
-//
-//        do {
-//            return try persistentContainer.viewContext.fetch(req)
-//        } catch {
-//            logger.error("Failed to fetch fav rabbits: \(error)")
-//            return []
-//        }
     }
     
     var publishedPredicate: NSPredicate {
@@ -54,16 +30,20 @@ extension Storage {
     
     var publishedRabbits: [Rabbit] {
         rabbits(fromContext: persistentContainer.viewContext, withPredicate: publishedPredicate)
+    }
+    
+    func rabbits(fromContext context: NSManagedObjectContext,
+                 withPredicate predicate: NSPredicate? = nil) -> [Rabbit] {
+        let fetchRequest: NSFetchRequest<Rabbit> = Rabbit.fetchRequest()
+        fetchRequest.predicate = predicate
+        
+        do {
+            return try context.fetch(fetchRequest)
+        } catch {
+            logger.error("Failed to fetch rabbits: \(error)")
+            return []
+        }
 
-//        let req = Rabbit.fetchRequest()
-//        req.predicate = NSPredicate(format: "%K == %d", #keyPath(Rabbit.isPublished), true)
-//
-//        do {
-//            return try persistentContainer.viewContext.fetch(req)
-//        } catch {
-//            logger.error("Failed to fetch published rabbits: \(error)")
-//            return []
-//        }
     }
     
     func toggle(favoriteRabbit rabbit: Rabbit?) throws {
@@ -91,7 +71,7 @@ extension Storage {
     }
     
     @discardableResult
-    func upsert(
+    func upsert(  // swiftlint:disable:this function_body_length
         rabbitStruct rStruct: RabbitStruct?,
         isPublished: Bool? = nil,
         context: NSManagedObjectContext? = nil,
@@ -160,16 +140,7 @@ extension Storage {
                 
                 theRabbit.addToImageModels(iModel)
             }
-            
-//            // Check all the Urls and mark the cover photo
-//            if let coverPhotoUrl {
-//                theRabbit.photos.forEach { obj in
-//                    // Make sure we explicitly set this on each one
-//                    // to turn the old one off if it changes
-//                    obj.isCover = (obj.url == coverPhotoUrl)
-//                }
-//            }
-            
+                        
             if doSave {
                 try save(failureMessage: "Failed to save Rabbit")
             }

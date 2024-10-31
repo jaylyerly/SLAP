@@ -55,8 +55,8 @@ class ApiTests: TestCase {
         
         try await api.refresh(withInternalId: "OU812")
         
-        expectNoDifference(receivedObjects.count, 1)
-        expectNoDifference(receivedObjectLists.count, 0)
+        XCTWaitUntilEqual(receivedObjects.count, 1)
+        XCTWaitUntilEqual(receivedObjectLists.count, 0)
 
         let obj = try XCTUnwrap(receivedObjects.first)
         let rabbit = try XCTUnwrap(obj as? RabbitStruct)
@@ -71,8 +71,8 @@ class ApiTests: TestCase {
         
         try await api.refreshList()
         
-        expectNoDifference(receivedObjects.count, 0)
-        expectNoDifference(receivedObjectLists.count, 1)
+        XCTWaitUntilEqual(receivedObjects.count, 0)
+        XCTWaitUntilEqual(receivedObjectLists.count, 1)
         let receivedList = try XCTUnwrap(receivedObjectLists.first)
 
         expectNoDifference(receivedList.count, 12)

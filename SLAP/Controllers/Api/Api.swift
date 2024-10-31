@@ -38,9 +38,7 @@ class Api {
     }
     
     func refreshList() async throws {
-        print("refreshing list")
         let list = try await server.load(endpoint: RabbitList.publishable())
-        print("list refresh complete")
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             self.delegate?.api(

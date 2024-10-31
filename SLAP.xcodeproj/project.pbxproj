@@ -84,6 +84,8 @@
 		ECA17D322CD1796700B13270 /* ViewControllerFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17D312CD1796700B13270 /* ViewControllerFactoryTests.swift */; };
 		ECA17D362CD180E800B13270 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17D352CD180E800B13270 /* ListCell.swift */; };
 		ECC437762CD2DACD00071915 /* StorageAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC437752CD2DACD00071915 /* StorageAPITests.swift */; };
+		ECC437792CD3D8D000071915 /* AlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC437782CD3D8D000071915 /* AlertTests.swift */; };
+		ECC4377B2CD3DBE400071915 /* ConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC4377A2CD3DBE400071915 /* ConfigTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +179,8 @@
 		ECA17D312CD1796700B13270 /* ViewControllerFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactoryTests.swift; sourceTree = "<group>"; };
 		ECA17D352CD180E800B13270 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		ECC437752CD2DACD00071915 /* StorageAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageAPITests.swift; sourceTree = "<group>"; };
+		ECC437782CD3D8D000071915 /* AlertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTests.swift; sourceTree = "<group>"; };
+		ECC4377A2CD3DBE400071915 /* ConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -450,6 +454,8 @@
 				ECC437772CD2DAE400071915 /* Storage */,
 				ECA17CD02CCEA70300B13270 /* API */,
 				ECA17CBE2CCE81C200B13270 /* DefaultsTests.swift */,
+				ECC4377A2CD3DBE400071915 /* ConfigTests.swift */,
+				ECC437782CD3D8D000071915 /* AlertTests.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -730,10 +736,12 @@
 				ECA17CD82CCEABB500B13270 /* ApiTests.swift in Sources */,
 				ECA17C652CCD3CF600B13270 /* UIWindow.swift in Sources */,
 				ECA17C6A2CCD3DB000B13270 /* UIImage.swift in Sources */,
+				ECC437792CD3D8D000071915 /* AlertTests.swift in Sources */,
 				ECA17C6F2CCD414A00B13270 /* AppEnv.swift in Sources */,
 				ECA17C752CCD419400B13270 /* FakeDefaults.swift in Sources */,
 				ECA17CB42CCDD04700B13270 /* RabbitStructTests.swift in Sources */,
 				ECA17CDC2CCEF11400B13270 /* FakeNotificationCenter.swift in Sources */,
+				ECC4377B2CD3DBE400071915 /* ConfigTests.swift in Sources */,
 				ECA17C7D2CCD66A900B13270 /* FakeStorage.swift in Sources */,
 				ECA17CBF2CCE81C200B13270 /* DefaultsTests.swift in Sources */,
 				ECC437762CD2DACD00071915 /* StorageAPITests.swift in Sources */,

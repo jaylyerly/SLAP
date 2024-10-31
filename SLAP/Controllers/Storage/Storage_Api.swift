@@ -42,15 +42,16 @@ extension Storage: ApiDelegate {
             rabbits.forEach { $0.isPublished = false }
             
             // Upsert the new structs and set the isPublished flag true, but don't save
-            rStructs.forEach {
-                upsert(rabbitStruct: $0, isPublished: true, context: moc, save: false)
-            }
+            rStructs.forEach { upsert(rabbitStruct: $0, isPublished: true, context: moc, save: false) }
 
             // Delete the non-favorite, non-published rabbits
             let fetchRequest = Rabbit.fetchRequest()
             let favPredicate = NSPredicate(format: "%K != %d", #keyPath(Rabbit.isFavorite), true)
             let publishedPredicate = NSPredicate(format: "%K != %d", #keyPath(Rabbit.isPublished), true)
-            fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [favPredicate, publishedPredicate])
+            fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [
+                favPredicate,
+                publishedPredicate,
+            ])
             
             let deletions = try moc.fetch(fetchRequest)
             deletions.forEach { object in
@@ -61,29 +62,6 @@ extension Storage: ApiDelegate {
         } catch {
             logger.error("Failed to import new records: \(error)")
         }
-//        // Remove existing isPublished flags
-//        rabbits.forEach { $0.isPublished = false }
-//        
-//        // Upsert the new structs and set the isPublished flag true, but don't save
-//        rStructs.forEach { upsert(rabbitStruct: $0, isPublished: true, save: false) }
-//        
-//        // Delete the non-favorite, non-published rabbits
-//        let fetchRequest = Rabbit.fetchRequest()
-//        
-//        let favPredicate = NSPredicate(format: "%K != %d", #keyPath(Rabbit.isFavorite), true)
-//        let publishedPredicate = NSPredicate(format: "%K != %d", #keyPath(Rabbit.isPublished), true)
-//        fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [favPredicate, publishedPredicate])
-//        
-//        do {
-//            let deletions = try persistentContainer.viewContext.fetch(fetchRequest)
-//            deletions.forEach { object in
-//                persistentContainer.viewContext.delete(object)
-//            }
-//            
-//            try save(failureMessage: "Failed to batch delete old entries.")
-//        } catch {
-//            logger.error("Failed to import newly published records.")
-//        }
     }
     
 }
