@@ -16,11 +16,23 @@ enum ListSection: Int {
 enum ListItem: Hashable {
     
     case rabbit(String) // uniqueId
+    case empty(String)  // empty list message
     
     var rabbitInternalId: String? {
         switch self {
             case .rabbit(let internalId):
                 return internalId
+            default:
+                return nil
+        }
+    }
+    
+    var emptyMessage: String? {
+        switch self {
+            case .empty(let msg):
+                return msg
+            default:
+                return nil
         }
     }
     
@@ -159,13 +171,13 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
     }
     
     private func configureDataSource() {
-
-        let cellRegistration = 
-        UICollectionView.CellRegistration<ListCell, ListItem> { [weak self] cell, _, item in
+        typealias RabbitCellRegistration = UICollectionView.CellRegistration<ListCell, ListItem>
+        
+        let rabbitCellRegistration = RabbitCellRegistration { [weak self] cell, _, item in
             guard let self else { return }
             
             cell.configureFor(listItem: item, appEnv: appEnv)
-
+            
             // Cause the cover photo to load if its not cached in the DB.
             if let coverPhoto = item.rabbit(fromStorage: storage)?.coverPhoto {
                 if !coverPhoto.hasImageData {
@@ -176,13 +188,37 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
                 }
             }
         }
-        
+
+        typealias EmptyCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, ListItem>
+
+        let emptyCellRegistration = EmptyCellRegistration { cell, _, item in
+
+            var configuration = cell.defaultContentConfiguration()
+            configuration.text = item.emptyMessage
+            configuration.textProperties.color = Style.accentForegroundColor
+            configuration.textProperties.alignment = .center
+            configuration.textProperties.font = Style.bodyFont
+            configuration.image = Images.placeholderRabbit.img
+            configuration.imageProperties.maximumSize = CGSize(width: 128, height: 128)
+            configuration.imageToTextPadding = 0
+            configuration.directionalLayoutMargins = .init(top: 0, leading: 16, bottom: 0, trailing: 16)
+            cell.contentConfiguration = configuration
+
+            var backgroundConfig = UIBackgroundConfiguration.listPlainCell()
+            backgroundConfig.backgroundColor = .clear
+            cell.backgroundConfiguration = backgroundConfig
+        }
+
         dataSource = UICollectionViewDiffableDataSource<ListSection, ListItem>(collectionView: collectionView) {
             // swiftlint:disable:next closure_parameter_position
             (colView: UICollectionView, indexPath: IndexPath, item: ListItem) -> UICollectionViewCell? in
             
-            let cell = colView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
-            return cell
+            switch item {
+                case .rabbit:
+                    colView.dequeueConfiguredReusableCell(using: rabbitCellRegistration, for: indexPath, item: item)
+                case .empty:
+                    colView.dequeueConfiguredReusableCell(using: emptyCellRegistration, for: indexPath, item: item)
+            }
         }
         
     }
@@ -193,25 +229,7 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
         snapshot.reconfigureItems([item])
         dataSource.apply(snapshot, animatingDifferences: true)
     }
-    
-//    func snapshotFromStorage() -> Snapshot {
-//        var snapshot = Snapshot()
-//        snapshot.appendSections([.main])
-//        let items = storage.rabbits
-//            .compactMap { $0.internalId }
-//            .map { ListItem.rabbit($0) }
-//        if items.isEmpty {
-//            // FIXME -- add some 'empty content' cell here
-//        } else {
-//            snapshot.appendItems(items)
-//        }
-//        return snapshot
-//    }
-//    
-//    func loadInitialData() {
-//        dataSource?.apply(snapshotFromStorage(), animatingDifferences: false)  // don't animated on initial load
-//    }
-    
+        
     func refreshData() {
         switch mode {
             case .adoptables:
@@ -294,6 +312,10 @@ extension ListViewController: NSFetchedResultsControllerDelegate {
             .map { ListItem.rabbit($0) }
             
         snapshot.appendItems(items)
+        
+        if snapshot.numberOfItems == 0 {
+            snapshot.appendItems([ListItem.empty(mode.emptyMessage)])
+        }
         
         dataSource.apply(snapshot, animatingDifferences: true)        
     }

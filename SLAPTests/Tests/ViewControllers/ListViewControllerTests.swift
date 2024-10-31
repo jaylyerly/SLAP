@@ -42,7 +42,10 @@ class ListViewControllerTests: TestCase {
         
         // load the VC
         XCTAssertNotNil(listVC.view)
-        XCTWaitUntilEqual(listVC.dataSource?.snapshot().numberOfItems, 0)
+        let dataSource = try XCTUnwrap(listVC.dataSource)
+        XCTWaitUntilEqual(listVC.dataSource?.snapshot().numberOfItems, 1)   // One item is the 'emptyMessage' cell
+        let emptyMessage = dataSource.snapshot().itemIdentifiers.first?.emptyMessage
+        expectNoDifference(emptyMessage, "A miracle has occurred! All bunnies have found homes!")
         
         // On load, VC should refresh the list
         XCTWaitUntilEqual(fakeApi.didRefreshList, true)
@@ -51,7 +54,6 @@ class ListViewControllerTests: TestCase {
         appEnv.storage.api(appEnv.api, didReceiveList: jsonRabbits, forEndpointName: RabbitList.publishableEndpointName)
         
         // Eventually, the datasource should get 12 items
-        let dataSource = try XCTUnwrap(listVC.dataSource)
         XCTWaitUntilEqual(dataSource.snapshot().numberOfItems, 12)
         // And the internalIds should match the json Input
         let snapshotIds = dataSource.snapshot().itemIdentifiers.compactMap { $0.rabbitInternalId }

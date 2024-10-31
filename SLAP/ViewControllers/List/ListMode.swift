@@ -32,6 +32,15 @@ extension ListMode {
                 return Images.favorites.img
         }
     }
+    
+    var emptyMessage: String {
+        switch self {
+            case .adoptables:
+                return "A miracle has occurred! All bunnies have found homes!"
+            case .favorites:
+                return "No favorites yet? You can pick as many as you want!"
+        }
+    }
         
 }
 
