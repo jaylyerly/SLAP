@@ -41,11 +41,14 @@ class Api {
         print("refreshing list")
         let list = try await server.load(endpoint: RabbitList.publishable())
         print("list refresh complete")
-        delegate?.api(
-            self,
-            didReceiveList: list.animals,
-            forEndpointName: RabbitList.publishableEndpointName
-        )
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            self.delegate?.api(
+                self,
+                didReceiveList: list.animals,
+                forEndpointName: RabbitList.publishableEndpointName
+            )
+        }
     }
     
     func refresh(withInternalId internalId: String) async throws {
@@ -53,7 +56,14 @@ class Api {
         let rabbit = try await server
             .load(endpoint: RabbitStruct.detail(forId: internalId))
         logger.info("single refresh complete for ID \(internalId)")
-        delegate?.api(self, didReceive: rabbit, forEndpointName: RabbitStruct.detailEndpointName)
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            self.delegate?.api(
+                self,
+                didReceive: rabbit,
+                forEndpointName: RabbitStruct.detailEndpointName
+            )
+        }
     }
         
 }

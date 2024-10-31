@@ -13,38 +13,57 @@ typealias RabbitResult = Result<Rabbit, Error>
 
 extension Storage {
     var rabbits: [Rabbit] {
+        rabbits(fromContext: persistentContainer.viewContext)
+    }
+    
+    func rabbits(fromContext context: NSManagedObjectContext,
+                 withPredicate predicate: NSPredicate? = nil) -> [Rabbit] {
         let fetchRequest: NSFetchRequest<Rabbit> = Rabbit.fetchRequest()
+        fetchRequest.predicate = predicate
         
         do {
-            return try persistentContainer.viewContext.fetch(fetchRequest)
+//            return try persistentContainer.viewContext.fetch(fetchRequest)
+            return try context.fetch(fetchRequest)
         } catch {
             logger.error("Failed to fetch rabbits: \(error)")
             return []
         }
+
+    }
+    
+    var favoritePredicate: NSPredicate {
+        NSPredicate(format: "%K == %d", #keyPath(Rabbit.isFavorite), true)
     }
     
     var favoriteRabbits: [Rabbit] {
-        let req = Rabbit.fetchRequest()
-        req.predicate = NSPredicate(format: "%K == %d", #keyPath(Rabbit.isFavorite), true)
-
-        do {
-            return try persistentContainer.viewContext.fetch(req)
-        } catch {
-            logger.error("Failed to fetch fav rabbits: \(error)")
-            return []
-        }
+        rabbits(fromContext: persistentContainer.viewContext, withPredicate: favoritePredicate)
+//        let req = Rabbit.fetchRequest()
+//        req.predicate = NSPredicate(format: "%K == %d", #keyPath(Rabbit.isFavorite), true)
+//
+//        do {
+//            return try persistentContainer.viewContext.fetch(req)
+//        } catch {
+//            logger.error("Failed to fetch fav rabbits: \(error)")
+//            return []
+//        }
+    }
+    
+    var publishedPredicate: NSPredicate {
+        NSPredicate(format: "%K == %d", #keyPath(Rabbit.isPublished), true)
     }
     
     var publishedRabbits: [Rabbit] {
-        let req = Rabbit.fetchRequest()
-        req.predicate = NSPredicate(format: "%K == %d", #keyPath(Rabbit.isPublished), true)
+        rabbits(fromContext: persistentContainer.viewContext, withPredicate: publishedPredicate)
 
-        do {
-            return try persistentContainer.viewContext.fetch(req)
-        } catch {
-            logger.error("Failed to fetch published rabbits: \(error)")
-            return []
-        }
+//        let req = Rabbit.fetchRequest()
+//        req.predicate = NSPredicate(format: "%K == %d", #keyPath(Rabbit.isPublished), true)
+//
+//        do {
+//            return try persistentContainer.viewContext.fetch(req)
+//        } catch {
+//            logger.error("Failed to fetch published rabbits: \(error)")
+//            return []
+//        }
     }
     
     func toggle(favoriteRabbit rabbit: Rabbit?) throws {
@@ -53,12 +72,14 @@ extension Storage {
         try save(failureMessage: "Failed to save Rabbit")
     }
     
-    func rabbit(withInternalId internalId: String) throws -> Rabbit {
+    func rabbit(withInternalId internalId: String,
+                context: NSManagedObjectContext? = nil) throws -> Rabbit {
+        let context = context ?? persistentContainer.viewContext
         let req = Rabbit.fetchRequest()
         req.predicate = NSPredicate(format: "%K == %@",
                                     #keyPath(Rabbit.internalId),
                                     internalId as CVarArg)
-        let rabbits = try persistentContainer.viewContext.fetch(req)
+        let rabbits = try context.fetch(req)
         
         if rabbits.isEmpty { throw StorageError.notFound }
         if rabbits.count > 1 { throw StorageError.foundTooMany }
@@ -73,17 +94,20 @@ extension Storage {
     func upsert(
         rabbitStruct rStruct: RabbitStruct?,
         isPublished: Bool? = nil,
+        context: NSManagedObjectContext? = nil,
         save doSave: Bool = true
     ) -> RabbitResult {
         guard let rStruct else { return .failure(StorageError.inputIsNil) }
+        
+        let context = context ?? persistentContainer.viewContext
         
         // Update an existing rabbit with the same ID, otherwise,
         // make a new one.
         let theRabbit: Rabbit
         do {
-            theRabbit = try rabbit(withInternalId: rStruct.internalId)
+            theRabbit = try rabbit(withInternalId: rStruct.internalId, context: context)
         } catch {
-            theRabbit = Rabbit(context: persistentContainer.viewContext)
+            theRabbit = Rabbit(context: context)
         }
         
         theRabbit.internalId = rStruct.internalId
@@ -126,7 +150,7 @@ extension Storage {
             
             // Add photos from addUrls
             addUrls.forEach { url in
-                let iModel = ImageModel(context: persistentContainer.viewContext)
+                let iModel = ImageModel(context: context)
                 iModel.url = url
                 if let coverPhotoUrl {
                     iModel.isCover = (url == coverPhotoUrl)
