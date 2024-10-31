@@ -5,6 +5,7 @@
 //  Created by Jay Lyerly on 10/26/24.
 //
 
+import Combine
 import CoreData
 import OSLog
 import UIKit
@@ -16,7 +17,8 @@ class DetailViewController: UIViewController, AppEnvConsumer {
     let objectId: NSManagedObjectID?
     let rabbit: Rabbit?
     var favoritesButtonItem: UIBarButtonItem?
-
+    var updateSubscription: Cancellable?
+    
     private var ageText: String {
         guard let rabbit else { return "" }
 
@@ -36,7 +38,7 @@ class DetailViewController: UIViewController, AppEnvConsumer {
         guard let rabbit else { return "" }
 
         if rabbit.weight > 0 {
-            return String(format: "Weight: %.0f lbs.", rabbit.weight)
+            return String(format: "Weight: %.0f lbs", rabbit.weight)
         }
         return ""
     }
@@ -61,6 +63,7 @@ class DetailViewController: UIViewController, AppEnvConsumer {
         }
 
         super.init(coder: coder)
+        
     }
 
     @available(*, unavailable)
@@ -77,6 +80,11 @@ class DetailViewController: UIViewController, AppEnvConsumer {
         }
         setupInterface()
         updateInterface()
+        
+        // watch for updates
+        updateSubscription = rabbit.publisher.sink { [weak self] _ in
+            self?.updateInterface()
+        }
     }
     
     @IBAction func toggleFavorite(_ sender: Any?) {

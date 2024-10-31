@@ -34,7 +34,6 @@ struct AppManager {
         
         // Start things up once the frameworks are in place.
         storage.start()
-//        Style.initialize()
     }
     
 }

@@ -71,8 +71,6 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
         }
         
         configureDataSource()
-
-//        loadInitialData()
         
         fetchResultsController = mode.fetchResultsController(storage: storage)
         fetchResultsController?.delegate = self
@@ -85,6 +83,14 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
         refreshData()
     }
     
+    @IBAction func didPullToRefresh(_ sender: Any?) {
+        refreshData()
+        // Let the spinner hang around for a bit so user sees it
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) { [weak self] in
+            self?.refreshControl.endRefreshing()
+        }
+    }
+
     private func getLayout() -> UICollectionViewLayout {
         let mainSection: NSCollectionLayoutSection = {
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
@@ -120,7 +126,7 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
             if let rabbit = try? storage.rabbit(withId: item),
                let coverPhoto = rabbit.coverPhoto {
                 if !coverPhoto.hasImageData {
-                    logger.info("Loading cover photo")
+                    logger.info("Begin Loading cover photo")
                     coverPhoto.load(storage: storage) { [weak self] _ in
                         self?.logger.info("Cover photo loaded, reconfiguring item")
                         self?.reconfigure(withItem: item)
@@ -176,13 +182,13 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
         
     }
     
-    @IBAction func didPullToRefresh(_ sender: Any?) {
-        refreshData()
-        // Let the spinner hang around for a bit so user sees it
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) { [weak self] in
-            self?.refreshControl.endRefreshing()
-        }
-    }
+//    @IBAction func didPullToRefresh(_ sender: Any?) {
+//        refreshData()
+//        // Let the spinner hang around for a bit so user sees it
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) { [weak self] in
+//            self?.refreshControl.endRefreshing()
+//        }
+//    }
 }
 
 extension ListViewController {

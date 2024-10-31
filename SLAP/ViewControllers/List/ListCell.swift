@@ -16,22 +16,6 @@ class ListCell: UICollectionViewCell {
     private let imageView = UIImageView()
     private let nameView = UILabel()
     private let favButton = UIButton(type: .custom)
-//        let button = UIButton(type: .custom)
-//        button.
-        
-//        var config = UIButton.Configuration.plain()
-//        config.image = Images.isNotFavorite.img
-//        let action = UIAction(title: "",
-//                              image: Images.isNotFavorite.img,
-//                              selectedImage: Images.isFavorite.img,
-//                              state: .off) { action in
-//            print("action:", action)
-//            toggleFavorite()
-//        }
-//        let button = UIButton(primaryAction: action)
-//        let button = UIButton(configuration: config, primaryAction: action)
-//        return button
-//    }()
 
     var rabbit: Rabbit? {
         didSet { updateInterface() }
@@ -47,6 +31,15 @@ class ListCell: UICollectionViewCell {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @IBAction func toggleFavorite(_ sender: Any?) {
+        do {
+            try appEnv?.storage.toggle(favoriteRabbit: rabbit)
+        } catch {
+            logger.error("Failed to toggle isFavorite: \(error)")
+        }
+        updateInterface()
     }
     
     func setupImageView() {
@@ -116,8 +109,10 @@ class ListCell: UICollectionViewCell {
     }
         
     func configureFor(objectId: NSManagedObjectID, appEnv: AppEnv) {
+        print("Configuring cell for objectId: \(objectId)")
         self.appEnv = appEnv
         guard let rabbit = try? appEnv.storage.rabbit(withId: objectId) else { return }
+        print("Configuring cell for rabbit: \(String(describing: rabbit.name))")
         self.rabbit = rabbit
         
         nameView.text = rabbit.name
@@ -142,16 +137,5 @@ class ListCell: UICollectionViewCell {
         nameView.text = rabbit.name
         favButton.isSelected = rabbit.isFavorite
     }
-    
-    @IBAction func toggleFavorite(_ sender: Any?) {
-        let button = sender as? UIButton
-//        logger.info("Toggle Favorite: button.isSelected = \(button?.isSelected)")
-        do {
-            try appEnv?.storage.toggle(favoriteRabbit: rabbit)
-        } catch {
-            logger.error("Failed to toggle isFavorite: \(error)")
-        }
-        updateInterface()
-    }
-    
+        
 }

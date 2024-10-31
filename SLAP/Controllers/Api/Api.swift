@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import OSLog
 
 protocol ApiDelegate: AnyObject {
     func api(_ api: Api, didReceive object: Decodable, forEndpointName name: EndpointName)
@@ -17,7 +18,7 @@ class Api {
     let config: Config
     
     weak var delegate: ApiDelegate?
-    
+    let logger = Logger.defaultLogger()
     private let server: Server
     
     init(config: Config,
@@ -37,7 +38,9 @@ class Api {
     }
     
     func refreshList() async throws {
+        print("refreshing list")
         let list = try await server.load(endpoint: RabbitList.publishable())
+        print("list refresh complete")
         delegate?.api(
             self,
             didReceiveList: list.animals,
@@ -46,8 +49,10 @@ class Api {
     }
     
     func refresh(withInternalId internalId: String) async throws {
+        logger.info("refreshing single with ID \(internalId)")
         let rabbit = try await server
             .load(endpoint: RabbitStruct.detail(forId: internalId))
+        logger.info("single refresh complete for ID \(internalId)")
         delegate?.api(self, didReceive: rabbit, forEndpointName: RabbitStruct.detailEndpointName)
     }
         

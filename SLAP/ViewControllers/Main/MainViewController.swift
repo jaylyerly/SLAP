@@ -62,10 +62,6 @@ class MainViewController: UITabBarController, AppViewController {
         
         tabBar.standardAppearance = appearance
         tabBar.isTranslucent = false
-//        let appearance = UITabBarAppearance()
-//        appearance.backgroundColor = Style.accentBackgroundColor
-////        appearance.
-//        tabBar.standardAppearance = appearance
     }
     
     func style(_ navVC: UINavigationController) {

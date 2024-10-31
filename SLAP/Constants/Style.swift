@@ -19,10 +19,4 @@ enum Style {
     
     static let cornerRadius: CGFloat = 8
     
-//    static func initialize() {
-//        UILabel.appearance().font = bodyFont
-//        UIButton.appearance().titleLabel?.font = bodyFont
-////        UITabBar.appearance().barTintColor = accentSecondaryColor
-////        UITabBar.appearance().tintColor = .white
-//    }
 }
