@@ -9,13 +9,11 @@ import Foundation
 
 class Config {
     
-    // swiftlint:disable:next force_unwrapping
+    // swiftlint:disable force_unwrapping
     var apiRoot: URL { URL(string: "https://www.shelterluv.com/api/v1/")! }
-
-    // swiftlint:disable:next force_unwrapping
     let storeUrl = URL(string: "https://shop.trianglerabbits.org")!
-    // swiftlint:disable:next force_unwrapping
     let homeUrl = URL(string: "https://www.trianglerabbits.org")!
+    // swiftlint:enable force_unwrapping
 
     let bundleId = Bundle.main.bundleIdentifier ?? "com.sonicbunny.unknown"
 

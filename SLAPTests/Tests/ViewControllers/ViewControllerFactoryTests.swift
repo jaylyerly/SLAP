@@ -24,6 +24,7 @@ class ViewControllerFactoryTests: TestCase {
     }
     
     func testStoreButton() throws {
+        // Load all the VCs to make sure all the storyboards are configured correctly
         XCTAssertNotNil(ViewControllerFactory.main(appEnv: appEnv))
         XCTAssertNotNil(ViewControllerFactory.links(appEnv: appEnv))
         XCTAssertNotNil(ViewControllerFactory.list(appEnv: appEnv, mode: .adoptables))

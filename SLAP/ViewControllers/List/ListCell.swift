@@ -128,6 +128,7 @@ class ListCell: UICollectionViewCell {
         guard let rabbit else {
             imageView.image = Images.placeholderRabbit.img
             nameView.text = ""
+            favButton.isSelected = false
             return
         }
         

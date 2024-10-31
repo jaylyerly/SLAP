@@ -68,7 +68,7 @@ class DetailViewControllerTests: TestCase {
         expectNoDifference(detailVC.descriptionLabel.text, rStruct.rabbitDescription)
 
         // make a copy of the json data and alter the description
-        var newJson = try XCTUnwrap(rStruct)
+        let newJson = try XCTUnwrap(rStruct)
         let lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
         newJson.rabbitDescription = lorem
         

@@ -16,10 +16,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DoZ-4J-lRl">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DoZ-4J-lRl">
                                 <rect key="frame" x="0.0" y="59" width="393" height="710"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yj9-La-Pzt">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yj9-La-Pzt">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="420.33333333333331"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jVI-FR-Ksv">
@@ -78,10 +78,13 @@
                                                     <constraint firstItem="HxS-Qh-MfK" firstAttribute="leading" secondItem="jVI-FR-Ksv" secondAttribute="leading" constant="16" id="xzS-0x-b26"/>
                                                 </constraints>
                                             </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dTJ-AC-uYE">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dTJ-AC-uYE">
                                                 <rect key="frame" x="0.0" y="220.33333333333331" width="393" height="200"/>
                                             </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="420.32999999999998" placeholder="YES" id="2bM-yN-zFP"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>

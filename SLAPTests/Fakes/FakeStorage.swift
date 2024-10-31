@@ -12,7 +12,7 @@ class FakeStorage: Storage {
     
     init() {
         super.init(storeType: .inMemory)
-        start()
+        start()     // start up ASAP
     }
     
 }

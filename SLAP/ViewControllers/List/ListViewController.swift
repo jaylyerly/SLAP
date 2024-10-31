@@ -41,12 +41,12 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
     var dataSource: UICollectionViewDiffableDataSource<ListSection, ListItem>?
     var fetchResultsController: NSFetchedResultsController<Rabbit>?
     
-    let configuration: UICollectionLayoutListConfiguration = {
-        var config = UICollectionLayoutListConfiguration(appearance: .sidebar)
-        config.headerMode = .firstItemInSection
-        config.backgroundColor = .clear
-        return config
-    }()
+//    let configuration: UICollectionLayoutListConfiguration = {
+//        var config = UICollectionLayoutListConfiguration(appearance: .sidebar)
+//        config.headerMode = .firstItemInSection
+//        config.backgroundColor = .clear
+//        return config
+//    }()
     let refreshControl = UIRefreshControl()
 
     required init?(coder: NSCoder,
@@ -169,9 +169,8 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
             // Cause the cover photo to load if its not cached in the DB.
             if let coverPhoto = item.rabbit(fromStorage: storage)?.coverPhoto {
                 if !coverPhoto.hasImageData {
-                    logger.info("Begin Loading cover photo")
                     coverPhoto.load(storage: storage) { [weak self] _ in
-                        self?.logger.info("Cover photo loaded, reconfiguring item")
+                        // Once the loading is done, reconfigure cell for item so the image is displayed
                         self?.reconfigure(withItem: item)
                     }
                 }
@@ -195,23 +194,23 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
         dataSource.apply(snapshot, animatingDifferences: true)
     }
     
-    func snapshotFromStorage() -> Snapshot {
-        var snapshot = Snapshot()
-        snapshot.appendSections([.main])
-        let items = storage.rabbits
-            .compactMap { $0.internalId }
-            .map { ListItem.rabbit($0) }
-        if items.isEmpty {
-            // FIXME -- add some 'empty content' cell here
-        } else {
-            snapshot.appendItems(items)
-        }
-        return snapshot
-    }
-    
-    func loadInitialData() {
-        dataSource?.apply(snapshotFromStorage(), animatingDifferences: false)  // don't animated on initial load
-    }
+//    func snapshotFromStorage() -> Snapshot {
+//        var snapshot = Snapshot()
+//        snapshot.appendSections([.main])
+//        let items = storage.rabbits
+//            .compactMap { $0.internalId }
+//            .map { ListItem.rabbit($0) }
+//        if items.isEmpty {
+//            // FIXME -- add some 'empty content' cell here
+//        } else {
+//            snapshot.appendItems(items)
+//        }
+//        return snapshot
+//    }
+//    
+//    func loadInitialData() {
+//        dataSource?.apply(snapshotFromStorage(), animatingDifferences: false)  // don't animated on initial load
+//    }
     
     func refreshData() {
         switch mode {

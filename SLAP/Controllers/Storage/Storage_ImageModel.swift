@@ -9,22 +9,7 @@ import CoreData
 import Foundation
 import UIKit
 
-typealias ImageModelResult = Result<ImageModel, Error>
-
 extension Storage {
-//    func createImageModel(withUrlString urlString: String,
-//                          isCover: Bool = false) -> ImageModelResult {
-//        let iModel = ImageModel(context: persistentContainer.viewContext)
-//        iModel.url = urlString
-//        iModel.isCover = isCover
-//
-//        return ImageModelResult {
-//            try save(failureMessage: "Failed to save ImageModel")
-//            return iModel
-//        }
-//    }
-    
-//    storage.saveImage(uiImage, forImageModelId: objectID)
 
     func saveImageData(_ data: Data?, forImageModelId objId: NSManagedObjectID) throws {
         guard let data else { return }
@@ -33,4 +18,5 @@ extension Storage {
         iModel.pngData = data
         try save(failureMessage: "Fail to save image data for ImageModel")
     }
+    
 }

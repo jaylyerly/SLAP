@@ -6,12 +6,10 @@
 //
 
 import OSLog
-import SafariServices
 import UIKit
 
 class LinksViewController: UIViewController, AppEnvConsumer {
     var appEnv: AppEnv
-    var safariVC: SFSafariViewController?
     
     let logger = Logger.defaultLogger()
     

@@ -13,7 +13,7 @@ import XCTest
 class SecretsTests: TestCase {
     
     func testApiKey() throws {
-        // Just make sure that the apiKey is defined and is not
+        // Just make sure that the apiKey is defined and is the right length
         expectNoDifference(Secrets.apiKey.count, 36)
     }
     
