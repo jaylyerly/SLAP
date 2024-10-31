@@ -5,7 +5,6 @@
 //  Created by Jay Lyerly on 10/29/24.
 //
 
-import CoreData
 import OSLog
 import UIKit
 
@@ -108,10 +107,11 @@ class ListCell: UICollectionViewCell {
             .activate("favButtonTop")
     }
         
-    func configureFor(objectId: NSManagedObjectID, appEnv: AppEnv) {
-        print("Configuring cell for objectId: \(objectId)")
+    func configureFor(listItem: ListItem, appEnv: AppEnv) {
+        print("Configuring cell for listItem: \(String(describing: listItem.rabbitInternalId))")
         self.appEnv = appEnv
-        guard let rabbit = try? appEnv.storage.rabbit(withId: objectId) else { return }
+//        guard let rabbit = try? appEnv.storage.rabbit(withId: objectId) else { return }
+        guard let rabbit = listItem.rabbit(fromStorage: appEnv.storage) else { return }
         print("Configuring cell for rabbit: \(String(describing: rabbit.name))")
         self.rabbit = rabbit
         

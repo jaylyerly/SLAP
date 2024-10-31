@@ -5,7 +5,6 @@
 //  Created by Jay Lyerly on 10/26/24.
 //
 
-import CoreData
 import UIKit
 
 private func vcFactory<T: UIViewController>(_ storyboardName: String,
@@ -48,9 +47,9 @@ enum ViewControllerFactory {
         }
     }
     
-    static func detail(appEnv: AppEnv, objectId: NSManagedObjectID?) -> DetailViewController {
+    static func detail(appEnv: AppEnv, internalId: String) -> DetailViewController {
         vcFactory("Detail") { coder in
-            DetailViewController(coder: coder, appEnv: appEnv, objectId: objectId)
+            DetailViewController(coder: coder, appEnv: appEnv, internalId: internalId)
         }
     }
     

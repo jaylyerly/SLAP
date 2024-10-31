@@ -6,7 +6,6 @@
 //
 
 import Combine
-import CoreData
 import OSLog
 import UIKit
 
@@ -14,7 +13,7 @@ class DetailViewController: UIViewController, AppEnvConsumer {
 
     var appEnv: AppEnv
     let logger = Logger.defaultLogger()
-    let objectId: NSManagedObjectID?
+    let internalId: String
     let rabbit: Rabbit?
     var favoritesButtonItem: UIBarButtonItem?
     var updateSubscription: Cancellable?
@@ -53,17 +52,12 @@ class DetailViewController: UIViewController, AppEnvConsumer {
 
     required init?(coder: NSCoder,
                    appEnv: AppEnv,
-                   objectId: NSManagedObjectID?) {
+                   internalId: String) {
         self.appEnv = appEnv
-        self.objectId = objectId
-        if let objectId {
-            self.rabbit = try? appEnv.storage.rabbit(withId: objectId)
-        } else {
-            self.rabbit = nil
-        }
+        self.internalId = internalId
+        self.rabbit = try? appEnv.storage.rabbit(withInternalId: internalId)
 
         super.init(coder: coder)
-        
     }
 
     @available(*, unavailable)
@@ -74,9 +68,7 @@ class DetailViewController: UIViewController, AppEnvConsumer {
     override func viewDidLoad() {
         super.viewDidLoad()
         Task {
-            if let internalId = rabbit?.internalId {
-                try await api.refresh(withInternalId: internalId)
-            }
+            try await api.refresh(withInternalId: internalId)
         }
         setupInterface()
         updateInterface()

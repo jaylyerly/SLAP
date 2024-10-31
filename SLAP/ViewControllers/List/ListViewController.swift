@@ -9,15 +9,36 @@ import CoreData
 import OSLog
 import UIKit
 
-private let mainListSection = "main"
+enum ListSection: Int {
+    case main = 0
+}
+
+enum ListItem: Hashable {
+    
+    case rabbit(String) // uniqueId
+    
+    var rabbitInternalId: String? {
+        switch self {
+            case .rabbit(let internalId):
+                return internalId
+        }
+    }
+    
+    func rabbit(fromStorage storage: Storage) -> Rabbit? {
+        guard let internalId = rabbitInternalId else { return nil }
+        return try? storage.rabbit(withInternalId: internalId)
+    }
+}
 
 class ListViewController: UICollectionViewController, AppEnvConsumer {
+    
+    typealias Snapshot = NSDiffableDataSourceSnapshot<ListSection, ListItem>
     
     var appEnv: AppEnv
     let logger = Logger.defaultLogger()
     let mode: ListMode
 
-    var dataSource: UICollectionViewDiffableDataSource<String, NSManagedObjectID>?
+    var dataSource: UICollectionViewDiffableDataSource<ListSection, ListItem>?
     var fetchResultsController: NSFetchedResultsController<Rabbit>?
     
     let configuration: UICollectionLayoutListConfiguration = {
@@ -108,8 +129,15 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
             return section
         }()
         
-        let layout = UICollectionViewCompositionalLayout { _, _ in
-            mainSection
+        let layout = UICollectionViewCompositionalLayout { sectionIndex, _ in
+            guard let section = ListSection(rawValue: sectionIndex) else {
+                return mainSection
+            }
+            
+            switch section {
+                case .main:
+                    return mainSection
+            }
         }
         return layout
     }
@@ -117,14 +145,13 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
     private func configureDataSource() {
 
         let cellRegistration = 
-        UICollectionView.CellRegistration<ListCell, NSManagedObjectID> { [weak self] cell, _, item in
+        UICollectionView.CellRegistration<ListCell, ListItem> { [weak self] cell, _, item in
             guard let self else { return }
             
-            cell.configureFor(objectId: item, appEnv: appEnv)
-            
+            cell.configureFor(listItem: item, appEnv: appEnv)
+
             // Cause the cover photo to load if its not cached in the DB.
-            if let rabbit = try? storage.rabbit(withId: item),
-               let coverPhoto = rabbit.coverPhoto {
+            if let coverPhoto = item.rabbit(fromStorage: storage)?.coverPhoto {
                 if !coverPhoto.hasImageData {
                     logger.info("Begin Loading cover photo")
                     coverPhoto.load(storage: storage) { [weak self] _ in
@@ -135,9 +162,9 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
             }
         }
         
-        dataSource = UICollectionViewDiffableDataSource<String, NSManagedObjectID>(collectionView: collectionView) {
+        dataSource = UICollectionViewDiffableDataSource<ListSection, ListItem>(collectionView: collectionView) {
             // swiftlint:disable:next closure_parameter_position
-            (colView: UICollectionView, indexPath: IndexPath, item: NSManagedObjectID) -> UICollectionViewCell? in
+            (colView: UICollectionView, indexPath: IndexPath, item: ListItem) -> UICollectionViewCell? in
             
             let cell = colView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
             return cell
@@ -145,24 +172,29 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
         
     }
     
-    private func reconfigure(withItem item: NSManagedObjectID) {
+    private func reconfigure(withItem item: ListItem) {
         guard let dataSource else { return }
         var snapshot = dataSource.snapshot()
         snapshot.reconfigureItems([item])
         dataSource.apply(snapshot, animatingDifferences: true)
     }
     
-    func loadInitialData() {
-        var snapshot = NSDiffableDataSourceSnapshot<String, NSManagedObjectID>()
-        snapshot.appendSections([mainListSection])
+    func snapshotFromStorage() -> Snapshot {
+        var snapshot = Snapshot()
+        snapshot.appendSections([.main])
         let items = storage.rabbits
-            .compactMap { $0.objectID }
+            .compactMap { $0.internalId }
+            .map { ListItem.rabbit($0) }
         if items.isEmpty {
             // FIXME -- add some 'empty content' cell here
         } else {
             snapshot.appendItems(items)
         }
-        dataSource?.apply(snapshot, animatingDifferences: false)  // don't animated on initial load
+        return snapshot
+    }
+    
+    func loadInitialData() {
+        dataSource?.apply(snapshotFromStorage(), animatingDifferences: false)  // don't animated on initial load
     }
     
     func refreshData() {
@@ -182,25 +214,18 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
         
     }
     
-//    @IBAction func didPullToRefresh(_ sender: Any?) {
-//        refreshData()
-//        // Let the spinner hang around for a bit so user sees it
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) { [weak self] in
-//            self?.refreshControl.endRefreshing()
-//        }
-//    }
 }
 
 extension ListViewController {
     
     override func collectionView(_ collectionView: UICollectionView,
                                  didSelectItemAt indexPath: IndexPath) {
-        guard let item = dataSource?.itemIdentifier(for: indexPath) else {
+        guard let item = dataSource?.itemIdentifier(for: indexPath), let internalId = item.rabbitInternalId else {
             collectionView.deselectItem(at: indexPath, animated: true)
             return
         }
 
-        let detailVC = ViewControllerFactory.detail(appEnv: appEnv, objectId: item)
+        let detailVC = ViewControllerFactory.detail(appEnv: appEnv, internalId: internalId)
         navigationController?.pushViewController(detailVC, animated: true)
         
     }
@@ -212,11 +237,71 @@ extension ListViewController: NSFetchedResultsControllerDelegate {
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
                     didChangeContentWith snapshotRef: NSDiffableDataSourceSnapshotReference) {
         
-        let snapshot = snapshotRef as NSDiffableDataSourceSnapshot<String, NSManagedObjectID>
+        // NB: Based on translator described at https://www.avanderlee.com/swift/diffable-data-sources-core-data/
+        // TLDR - the FRC snapshot is based on the objectID of the managed object, but that
+        // can change from temp to permanent, so it doesn't work well as the primary cell ID.
+        // Need to translate the modelID to internalID (aka ListItem)
         
-        if mode == .favorites {
-            logger.info("Updating favorites list with \(snapshot.numberOfItems) items")
+        guard let dataSource else {
+            assertionFailure("CollectionView has no dataSource!")
+            return
         }
-        dataSource?.apply(snapshot, animatingDifferences: true)
+        
+        // The snapshot from the FRC is based on the managed object ID changes
+        var managedSnapshot = snapshotRef as NSDiffableDataSourceSnapshot<String, NSManagedObjectID>
+        // The real snapshot is based on ListItem identifiers
+        var listItemSnapshot = dataSource.snapshot()
+        
+        
+        
+        let reloadIdentifiers: [ListItem] = managedSnapshot.itemIdentifiers.compactMap { objectId -> ListItem? in
+            // get the internalID associated with the managed object for the objectId
+            guard let rabbit = try? storage.rabbit(withId: objectId), let internalId = rabbit.internalId else { return nil }
+            let item = ListItem.rabbit(internalId)
+            
+            // Compare the new and old indices, make sure they match
+            guard let currentIndex = listItemSnapshot.indexOfItem(item),
+                    let index = managedSnapshot.indexOfItem(objectId),
+                    index == currentIndex else {
+                return nil
+            }
+  
+            // This checks the 'isUpdated' flag to confirm changes, but that's only unsaved changes, so changed that
+            // were already saved wouldn't be considered?  Skip this for now.
+//            guard let existingObject = try? controller.managedObjectContext.existingObject(with: itemIdentifier),
+//            existingObject.isUpdated else { return nil }
+            return item
+        }
+        
+        // Force reconfigure on these guys. DiffableDataSource would ignore otherwise b/c their IDs are the same.
+        listItemSnapshot.reloadItems(reloadIdentifiers)
+        
+        // Now just make a new snapshot by translating the managed object IDs into ListItems.
+        var snapshot = Snapshot()
+        snapshot.appendSections([.main])
+        let items = managedSnapshot.itemIdentifiers
+            .compactMap { try? storage.rabbit(withId: $0).internalId }
+            .map { ListItem.rabbit($0) }
+            
+        snapshot.appendItems(items)
+        
+        dataSource.apply(snapshot, animatingDifferences: true)
+        
+//
+//        if mode == .favorites {
+//            logger.info("Updating favorites list with \(snapshot.numberOfItems) items")
+//        }
+//        dataSource?.apply(snapshot, animatingDifferences: true)
+        
+        // FIXME!! Do smarter here (this doesn't work for favs!)
+//        dataSource.apply(snapshotFromStorage(), animatingDifferences: true)
     }
 }
+
+//private extension Storage {
+//    
+//    func rabbitInternalId(forObjectId objId: NSManagedObjectID) -> String? {
+//        try? rabbit(withId: objId).internalId
+//    }
+//    
+//}
