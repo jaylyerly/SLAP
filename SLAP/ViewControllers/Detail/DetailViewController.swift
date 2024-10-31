@@ -5,7 +5,7 @@
 //  Created by Jay Lyerly on 10/26/24.
 //
 
-import Combine
+import CoreData
 import OSLog
 import UIKit
 
@@ -14,9 +14,14 @@ class DetailViewController: UIViewController, AppEnvConsumer {
     var appEnv: AppEnv
     let logger = Logger.defaultLogger()
     let internalId: String
-    let rabbit: Rabbit?
     var favoritesButtonItem: UIBarButtonItem?
-    var updateSubscription: Cancellable?
+    var fetchController: NSFetchedResultsController<Rabbit>?
+    var refreshControl = UIRefreshControl()
+    
+    var rabbit: Rabbit? {
+        try? storage.rabbit(withInternalId: internalId)
+    }
+
     
     private var ageText: String {
         guard let rabbit else { return "" }
@@ -49,13 +54,13 @@ class DetailViewController: UIViewController, AppEnvConsumer {
     @IBOutlet weak var imageStack: UIStackView!
     @IBOutlet weak var innerContentContainer: UIView!
     @IBOutlet weak var outerContentContainer: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
 
     required init?(coder: NSCoder,
                    appEnv: AppEnv,
                    internalId: String) {
         self.appEnv = appEnv
         self.internalId = internalId
-        self.rabbit = try? appEnv.storage.rabbit(withInternalId: internalId)
 
         super.init(coder: coder)
     }
@@ -67,16 +72,13 @@ class DetailViewController: UIViewController, AppEnvConsumer {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Task {
-            try await api.refresh(withInternalId: internalId)
-        }
+        refreshData()
+
         setupInterface()
         updateInterface()
         
         // watch for updates
-        updateSubscription = rabbit.publisher.sink { [weak self] _ in
-            self?.updateInterface()
-        }
+        setupFetchController()
     }
     
     @IBAction func toggleFavorite(_ sender: Any?) {
@@ -88,6 +90,39 @@ class DetailViewController: UIViewController, AppEnvConsumer {
         updateInterface()
     }
     
+    @IBAction func didPullToRefresh(_ sender: Any?) {
+        refreshData()
+        // Let the spinner hang around for a bit so user sees it
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) { [weak self] in
+            self?.refreshControl.endRefreshing()
+        }
+    }
+    
+    func setupFetchController() {
+        let fetchRequest: NSFetchRequest<Rabbit> = Rabbit.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "%K like %@", #keyPath(Rabbit.internalId), internalId)
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        let frc = NSFetchedResultsController(
+            fetchRequest: fetchRequest,
+            managedObjectContext: storage.persistentContainer.viewContext,
+            sectionNameKeyPath: nil,
+            cacheName: nil)
+        frc.delegate = self
+        do {
+            try frc.performFetch()
+        } catch {
+            logger.error("Failed to start FRC to monitor changes in detail controller: \(error)")
+        }
+        fetchController = frc
+        print("frc contents:", frc.fetchedObjects)
+    }
+    
+    func refreshData() {
+        Task {
+            try await api.refresh(withInternalId: internalId)
+        }
+    }
+    
     func buildImageView() -> UIImageView {
         let view = UIImageView()
         view.widthAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1.0).activate("imageAspect1")
@@ -95,10 +130,12 @@ class DetailViewController: UIViewController, AppEnvConsumer {
     }
     
     func setupInterface() {
-//        [ageLabel, weightLabel, descriptionLabel].forEach { lbl in
-//            lbl.font = Style.bodyFont
-//        }
-//        
+        scrollView.refreshControl = refreshControl
+        refreshControl.tintColor = Style.accentSecondaryColor
+        refreshControl.addTarget(self,
+                                 action: #selector(Self.didPullToRefresh(_:)),
+                                 for: .valueChanged)
+        
         let fabButtonItem = UIBarButtonItem(image: Images.isNotFavorite.img,
                                             style: .plain,
                                             target: self,
@@ -139,6 +176,15 @@ class DetailViewController: UIViewController, AppEnvConsumer {
         descriptionLabel.text = rabbit.rabbitDescription
         
         favoritesButtonItem?.image = rabbit.isFavorite ? Images.isFavorite.img : Images.isNotFavorite.img
+    }
+    
+}
+
+extension DetailViewController: NSFetchedResultsControllerDelegate {
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<any NSFetchRequestResult>) {
+        print("Detail FRC update")
+        updateInterface()
     }
     
 }

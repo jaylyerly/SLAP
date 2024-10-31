@@ -113,6 +113,7 @@
                         <outlet property="imageStack" destination="dTJ-AC-uYE" id="9zM-YX-R6b"/>
                         <outlet property="innerContentContainer" destination="HxS-Qh-MfK" id="CmA-2J-thF"/>
                         <outlet property="outerContentContainer" destination="jVI-FR-Ksv" id="8Va-Od-DL1"/>
+                        <outlet property="scrollView" destination="DoZ-4J-lRl" id="Fkc-5x-bz5"/>
                         <outlet property="weightLabel" destination="Xii-x2-jnM" id="P3P-mw-gwU"/>
                     </connections>
                 </viewController>

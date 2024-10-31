@@ -88,7 +88,7 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
             refreshControl.addTarget(self,
                                      action: #selector(Self.didPullToRefresh(_:)),
                                      for: .valueChanged)
-            collectionView.refreshControl = refreshControl // iOS 10+
+            collectionView.refreshControl = refreshControl
         }
         
         configureDataSource()
@@ -104,12 +104,28 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
         refreshData()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Reconfigure all on screen cells.  Otherwise, they seem to miss some updates
+        reconfigureOnScreenCells(animatingDifferences: false)
+    }
+    
     @IBAction func didPullToRefresh(_ sender: Any?) {
         refreshData()
         // Let the spinner hang around for a bit so user sees it
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) { [weak self] in
             self?.refreshControl.endRefreshing()
         }
+    }
+    
+    private func reconfigureOnScreenCells(animatingDifferences: Bool) {
+        guard let dataSource else { return }
+        let onScreenItems = collectionView.indexPathsForVisibleItems
+            .compactMap { dataSource.itemIdentifier(for: $0) }
+        var snapshot = dataSource.snapshot()
+        snapshot.reconfigureItems(onScreenItems)
+        dataSource.apply(snapshot, animatingDifferences: animatingDifferences)
     }
 
     private func getLayout() -> UICollectionViewLayout {
@@ -251,8 +267,6 @@ extension ListViewController: NSFetchedResultsControllerDelegate {
         var managedSnapshot = snapshotRef as NSDiffableDataSourceSnapshot<String, NSManagedObjectID>
         // The real snapshot is based on ListItem identifiers
         var listItemSnapshot = dataSource.snapshot()
-        
-        
         
         let reloadIdentifiers: [ListItem] = managedSnapshot.itemIdentifiers.compactMap { objectId -> ListItem? in
             // get the internalID associated with the managed object for the objectId
