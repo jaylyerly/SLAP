@@ -49,7 +49,6 @@ class MainViewController: UITabBarController, AppViewController {
         selectedIndex = defaults.mainTabBarSelection.rawValue
         
         styleTabBar()
-//        tabBar.barTintColor = Style.accentSecondaryColor
         tabBar.barTintColor = .black
         tabBar.tintColor = .white
     }
@@ -72,9 +71,6 @@ class MainViewController: UITabBarController, AppViewController {
             .backgroundColor: Style.accentBackgroundColor,
             .font: Style.accentFont,
         ]
-//        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-
-//        navVC.navigationBar.tintColor = .white
         navVC.navigationBar.standardAppearance = appearance
         navVC.navigationBar.compactAppearance = appearance
         navVC.navigationBar.scrollEdgeAppearance = appearance
@@ -82,13 +78,6 @@ class MainViewController: UITabBarController, AppViewController {
         navVC.navigationBar.barStyle = .default
         navVC.navigationBar.isTranslucent = false
         navVC.navigationBar.tintColor = Style.accentForegroundColor
-//        navVC.navigationBar.backgroundColor = Style.accentBackgroundColor
-        
-//        navVC.navigationBar.titleTextAttributes = [
-//            .foregroundColor: Style.accentForegroundColor,
-//            .backgroundColor: Style.accentBackgroundColor,
-//            .font: Style.accentFont,
-//        ]
 
     }
 }

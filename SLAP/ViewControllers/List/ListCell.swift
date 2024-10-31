@@ -10,11 +10,11 @@ import UIKit
 
 class ListCell: UICollectionViewCell {
     
-    private let logger = Logger.defaultLogger()
+    let logger = Logger.defaultLogger()
     
-    private let imageView = UIImageView()
-    private let nameView = UILabel()
-    private let favButton = UIButton(type: .custom)
+    let imageView = UIImageView()
+    let nameView = UILabel()
+    let favButton = UIButton(type: .custom)
 
     var rabbit: Rabbit? {
         didSet { updateInterface() }

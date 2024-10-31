@@ -47,7 +47,7 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
         config.backgroundColor = .clear
         return config
     }()
-    private let refreshControl = UIRefreshControl()
+    let refreshControl = UIRefreshControl()
 
     required init?(coder: NSCoder,
                    appEnv: AppEnv,

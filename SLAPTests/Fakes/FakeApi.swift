@@ -10,12 +10,18 @@ import Foundation
 
 class FakeApi: Api {
     
+    var didRefreshList = false
+    var didRefreshSingle = false
+    
+    var singleRefreshInternalIds = [String]()
+    
     override func refreshList() async throws {
-        print("refresh list")
+        didRefreshList = true
     }
     
     override func refresh(withInternalId internalId: String) async throws {
-        print("refresh single with ID: \(internalId)")
+        didRefreshSingle = true
+        singleRefreshInternalIds.append(internalId)
     }
     
 }
