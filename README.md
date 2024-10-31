@@ -1,6 +1,6 @@
 # SLAP
 
-[ShelterLuv](https://www.shelterluv.com) Adoptable Pets for iOS
+[ShelterLuv](https://www.shelterluv.com) Adoptable Pets (S.L.A.P) for iOS
 
 This app connects to the ShelterLuv API and displays animals that are "published" by the API. API docs are [available](https://help.shelterluv.com/hc/en-us/articles/115000580127-Shelterluv-API-Overview) but they require a ShelterLuv login.
 
