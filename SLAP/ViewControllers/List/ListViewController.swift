@@ -11,23 +11,6 @@ import UIKit
 
 private let mainListSection = "main"
 
-//enum ListItem: Hashable {
-//
-//    case rabbit(String) // uniqueId
-//
-//    var rabbitInternalId: String? {
-//        switch self {
-//            case .rabbit(let internalId):
-//                return internalId
-//        }
-//    }
-//
-//    func rabbit(fromStorage storage: Storage) -> Rabbit? {
-//        guard let internalId = rabbitInternalId else { return nil }
-//        return try? storage.rabbit(withInternalId: internalId)
-//    }
-//}
-
 class ListViewController: UICollectionViewController, AppEnvConsumer {
     
     var appEnv: AppEnv
@@ -43,7 +26,8 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
         config.backgroundColor = .clear
         return config
     }()
-    
+    private let refreshControl = UIRefreshControl()
+
     required init?(coder: NSCoder,
                    appEnv: AppEnv,
                    mode: ListMode) {
@@ -78,6 +62,14 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
         collectionView.backgroundColor = .black
         title = mode.title
         
+        if mode == .adoptables {
+            refreshControl.tintColor = Style.accentSecondaryColor
+            refreshControl.addTarget(self,
+                                     action: #selector(Self.didPullToRefresh(_:)),
+                                     for: .valueChanged)
+            collectionView.refreshControl = refreshControl // iOS 10+
+        }
+        
         configureDataSource()
 
 //        loadInitialData()
@@ -103,9 +95,8 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
             let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                                    heightDimension: .fractionalHeight(0.4))
             
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
-                                                           subitem: item,
-                                                           count: 1)
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+
             group.edgeSpacing = .init(leading: nil, top: .fixed(12), trailing: nil, bottom: nil)
             let section = NSCollectionLayoutSection(group: group)
             return section
@@ -119,7 +110,8 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
     
     private func configureDataSource() {
 
-        let cellRegistration = UICollectionView.CellRegistration<ListCell, NSManagedObjectID> { [weak self] cell, _, item in
+        let cellRegistration = 
+        UICollectionView.CellRegistration<ListCell, NSManagedObjectID> { [weak self] cell, _, item in
             guard let self else { return }
             
             cell.configureFor(objectId: item, appEnv: appEnv)
@@ -137,11 +129,11 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
             }
         }
         
-        dataSource = UICollectionViewDiffableDataSource<String, NSManagedObjectID>(collectionView: collectionView)
-        { (collectionView: UICollectionView, indexPath: IndexPath, item: NSManagedObjectID) -> UICollectionViewCell? in
+        dataSource = UICollectionViewDiffableDataSource<String, NSManagedObjectID>(collectionView: collectionView) {
+            // swiftlint:disable:next closure_parameter_position
+            (colView: UICollectionView, indexPath: IndexPath, item: NSManagedObjectID) -> UICollectionViewCell? in
             
-            let cell = collectionView
-                .dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
+            let cell = colView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
             return cell
         }
         
@@ -182,6 +174,14 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
                 break
         }
         
+    }
+    
+    @IBAction func didPullToRefresh(_ sender: Any?) {
+        refreshData()
+        // Let the spinner hang around for a bit so user sees it
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) { [weak self] in
+            self?.refreshControl.endRefreshing()
+        }
     }
 }
 

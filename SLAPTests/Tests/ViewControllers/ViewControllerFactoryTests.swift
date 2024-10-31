@@ -5,6 +5,7 @@
 //  Created by Jay Lyerly on 10/29/24.
 //
 
+import CoreData
 @testable import SLAP
 import UIKit
 import XCTest
@@ -27,7 +28,8 @@ class ViewControllerFactoryTests: TestCase {
         XCTAssertNotNil(ViewControllerFactory.main(appEnv: appEnv))
         XCTAssertNotNil(ViewControllerFactory.links(appEnv: appEnv))
         XCTAssertNotNil(ViewControllerFactory.list(appEnv: appEnv, mode: .adoptables))
-        XCTAssertNotNil(ViewControllerFactory.detail(appEnv: appEnv, internalId: ""))
+        
+        XCTAssertNotNil(ViewControllerFactory.detail(appEnv: appEnv, objectId: nil))
     }
     
 }

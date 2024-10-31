@@ -8,13 +8,13 @@
 import UIKit
 
 enum Images: String, CaseIterable {
-    case store = "􁽇"
-    case adoptables = "􀓎"
-    case favorites = "􀊴􀊴"
-    case house = "􀎞"
-    case link = "􀉣"
-    case isFavorite = "􀊵"
-    case isNotFavorite = "􀊴"
+    case store = "storefront"          /// 􁽇
+    case adoptables = "hare"           /// 􀓎
+    case favorites = "heart.rectangle" /// 􁃪
+    case house = "house"               /// 􀎞
+    case link = "link"                 /// 􀉣
+    case isFavorite = "heart.fill"     /// 􀊵
+    case isNotFavorite = "heart"       /// 􀊴
     case banner
     case placeholderRabbit
 }

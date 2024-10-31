@@ -48,7 +48,7 @@ enum ViewControllerFactory {
         }
     }
     
-    static func detail(appEnv: AppEnv, objectId: NSManagedObjectID) -> DetailViewController {
+    static func detail(appEnv: AppEnv, objectId: NSManagedObjectID?) -> DetailViewController {
         vcFactory("Detail") { coder in
             DetailViewController(coder: coder, appEnv: appEnv, objectId: objectId)
         }

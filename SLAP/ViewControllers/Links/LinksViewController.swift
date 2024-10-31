@@ -29,7 +29,7 @@ class LinksViewController: UIViewController, AppEnvConsumer {
     }()
     
     lazy var storeButton: UIButton = {
-        let action = UIAction(title: "Shop", 
+        let action = UIAction(title: " Shop",
                               image: Images.store.img) { [weak self] action in
             self?.storeAction(action)
         }
@@ -37,7 +37,7 @@ class LinksViewController: UIViewController, AppEnvConsumer {
     }()
     
     lazy var websiteButton: UIButton = {
-        let action = UIAction(title: "WebSite",
+        let action = UIAction(title: " WebSite",
                               image: Images.house.img) { [weak self] action in
             self?.websiteAction(action)
         }
@@ -97,7 +97,7 @@ class LinksViewController: UIViewController, AppEnvConsumer {
         button.backgroundColor = .accent
         button.tintColor = .white
         button.cornerRounding = 16
-
+        button.titleLabel?.font = Style.bodyFont
         return button
 
     }

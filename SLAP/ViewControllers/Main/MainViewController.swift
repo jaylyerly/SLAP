@@ -27,7 +27,8 @@ class MainViewController: UITabBarController, AppViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
-
+        view.backgroundColor = Style.accentBackgroundColor
+        
         let adoptVC = ViewControllerFactory.list(appEnv: appEnv, mode: .adoptables)
         adoptVC.tabBarItem.tag = MainTabBarTag.adoptables.rawValue
         let adoptNavVC = UINavigationController(rootViewController: adoptVC)
@@ -48,23 +49,50 @@ class MainViewController: UITabBarController, AppViewController {
         selectedIndex = defaults.mainTabBarSelection.rawValue
         
         styleTabBar()
+//        tabBar.barTintColor = Style.accentSecondaryColor
+        tabBar.barTintColor = .black
+        tabBar.tintColor = .white
     }
     
     func styleTabBar() {
+        
         let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = Style.accentBackgroundColor
-//        appearance.
+        
         tabBar.standardAppearance = appearance
+        tabBar.isTranslucent = false
+//        let appearance = UITabBarAppearance()
+//        appearance.backgroundColor = Style.accentBackgroundColor
+////        appearance.
+//        tabBar.standardAppearance = appearance
     }
     
     func style(_ navVC: UINavigationController) {
-        navVC.navigationBar.barStyle = .default
-        navVC.navigationBar.isTranslucent = true
-        navVC.navigationBar.titleTextAttributes = [
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = Style.accentBackgroundColor
+        appearance.titleTextAttributes = [
             .foregroundColor: Style.accentForegroundColor,
             .backgroundColor: Style.accentBackgroundColor,
             .font: Style.accentFont,
         ]
+//        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+
+//        navVC.navigationBar.tintColor = .white
+        navVC.navigationBar.standardAppearance = appearance
+        navVC.navigationBar.compactAppearance = appearance
+        navVC.navigationBar.scrollEdgeAppearance = appearance
+        
+        navVC.navigationBar.barStyle = .default
+        navVC.navigationBar.isTranslucent = false
+        navVC.navigationBar.tintColor = Style.accentForegroundColor
+//        navVC.navigationBar.backgroundColor = Style.accentBackgroundColor
+        
+//        navVC.navigationBar.titleTextAttributes = [
+//            .foregroundColor: Style.accentForegroundColor,
+//            .backgroundColor: Style.accentBackgroundColor,
+//            .font: Style.accentFont,
+//        ]
 
     }
 }

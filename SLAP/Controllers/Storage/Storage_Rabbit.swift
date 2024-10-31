@@ -18,7 +18,7 @@ extension Storage {
         do {
             return try persistentContainer.viewContext.fetch(fetchRequest)
         } catch {
-            logger.error("Failed to fetch Patients: \(error)")
+            logger.error("Failed to fetch rabbits: \(error)")
             return []
         }
     }
@@ -30,7 +30,19 @@ extension Storage {
         do {
             return try persistentContainer.viewContext.fetch(req)
         } catch {
-            logger.error("Failed to fetch Patients: \(error)")
+            logger.error("Failed to fetch fav rabbits: \(error)")
+            return []
+        }
+    }
+    
+    var publishedRabbits: [Rabbit] {
+        let req = Rabbit.fetchRequest()
+        req.predicate = NSPredicate(format: "%K == %d", #keyPath(Rabbit.isPublished), true)
+
+        do {
+            return try persistentContainer.viewContext.fetch(req)
+        } catch {
+            logger.error("Failed to fetch published rabbits: \(error)")
             return []
         }
     }
@@ -58,7 +70,11 @@ extension Storage {
     }
     
     @discardableResult
-    func upsert(rabbitStruct rStruct: RabbitStruct?) -> RabbitResult {
+    func upsert(
+        rabbitStruct rStruct: RabbitStruct?,
+        isPublished: Bool? = nil,
+        save doSave: Bool = true
+    ) -> RabbitResult {
         guard let rStruct else { return .failure(StorageError.inputIsNil) }
         
         // Update an existing rabbit with the same ID, otherwise,
@@ -80,6 +96,10 @@ extension Storage {
         theRabbit.rabbitDescription = rStruct.rabbitDescription
         if let weight = rStruct.weight {
             theRabbit.weight = Float(weight)
+        }
+        
+        if let isPublished {
+            theRabbit.isPublished = isPublished
         }
         
         return RabbitResult {
@@ -125,8 +145,11 @@ extension Storage {
 //                    obj.isCover = (obj.url == coverPhotoUrl)
 //                }
 //            }
-                    
-            try save(failureMessage: "Failed to save Rabbit")
+            
+            if doSave {
+                try save(failureMessage: "Failed to save Rabbit")
+            }
+                
             return theRabbit
         }
     }

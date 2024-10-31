@@ -10,25 +10,56 @@ import OSLog
 import UIKit
 
 class DetailViewController: UIViewController, AppEnvConsumer {
-    
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var infoLabel: UILabel!
-    @IBOutlet weak var contentStack: UIStackView!
-    
+
     var appEnv: AppEnv
     let logger = Logger.defaultLogger()
-    let objectId: NSManagedObjectID
+    let objectId: NSManagedObjectID?
     let rabbit: Rabbit?
     var favoritesButtonItem: UIBarButtonItem?
+
+    private var ageText: String {
+        guard let rabbit else { return "" }
+
+        if rabbit.age > 0 {
+            if rabbit.age < 1 {
+                return String(format: "Age: Under 1 year")
+            }
+            if rabbit.age < 2 {
+                return String(format: "Age: 1 year")
+            }
+            return String(format: "Age: %.0f years", rabbit.age)
+        }
+        return ""
+    }
     
+    private var weightText: String {
+        guard let rabbit else { return "" }
+
+        if rabbit.weight > 0 {
+            return String(format: "Weight: %.0f lbs.", rabbit.weight)
+        }
+        return ""
+    }
+    
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var weightLabel: UILabel!
+    @IBOutlet weak var contentStack: UIStackView!
+    @IBOutlet weak var imageStack: UIStackView!
+    @IBOutlet weak var innerContentContainer: UIView!
+    @IBOutlet weak var outerContentContainer: UIView!
+
     required init?(coder: NSCoder,
                    appEnv: AppEnv,
-                   objectId: NSManagedObjectID) {
+                   objectId: NSManagedObjectID?) {
         self.appEnv = appEnv
         self.objectId = objectId
-        self.rabbit = try? appEnv.storage.rabbit(withId: objectId)
-        
+        if let objectId {
+            self.rabbit = try? appEnv.storage.rabbit(withId: objectId)
+        } else {
+            self.rabbit = nil
+        }
+
         super.init(coder: coder)
     }
 
@@ -48,6 +79,15 @@ class DetailViewController: UIViewController, AppEnvConsumer {
         updateInterface()
     }
     
+    @IBAction func toggleFavorite(_ sender: Any?) {
+        do {
+            try storage.toggle(favoriteRabbit: rabbit)
+        } catch {
+            logger.error("Failed to toggle favorite: \(error)")
+        }
+        updateInterface()
+    }
+    
     func buildImageView() -> UIImageView {
         let view = UIImageView()
         view.widthAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1.0).activate("imageAspect1")
@@ -55,13 +95,21 @@ class DetailViewController: UIViewController, AppEnvConsumer {
     }
     
     func setupInterface() {
+//        [ageLabel, weightLabel, descriptionLabel].forEach { lbl in
+//            lbl.font = Style.bodyFont
+//        }
+//        
         let fabButtonItem = UIBarButtonItem(image: Images.isNotFavorite.img,
                                             style: .plain,
                                             target: self,
-                                            action: #selector(DetailViewController.toggleFavorite(_:)))
+                                            action: #selector(Self.toggleFavorite(_:)))
         navigationItem.rightBarButtonItem = fabButtonItem
         favoritesButtonItem = fabButtonItem
         
+        outerContentContainer.backgroundColor = Style.accentBackgroundColor
+        innerContentContainer.backgroundColor = Style.accentForegroundColor
+        innerContentContainer.roundCorners(.allCorners, radius: Style.cornerRadius * 2)
+
         guard let rabbit else { return }
         
         title = rabbit.name
@@ -73,31 +121,24 @@ class DetailViewController: UIViewController, AppEnvConsumer {
                     imageView.image = UIImage(data: data)
                 }
             }
-            contentStack.addArrangedSubview(imageView)
+            imageStack.addArrangedSubview(imageView)
         }
     }
     
     func updateInterface() {
+        view.backgroundColor = Style.accentBackgroundColor
+        
+        ageLabel.text = ageText
+        weightLabel.text = weightText
+        
         guard let rabbit else {
-            nameLabel.text = "<UNKNOWN>"
-            infoLabel.text = ""
             descriptionLabel.text = ""
             return
         }
         
-        nameLabel.text = rabbit.name
-        infoLabel.text = "Age: \(rabbit.age)  Weight: \(rabbit.weight)"
         descriptionLabel.text = rabbit.rabbitDescription
         
         favoritesButtonItem?.image = rabbit.isFavorite ? Images.isFavorite.img : Images.isNotFavorite.img
     }
     
-    @IBAction func toggleFavorite(_ sender: Any?) {
-        do {
-            try storage.toggle(favoriteRabbit: rabbit)
-        } catch {
-            logger.error("Failed to toggle favorite: \(error)")
-        }
-        updateInterface()
-    }
 }

@@ -6,54 +6,93 @@
 //
 
 import CoreData
+import OSLog
 import UIKit
 
 class ListCell: UICollectionViewCell {
     
+    private let logger = Logger.defaultLogger()
+    
     private let imageView = UIImageView()
     private let nameView = UILabel()
-//
-//    private var validLayoutBounds: CGRect? = nil
-//    private var validSizeThatFits: CGSize? = nil
+    private let favButton = UIButton(type: .custom)
+//        let button = UIButton(type: .custom)
+//        button.
+        
+//        var config = UIButton.Configuration.plain()
+//        config.image = Images.isNotFavorite.img
+//        let action = UIAction(title: "",
+//                              image: Images.isNotFavorite.img,
+//                              selectedImage: Images.isFavorite.img,
+//                              state: .off) { action in
+//            print("action:", action)
+//            toggleFavorite()
+//        }
+//        let button = UIButton(primaryAction: action)
+//        let button = UIButton(configuration: config, primaryAction: action)
+//        return button
+//    }()
 
     var rabbit: Rabbit? {
         didSet { updateInterface() }
     }
     
+    var appEnv: AppEnv?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-//        imageView.contentMode = .scaleAspectFill
-//        imageView.backgroundColor = .secondarySystemBackground
-//        imageView.clipsToBounds = true
-        
-//        contentView.addSubview(imageView)
-//        contentView.addSubview(propertiesView)
-//        
-//        contentView.layer.cornerCurve = .continuous
-//        contentView.layer.cornerRadius = 12.0
-//        self.pushCornerPropertiesToChildren()
-//        
-//        layer.shadowOpacity = 0.2
-//        layer.shadowRadius = 6.0
         setupInterface()
     }
     
-    func setupInterface() {
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupImageView() {
         imageView.image = Images.placeholderRabbit.img
-//        imageView.image = Images.store.img
         imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = .secondarySystemBackground
         imageView.clipsToBounds = true
-        
+    }
+    
+    func setupNameView() {
         nameView.text = ""
         nameView.font = Style.accentFont
         nameView.backgroundColor = Style.accentBackgroundColor
+            .withAlphaComponent(0.7)
         nameView.textColor = Style.accentForegroundColor
         nameView.textAlignment = .center
         nameView.heightAnchor.constraint(equalToConstant: nameView.font.lineHeight + 16)
             .isActive = true
-        nameView.roundCorners(.allCorners, radius: 8)
+        nameView.roundCorners(.allCorners, radius: Style.cornerRadius)
+    }
+    
+    func setupFavButton() {
+        let conf = UIImage.SymbolConfiguration(pointSize: 24, weight: .bold, scale: .large)
+        let offImage = UIImage(systemName: Images.isNotFavorite.rawValue, withConfiguration: conf)
+        let onImage = UIImage(systemName: Images.isFavorite.rawValue, withConfiguration: conf)
+
+        favButton.tintColor = Style.accentSecondaryColor
+        favButton.setImage(offImage, for: .normal)
+        favButton.setImage(onImage, for: .selected)
+        favButton.isSelected = false
+        favButton.addTarget(self,
+                            action: #selector(Self.toggleFavorite(_:)),
+                            for: .touchUpInside)
+        
+        favButton.widthAnchor
+            .constraint(equalToConstant: 44)
+            .activate("favWidth")
+        favButton.heightAnchor
+            .constraint(equalToConstant: 44)
+            .activate("favHeight")
+    }
+                              
+    func setupInterface() {
+        setupImageView()
+        setupNameView()
+        setupFavButton()
         
         contentView.addSubViewEdgeToSafeEdge(imageView)
         
@@ -65,15 +104,21 @@ class ListCell: UICollectionViewCell {
         safe.leadingAnchor.constraint(equalTo: nameView.leadingAnchor, constant: -12).isActive = true
         safe.trailingAnchor.constraint(equalTo: nameView.trailingAnchor, constant: 12).isActive = true
         safe.bottomAnchor.constraint(equalTo: nameView.bottomAnchor, constant: 12).isActive = true
-    }
-    
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        
+        addSubview(favButton)
+        favButton.translatesAutoresizingMaskIntoConstraints = false
+        safe.trailingAnchor
+            .constraint(equalTo: favButton.trailingAnchor, constant: 12)
+            .activate("favButtonTrailing")
+        safe.topAnchor
+            .constraint(equalTo: favButton.topAnchor, constant: -12)
+            .activate("favButtonTop")
     }
         
     func configureFor(objectId: NSManagedObjectID, appEnv: AppEnv) {
+        self.appEnv = appEnv
         guard let rabbit = try? appEnv.storage.rabbit(withId: objectId) else { return }
+        self.rabbit = rabbit
         
         nameView.text = rabbit.name
         if let coverImageData = rabbit.coverPhoto?.pngData {
@@ -95,7 +140,18 @@ class ListCell: UICollectionViewCell {
         }
         
         nameView.text = rabbit.name
-        
+        favButton.isSelected = rabbit.isFavorite
+    }
+    
+    @IBAction func toggleFavorite(_ sender: Any?) {
+        let button = sender as? UIButton
+//        logger.info("Toggle Favorite: button.isSelected = \(button?.isSelected)")
+        do {
+            try appEnv?.storage.toggle(favoriteRabbit: rabbit)
+        } catch {
+            logger.error("Failed to toggle isFavorite: \(error)")
+        }
+        updateInterface()
     }
     
 }

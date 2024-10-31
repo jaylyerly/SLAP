@@ -39,6 +39,7 @@ class RabbitTests: TestCase {
             "rabbitDescription",
             "sex",
             "weight",
+            "isPublished",
         ])
         expectNoDifference(Set(attrs), expectedAttrKeys)
         
@@ -90,6 +91,12 @@ class RabbitTests: TestCase {
         XCTAssertTrue(weight.isOptional)
         XCTAssertEqual(weight.validationPredicates.map { "\($0)" }, [])
         
+        let isPublished = try XCTUnwrap(entity.attributesByName["isPublished"])
+        XCTAssertEqual(isPublished.attributeType, .booleanAttributeType)
+        XCTAssertEqual(isPublished.defaultValue as? Bool, false)
+        XCTAssertFalse(isPublished.isOptional)
+        XCTAssertEqual(isPublished.validationPredicates.map { "\($0)" }, [])
+
         let rships = entity.relationshipsByName.map { $0.key }
         let expectedRshipKeys = Set([
             "imageModels",

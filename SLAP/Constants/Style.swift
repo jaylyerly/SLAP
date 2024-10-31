@@ -12,12 +12,17 @@ enum Style {
     // swiftlint:disable force_unwrapping
     static let accentForegroundColor = UIColor.white
     static let accentSecondaryColor = UIColor(named: "SecondaryAccent")!
-    static let accentBackgroundColor = UIColor.accent.withAlphaComponent(0.7)
+    static let accentBackgroundColor = UIColor.accent
     static let accentFont = UIFont(name: "MarkerFelt-Wide", size: 32)!
+    static let bodyFont = UIFont(name: "MarkerFelt-Thin", size: 18)!
     // swiftlint:enable force_unwrapping
     
-    static func initialize() {
-        UITabBar.appearance().barTintColor = .orange
-        UITabBar.appearance().tintColor = .white
-    }
+    static let cornerRadius: CGFloat = 8
+    
+//    static func initialize() {
+//        UILabel.appearance().font = bodyFont
+//        UIButton.appearance().titleLabel?.font = bodyFont
+////        UITabBar.appearance().barTintColor = accentSecondaryColor
+////        UITabBar.appearance().tintColor = .white
+//    }
 }
