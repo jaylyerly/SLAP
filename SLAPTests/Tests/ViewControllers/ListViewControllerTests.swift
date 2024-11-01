@@ -70,6 +70,39 @@ class ListViewControllerTests: TestCase {
         expectNoDifference(Set(newSnapshotIds), Set(newJsonIds))
     }
     
+    func testFavorites() throws {
+        let emptyMsgTxt = "No favorites yet? You can pick as many as you want!"
+
+        listVC = ViewControllerFactory.list(appEnv: appEnv, mode: .favorites)
+
+        // load the VC
+        XCTAssertNotNil(listVC.view)
+        let dataSource = try XCTUnwrap(listVC.dataSource)
+        XCTWaitUntilEqual(listVC.dataSource?.snapshot().numberOfItems, 1)   // One item is the 'emptyMessage' cell
+        var emptyMessage = dataSource.snapshot().itemIdentifiers.first?.emptyMessage
+        expectNoDifference(emptyMessage, emptyMsgTxt)
+        
+        // Fake the result of loading the list by pushing data to storage.
+        appEnv.storage.api(appEnv.api, didReceiveList: jsonRabbits, forEndpointName: RabbitList.publishableEndpointName)
+        
+        // None of these are favorites, so the list should still be just the empty message cell
+        expectNoDifference(listVC.dataSource?.snapshot().numberOfItems, 1)   // One item is the 'emptyMessage' cell
+        emptyMessage = dataSource.snapshot().itemIdentifiers.first?.emptyMessage
+        expectNoDifference(emptyMessage, emptyMsgTxt)
+
+        // Make some favorites
+        let rabbits = appEnv.storage.rabbits
+        let rabbitsToFav = [rabbits[4], rabbits[5], rabbits[6]]
+        try rabbitsToFav.forEach { try appEnv.storage.toggle(favoriteRabbit: $0) }
+        let favIds = rabbitsToFav.map { $0.internalId }
+
+        // Eventually, the datasource should get 3 items
+        XCTWaitUntilEqual(dataSource.snapshot().numberOfItems, 3)
+        // And the internalIds should match the json Input
+        let snapshotIds = dataSource.snapshot().itemIdentifiers.compactMap { $0.rabbitInternalId }
+        expectNoDifference(Set(snapshotIds), Set(favIds))        
+    }
+    
     func testPullToRefresh() {
         XCTAssertNotNil(listVC.view)
 

@@ -53,12 +53,6 @@ class ListViewController: UICollectionViewController, AppEnvConsumer {
     var dataSource: UICollectionViewDiffableDataSource<ListSection, ListItem>?
     var fetchResultsController: NSFetchedResultsController<Rabbit>?
     
-//    let configuration: UICollectionLayoutListConfiguration = {
-//        var config = UICollectionLayoutListConfiguration(appearance: .sidebar)
-//        config.headerMode = .firstItemInSection
-//        config.backgroundColor = .clear
-//        return config
-//    }()
     let refreshControl = UIRefreshControl()
 
     required init?(coder: NSCoder,
