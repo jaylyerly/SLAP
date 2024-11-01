@@ -9,6 +9,15 @@
     }
   ],
   "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:SLAP.xcodeproj",
+          "identifier" : "ECA17C0A2CCD26FA00B13270",
+          "name" : "SLAP"
+        }
+      ]
+    },
     "targetForVariableExpansion" : {
       "containerPath" : "container:SLAP.xcodeproj",
       "identifier" : "ECA17C0A2CCD26FA00B13270",
