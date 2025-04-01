@@ -147,7 +147,7 @@ class ListViewControllerTests: TestCase {
 
         assertActionsContain("toggleFavorite:", forControl: listCell.favButton, withTarget: listCell)
         
-        // With Xcode 16.3, this throws an error from UICollectionView 
+        // With Xcode 16.3, this throws an error from UICollectionView
 //        listCell.favButton.sendActions(for: .touchUpInside)
 //        try XCTWaitUntilTrue(try appEnv.storage.rabbit(withInternalId: rabbitId).isFavorite)
     }
