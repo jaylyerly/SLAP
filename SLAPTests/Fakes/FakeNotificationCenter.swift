@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FakeNotificationCenter: NotificationCenter {
+class FakeNotificationCenter: NotificationCenter, @unchecked Sendable {
     
     // just store anything that was posted for testing
     var lastNotification: Notification?

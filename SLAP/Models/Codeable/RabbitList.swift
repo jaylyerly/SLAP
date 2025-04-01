@@ -10,7 +10,7 @@ import Foundation
 struct RabbitList: Codable {
     
     enum CodingKeys: String, CodingKey {
-        case rawTotalCount = "total_count"
+        case totalCount = "total_count"
         case hasMore = "has_more"
         case success
         case animals
@@ -18,10 +18,7 @@ struct RabbitList: Codable {
 
     var success: Int
     var animals: [RabbitStruct]
-    var rawTotalCount: String
+    var totalCount: Int
     var hasMore: Bool
     
-    var totalCount: Int? {
-        Int(rawTotalCount)
-    }
 }

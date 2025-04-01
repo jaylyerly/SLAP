@@ -75,7 +75,6 @@ class RabbitStructTests: TestCase {
         let rabbitList = try JSONDecoder().decode(RabbitList.self, from: listJsonData)
         
         XCTAssertEqual(rabbitList.success, 1)
-        XCTAssertEqual(rabbitList.rawTotalCount, "197")
         XCTAssertEqual(rabbitList.totalCount, 197)
         XCTAssertTrue(rabbitList.hasMore)
         
@@ -86,7 +85,6 @@ class RabbitStructTests: TestCase {
         let rabbitList = try JSONDecoder().decode(RabbitList.self, from: publishableListJsonData)
         
         XCTAssertEqual(rabbitList.success, 1)
-        XCTAssertEqual(rabbitList.rawTotalCount, "12")
         XCTAssertEqual(rabbitList.totalCount, 12)
         XCTAssertFalse(rabbitList.hasMore)
         
