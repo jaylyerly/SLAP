@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1540"
+   LastUpgradeVersion = "1630"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -11,7 +11,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "set -x&#10;&#10;cd ${SRCROOT}&#10;&#10;./build_secrets.sh&#10;">
+               scriptText = "set -x&#10;&#10;cd ${SRCROOT}/..&#10;&#10;./build_secrets.sh&#10;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"

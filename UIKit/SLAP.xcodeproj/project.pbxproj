@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC44467A2D9F2194003C7350 /* SLAP.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC4446782D9F2194003C7350 /* SLAP.xcdatamodeld */; };
 		ECA17C0F2CCD26FA00B13270 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C0E2CCD26FA00B13270 /* AppDelegate.swift */; };
 		ECA17C132CCD26FA00B13270 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C122CCD26FA00B13270 /* MainViewController.swift */; };
 		ECA17C162CCD26FA00B13270 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = ECA17C152CCD26FA00B13270 /* Base */; };
@@ -74,7 +75,6 @@
 		ECA17CD82CCEABB500B13270 /* ApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CD72CCEABB500B13270 /* ApiTests.swift */; };
 		ECA17CDA2CCEDD5C00B13270 /* StorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CD92CCEDD5C00B13270 /* StorageTests.swift */; };
 		ECA17CDC2CCEF11400B13270 /* FakeNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CDB2CCEF11400B13270 /* FakeNotificationCenter.swift */; };
-		ECA17CE12CD05DCF00B13270 /* SLAP.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CDF2CD05DCF00B13270 /* SLAP.xcdatamodeld */; };
 		ECA17CE32CD05EBB00B13270 /* Rabbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CE22CD05EBB00B13270 /* Rabbit.swift */; };
 		ECA17CE52CD060AD00B13270 /* GenericError.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CE42CD060AD00B13270 /* GenericError.swift */; };
 		ECA17CE72CD061F500B13270 /* Storage_Rabbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CE62CD061F500B13270 /* Storage_Rabbit.swift */; };
@@ -120,6 +120,7 @@
 		EC4446362D9C7575003C7350 /* SLAP2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SLAP2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC4446452D9C7576003C7350 /* SLAP2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SLAP2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC44464F2D9C7576003C7350 /* SLAP2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SLAP2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC4446792D9F2194003C7350 /* SLAP.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SLAP.xcdatamodel; sourceTree = "<group>"; };
 		ECA17C0B2CCD26FA00B13270 /* SLAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SLAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA17C0E2CCD26FA00B13270 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ECA17C122CCD26FA00B13270 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -190,7 +191,6 @@
 		ECA17CD72CCEABB500B13270 /* ApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTests.swift; sourceTree = "<group>"; };
 		ECA17CD92CCEDD5C00B13270 /* StorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageTests.swift; sourceTree = "<group>"; };
 		ECA17CDB2CCEF11400B13270 /* FakeNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeNotificationCenter.swift; sourceTree = "<group>"; };
-		ECA17CE02CD05DCF00B13270 /* SLAP.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SLAP.xcdatamodel; sourceTree = "<group>"; };
 		ECA17CE22CD05EBB00B13270 /* Rabbit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rabbit.swift; sourceTree = "<group>"; };
 		ECA17CE42CD060AD00B13270 /* GenericError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericError.swift; sourceTree = "<group>"; };
 		ECA17CE62CD061F500B13270 /* Storage_Rabbit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage_Rabbit.swift; sourceTree = "<group>"; };
@@ -207,12 +207,6 @@
 		ECC437812CD3FA6800071915 /* ListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewControllerTests.swift; sourceTree = "<group>"; };
 		ECC437832CD3FA7500071915 /* MainViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		EC4446372D9C7575003C7350 /* SLAP2 */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = SLAP2; sourceTree = "<group>"; };
-		EC4446482D9C7576003C7350 /* SLAP2Tests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = SLAP2Tests; sourceTree = "<group>"; };
-		EC4446522D9C7576003C7350 /* SLAP2UITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = SLAP2UITests; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		EC4446332D9C7575003C7350 /* Frameworks */ = {
@@ -259,9 +253,6 @@
 			children = (
 				ECA17C0D2CCD26FA00B13270 /* SLAP */,
 				ECA17C242CCD26FB00B13270 /* SLAPTests */,
-				EC4446372D9C7575003C7350 /* SLAP2 */,
-				EC4446482D9C7576003C7350 /* SLAP2Tests */,
-				EC4446522D9C7576003C7350 /* SLAP2UITests */,
 				ECA17C0C2CCD26FA00B13270 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -576,7 +567,7 @@
 		ECA17CDE2CD05DB400B13270 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				ECA17CDF2CD05DCF00B13270 /* SLAP.xcdatamodeld */,
+				EC4446782D9F2194003C7350 /* SLAP.xcdatamodeld */,
 				ECA17CE22CD05EBB00B13270 /* Rabbit.swift */,
 				ECA17CEA2CD070F500B13270 /* ImageModel.swift */,
 			);
@@ -623,9 +614,6 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				EC4446372D9C7575003C7350 /* SLAP2 */,
-			);
 			name = SLAP2;
 			packageProductDependencies = (
 			);
@@ -646,9 +634,6 @@
 			dependencies = (
 				EC4446472D9C7576003C7350 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				EC4446482D9C7576003C7350 /* SLAP2Tests */,
-			);
 			name = SLAP2Tests;
 			packageProductDependencies = (
 			);
@@ -668,9 +653,6 @@
 			);
 			dependencies = (
 				EC4446512D9C7576003C7350 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				EC4446522D9C7576003C7350 /* SLAP2UITests */,
 			);
 			name = SLAP2UITests;
 			packageProductDependencies = (
@@ -726,7 +708,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1630;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					EC4446352D9C7575003C7350 = {
 						CreatedOnToolsVersion = 16.3;
@@ -837,7 +819,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nSWIFTLINT=${SOURCE_ROOT}/swiftlint\nif test -f \"$SWIFTLINT\"; then\n  echo `pwd`\n  echo \"$SWIFTLINT\" ${SWIFTLINT_FLAGS}\n  \"$SWIFTLINT\" ${SWIFTLINT_FLAGS}\nelse\n  echo \"error: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nSWIFTLINT=${SOURCE_ROOT}/../swiftlint\nif test -f \"$SWIFTLINT\"; then\n  echo `pwd`\n  echo \"$SWIFTLINT\" ${SWIFTLINT_FLAGS}\n  \"$SWIFTLINT\" ${SWIFTLINT_FLAGS}\nelse\n  echo \"error: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -868,6 +850,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECA17C4D2CCD353500B13270 /* Defaults.swift in Sources */,
+				EC44467A2D9F2194003C7350 /* SLAP.xcdatamodeld in Sources */,
 				ECA17CA22CCD971200B13270 /* Spacer.swift in Sources */,
 				ECA17CC52CCE882600B13270 /* Server.swift in Sources */,
 				ECA17D362CD180E800B13270 /* ListCell.swift in Sources */,
@@ -877,7 +860,6 @@
 				ECA17C792CCD664300B13270 /* Api.swift in Sources */,
 				ECA17C592CCD3AE900B13270 /* Completion.swift in Sources */,
 				ECA17C842CCD696900B13270 /* LinksViewController.swift in Sources */,
-				ECA17CE12CD05DCF00B13270 /* SLAP.xcdatamodeld in Sources */,
 				ECA17CBD2CCE7EB600B13270 /* Storage_Api.swift in Sources */,
 				ECA17C402CCD2DC800B13270 /* Secrets.swift in Sources */,
 				ECA17C9F2CCD962D00B13270 /* NSLayoutConstraint.swift in Sources */,
@@ -999,7 +981,7 @@
 				CODE_SIGN_ENTITLEMENTS = SLAP2/SLAP2.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V9VQ2RXE25;
+				DEAD_CODE_STRIPPING = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1038,7 +1020,7 @@
 				CODE_SIGN_ENTITLEMENTS = SLAP2/SLAP2.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V9VQ2RXE25;
+				DEAD_CODE_STRIPPING = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1075,7 +1057,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V9VQ2RXE25;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				MACOSX_DEPLOYMENT_TARGET = 15.4;
@@ -1098,7 +1080,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V9VQ2RXE25;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				MACOSX_DEPLOYMENT_TARGET = 15.4;
@@ -1120,7 +1102,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V9VQ2RXE25;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				MACOSX_DEPLOYMENT_TARGET = 15.4;
@@ -1142,7 +1124,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V9VQ2RXE25;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				MACOSX_DEPLOYMENT_TARGET = 15.4;
@@ -1194,6 +1176,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = V9VQ2RXE25;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -1257,6 +1240,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = V9VQ2RXE25;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -1285,7 +1269,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V9VQ2RXE25;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SLAP/Info.plist;
@@ -1319,7 +1302,6 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V9VQ2RXE25;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SLAP/Info.plist;
@@ -1349,11 +1331,9 @@
 		ECA17C392CCD26FB00B13270 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V9VQ2RXE25;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				MARKETING_VERSION = 1.0;
@@ -1369,11 +1349,9 @@
 		ECA17C3A2CCD26FB00B13270 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V9VQ2RXE25;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				MARKETING_VERSION = 1.0;
@@ -1465,14 +1443,13 @@
 /* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
-		ECA17CDF2CD05DCF00B13270 /* SLAP.xcdatamodeld */ = {
+		EC4446782D9F2194003C7350 /* SLAP.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				ECA17CE02CD05DCF00B13270 /* SLAP.xcdatamodel */,
+				EC4446792D9F2194003C7350 /* SLAP.xcdatamodel */,
 			);
-			currentVersion = ECA17CE02CD05DCF00B13270 /* SLAP.xcdatamodel */;
-			name = SLAP.xcdatamodeld;
-			path = /Users/jayl/git/SLAP/SLAP/Models/CoreData/SLAP.xcdatamodeld;
+			currentVersion = EC4446792D9F2194003C7350 /* SLAP.xcdatamodel */;
+			path = SLAP.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
