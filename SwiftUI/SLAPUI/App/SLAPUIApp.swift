@@ -5,8 +5,8 @@
 //  Created by Jay Lyerly on 4/3/25.
 //
 
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 struct SLAPUIApp: App {
     @State private var config = Config()
@@ -42,6 +42,6 @@ struct SLAPUIApp: App {
 }
 
 extension EnvironmentValues {
-    @Entry var service: Service = try! Service()
-    @Entry var config: Config = Config()
+    @Entry var service: Service = try! Service()  // swiftlint:disable:this force_try
+    @Entry var config = Config()
 }

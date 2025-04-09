@@ -1,6 +1,6 @@
 //
-//  AnimalsTests.swift
-//  SLAPUI
+//  AnimalWrapperTests.swift
+//  SLAPUITests
 //
 //  Created by Jay Lyerly on 4/3/25.
 //
@@ -10,7 +10,7 @@ import Testing
 
 @testable import SLAPUI
 
-@Suite("Animal Wrappr Model Tests") struct AnimalsModelTests {
+@Suite("Animal Wrappr Model Tests") struct AnimalWrapperTests {
     
     let listJson: Data
     let wrapper: AnimalWrapper

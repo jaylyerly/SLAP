@@ -14,19 +14,22 @@ struct MainTab: View {
     var body: some View {
         TabView(selection: $selectedTab) {
             Tab(
-                "Adoptables", systemImage: "hare",
+                "Adoptables",
+                systemImage: "hare",
                 value: 0
             ) {
                 AnimalList(mode: .all)
             }
             Tab(
-                "Favorites", systemImage: "heart",
+                "Favorites",
+                systemImage: "heart",
                 value: 1
             ) {
                 AnimalList(mode: .favorites)
             }
             Tab(
-                "Links", systemImage: "link",
+                "Links",
+                systemImage: "link",
                 value: 2
             ) {
                 Links()
@@ -34,4 +37,3 @@ struct MainTab: View {
         }
     }
 }
-

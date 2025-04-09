@@ -1,6 +1,6 @@
 //
 //  Bundle.swift
-//  SLAPUI
+//  SLAPUITests
 //
 //  Created by Jay Lyerly on 4/3/25.
 //
@@ -13,7 +13,7 @@ private class TestBeacon {}
 extension Bundle {
     
     static var testBundle: Bundle {
-        return Bundle(for: TestBeacon.self)
+        Bundle(for: TestBeacon.self)
     }
     
 }

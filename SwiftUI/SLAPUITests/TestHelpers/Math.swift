@@ -1,10 +1,10 @@
 //
 //  Math.swift
-//  SLAPUI
+//  SLAPUITests
 //
 //  Created by Jay Lyerly on 4/3/25.
 //
 
-func aboutEqual(_ a: Double, _ b: Double) -> Bool {
-    return abs(a - b) < (a * 0.0001)
+func aboutEqual(_ itemA: Double, _ itemB: Double) -> Bool {
+    abs(itemA - itemB) < (itemA * 0.0001)
 }

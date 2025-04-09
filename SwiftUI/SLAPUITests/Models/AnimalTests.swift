@@ -1,6 +1,6 @@
 //
 //  AnimalTests.swift
-//  SLAPUI
+//  SLAPUITests
 //
 //  Created by Jay Lyerly on 4/3/25.
 //
@@ -10,7 +10,7 @@ import Testing
 
 @testable import SLAPUI
 
-@Suite("Animal Model Tests") struct AnimalModelTests {
+@Suite("Animal Model Tests") struct AnimalTests {
     
     let singleJson: Data
     let animal: Animal
@@ -20,7 +20,8 @@ import Testing
         animal = try JSONDecoder().decode(Animal.self, from: singleJson)
     }
     
-    @Test func parseAnimal() throws {        
+    @Test func parseAnimal() throws {
+        // swiftlint:disable:next line_length
         let desc = "Meet Honey & Juniper! These two sisters are about 7 months old and must be adopted together. They may be small, but they need a lot of space to play and more importantly, to get away from each other when they want some alone time. They are currently living in a 10x11 bunny proofed room, but if they could talk, they would probably say they could use a little more square footage. They love to munch on hay all day long, but in the morning they circle like sharks for pellets. They also enjoy eating veggies twice a day. They are still pretty shy, but they will warm up to you if you give them time. They are also quite active and would prefer to run around than be pet. They make great bunny entertainment AKA bunny TV! Currently fostering in the Charlotte area."
         let photo1 = "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2022/04/12/10/20220412103758.png"
         let photo2 = "https://www.shelterluv.com/sites/default/files/animal_pics/37724/2022/09/15/07/20220915072532.png"

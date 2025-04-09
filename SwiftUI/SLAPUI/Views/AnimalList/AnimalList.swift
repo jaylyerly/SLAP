@@ -22,17 +22,20 @@ struct AnimalList: View {
     var body: some View {
         ScrollView {
             LazyVStack(alignment: .leading) {
-                if let viewModel = viewModel {
-                    ForEach(viewModel.animals, id: \.self) {
-                        AnimalCard(animal: $0)
+                if let viewModel {
+                    ForEach(viewModel.animals, id: \.self) { animal in
+                        AnimalCard(animal: animal)
                     }
                 }
             }
-        }.refreshable {
+        }
+        .refreshable {
             await viewModel?.refresh()
-        }.onAppear {
+        }
+        .onAppear {
             self.viewModel = ViewModel(mode: mode, service: self.service)
-        }.task {
+        }
+        .task {
             await viewModel?.refresh()
         }
     }

@@ -25,7 +25,6 @@ class Service {
     let notificationCenter: NotificationCenter
     let logger = Logger.defaultLogger()
     
-    
     init(api: Api? = nil, storage: Storage? = nil, notificationCenter: NotificationCenter = .default) throws {
         self.api = api ?? Api()
         self.storage = try storage ?? (try Storage())
@@ -37,6 +36,15 @@ class Service {
 // MARK: - Animals
 extension Service {
     
+    var animals: [Animal] {
+        do {
+            return try storage.animals()
+        } catch {
+            logger.error("Failed to get animals from storage: \(error.localizedDescription)")
+            return []
+        }
+    }
+    
     private func notifyDidUpdateAnimals() {
         notificationCenter.post(name: .didUpdateAnimals, object: self)
     }
@@ -45,15 +53,6 @@ extension Service {
         notificationCenter.post(name: .didUpdateAnimal,
                                 object: self,
                                 userInfo: [Service.userInfoAnimalInternalIdKey: animal.internalId])
-    }
-    
-    var animals: [Animal] {
-        do {
-            return try storage.animals()
-        } catch {
-            logger.error("Failed to get animals from storage: \(error.localizedDescription)")
-            return []
-        }
     }
     
     func animal(withInternalId internalId: String) -> Animal? {
@@ -71,7 +70,7 @@ extension Service {
             do {
                 try storage.add(animal: animal)
                 notifyDidUpdateAnimal(animal)
-            }catch {
+            } catch {
                 self.logger.error("Failed to update animal: \(error.localizedDescription)")
             }
             return animal
@@ -87,9 +86,7 @@ extension Service {
         do {
             try storage.add(animals: animals)
             notifyDidUpdateAnimals()
-            animals.forEach {
-                notifyDidUpdateAnimal($0)
-            }
+            animals.forEach { notifyDidUpdateAnimal($0) }
         } catch {
             logger.error("Failed to update animals: \(error.localizedDescription)")
         }
@@ -100,13 +97,7 @@ extension Service {
 
 // MARK: - Favorites
 extension Service {
-        
-    private func notifyDidUpdateFavorite(_ animal: Animal) {
-        notificationCenter.post(name: .didUpdateFavorites,
-                                object: self,
-                                userInfo: [Service.userInfoAnimalInternalIdKey: animal.internalId])
-    }
-    
+     
     var favorites: [Animal] {
         fatalError("Favorites not implemented yet")
 //        do {
@@ -117,13 +108,19 @@ extension Service {
 //        }
     }
     
+    private func notifyDidUpdateFavorite(_ animal: Animal) {
+        notificationCenter.post(name: .didUpdateFavorites,
+                                object: self,
+                                userInfo: [Service.userInfoAnimalInternalIdKey: animal.internalId])
+    }
+    
     @discardableResult
     func toggleFavorite(withInternalId internalId: String) async -> Animal? {
         if let animal = try? await api.refreshAnimal(withInternalId: internalId) {
             do {
                 try storage.add(animal: animal)
                 notifyDidUpdateFavorite(animal)
-            }catch {
+            } catch {
                 self.logger.error("Failed to update animal: \(error.localizedDescription)")
             }
             return animal

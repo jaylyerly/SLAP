@@ -27,9 +27,7 @@ extension Storage {
 
     func add(animals: [Animal]) throws {
         let context = getContext()
-        animals.forEach {
-            context.insert($0)
-        }
+        animals.forEach { context.insert($0) }
         try context.save()
         
     }
@@ -40,9 +38,7 @@ extension Storage {
     
     func delete(animals: [Animal]) throws {
         let context = getContext()
-        animals.forEach {
-            context.delete($0)
-        }
+        animals.forEach { context.delete($0) }
         try context.save()
     }
     

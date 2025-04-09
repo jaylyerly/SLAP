@@ -1,6 +1,6 @@
 //
-//  RabbitStruct_Endpoints.swift
-//  SLAP
+//  Animal_Endpoints.swift
+//  SLAPUI
 //
 //  Created by Jay Lyerly on 10/27/24.
 //

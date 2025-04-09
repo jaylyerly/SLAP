@@ -1,6 +1,6 @@
 //
 //  Animal.swift
-//  SLAP
+//  SLAPUI
 //
 //  Created by Jay Lyerly on 4/3/25.
 //
@@ -11,18 +11,8 @@ import SwiftData
 @Model
 class Animal: Identifiable, Codable {
 
-    @Attribute(.unique)
-    var internalId: String
-    var name: String
-    var rawSex: String?
-    var status: String?
-    var rawWeight: String?
-    var rawAltered: String?
-    var rawAge: Int?
-    var rawCoverPhoto: String?
-    var rawPhotos: [String]?
-    var animalDescription: String?
-    
+    // Disable check for '_' in id name b/c we must match what the @Model macro generates
+    // swiftlint:disable identifier_name
     enum CodingKeys: String, CodingKey {
         case _internalId = "Internal-ID"
         case _name = "Name"
@@ -35,7 +25,20 @@ class Animal: Identifiable, Codable {
         case _rawPhotos = "Photos"
         case _animalDescription = "Description"
     }
-    
+    // swiftlint:enable identifier_name
+
+    @Attribute(.unique)
+    var internalId: String
+    var name: String
+    var rawSex: String?
+    var status: String?
+    var rawWeight: String?
+    var rawAltered: String?
+    var rawAge: Int?
+    var rawCoverPhoto: String?
+    var rawPhotos: [String]?
+    var animalDescription: String?
+        
     var id: String { internalId }
 
     init(
@@ -120,4 +123,3 @@ extension Animal {
         (rawPhotos ?? []).compactMap { URL(string: $0) }
     }
 }
-

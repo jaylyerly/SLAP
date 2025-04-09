@@ -1,6 +1,6 @@
 //
 //  Endpoint.swift
-//  SLAP
+//  SLAPUI
 //
 //  Created by Jay Lyerly on 10/27/24.
 //

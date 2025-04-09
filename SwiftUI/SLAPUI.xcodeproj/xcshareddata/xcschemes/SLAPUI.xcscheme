@@ -70,8 +70,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EC44469D2D9F225F003C7350"
-               BuildableName = "SLAPUIUITests.xctest"
-               BlueprintName = "SLAPUIUITests"
+               BuildableName = "bob.xctest"
+               BlueprintName = "bob"
                ReferencedContainer = "container:SLAPUI.xcodeproj">
             </BuildableReference>
          </TestableReference>

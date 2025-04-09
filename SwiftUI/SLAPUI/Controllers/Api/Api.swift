@@ -1,13 +1,12 @@
 //
 //  Api.swift
-//  SLAP
+//  SLAPUI
 //
 //  Created by Jay Lyerly on 10/26/24.
 //
 
 import Foundation
 import OSLog
-
 
 class Api {
     

@@ -14,19 +14,11 @@
 			remoteGlobalIDString = EC4446832D9F225F003C7350;
 			remoteInfo = SLAPUI;
 		};
-		EC44469F2D9F225F003C7350 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EC44467C2D9F225F003C7350 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EC4446832D9F225F003C7350;
-			remoteInfo = SLAPUI;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		EC4446842D9F225F003C7350 /* SLAPUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SLAPUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC4446942D9F225F003C7350 /* SLAPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SLAPUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC44469E2D9F225F003C7350 /* SLAPUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SLAPUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC4446D82D9F28E0003C7350 /* SLAPUI.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SLAPUI.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -39,11 +31,6 @@
 		EC4446972D9F225F003C7350 /* SLAPUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = SLAPUITests;
-			sourceTree = "<group>";
-		};
-		EC4446A12D9F225F003C7350 /* SLAPUIUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SLAPUIUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -63,13 +50,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EC44469B2D9F225F003C7350 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -79,7 +59,6 @@
 				EC4446D82D9F28E0003C7350 /* SLAPUI.xctestplan */,
 				EC4446862D9F225F003C7350 /* SLAPUI */,
 				EC4446972D9F225F003C7350 /* SLAPUITests */,
-				EC4446A12D9F225F003C7350 /* SLAPUIUITests */,
 				EC4446852D9F225F003C7350 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -89,7 +68,6 @@
 			children = (
 				EC4446842D9F225F003C7350 /* SLAPUI.app */,
 				EC4446942D9F225F003C7350 /* SLAPUITests.xctest */,
-				EC44469E2D9F225F003C7350 /* SLAPUIUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,29 +121,6 @@
 			productReference = EC4446942D9F225F003C7350 /* SLAPUITests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		EC44469D2D9F225F003C7350 /* SLAPUIUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EC4446AE2D9F2260003C7350 /* Build configuration list for PBXNativeTarget "SLAPUIUITests" */;
-			buildPhases = (
-				EC44469A2D9F225F003C7350 /* Sources */,
-				EC44469B2D9F225F003C7350 /* Frameworks */,
-				EC44469C2D9F225F003C7350 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EC4446A02D9F225F003C7350 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				EC4446A12D9F225F003C7350 /* SLAPUIUITests */,
-			);
-			name = SLAPUIUITests;
-			packageProductDependencies = (
-			);
-			productName = SLAPUIUITests;
-			productReference = EC44469E2D9F225F003C7350 /* SLAPUIUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -180,10 +135,6 @@
 						CreatedOnToolsVersion = 16.3;
 					};
 					EC4446932D9F225F003C7350 = {
-						CreatedOnToolsVersion = 16.3;
-						TestTargetID = EC4446832D9F225F003C7350;
-					};
-					EC44469D2D9F225F003C7350 = {
 						CreatedOnToolsVersion = 16.3;
 						TestTargetID = EC4446832D9F225F003C7350;
 					};
@@ -205,7 +156,6 @@
 			targets = (
 				EC4446832D9F225F003C7350 /* SLAPUI */,
 				EC4446932D9F225F003C7350 /* SLAPUITests */,
-				EC44469D2D9F225F003C7350 /* SLAPUIUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -219,13 +169,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		EC4446922D9F225F003C7350 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EC44469C2D9F225F003C7350 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -271,13 +214,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EC44469A2D9F225F003C7350 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -285,11 +221,6 @@
 			isa = PBXTargetDependency;
 			target = EC4446832D9F225F003C7350 /* SLAPUI */;
 			targetProxy = EC4446952D9F225F003C7350 /* PBXContainerItemProxy */;
-		};
-		EC4446A02D9F225F003C7350 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EC4446832D9F225F003C7350 /* SLAPUI */;
-			targetProxy = EC44469F2D9F225F003C7350 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -536,50 +467,6 @@
 			};
 			name = Release;
 		};
-		EC4446AF2D9F2260003C7350 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V9VQ2RXE25;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
-				MACOSX_DEPLOYMENT_TARGET = 15.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sonicbunny.SLAPUIUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_TARGET_NAME = SLAPUI;
-				XROS_DEPLOYMENT_TARGET = 2.4;
-			};
-			name = Debug;
-		};
-		EC4446B02D9F2260003C7350 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V9VQ2RXE25;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
-				MACOSX_DEPLOYMENT_TARGET = 15.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sonicbunny.SLAPUIUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_TARGET_NAME = SLAPUI;
-				XROS_DEPLOYMENT_TARGET = 2.4;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -606,15 +493,6 @@
 			buildConfigurations = (
 				EC4446AC2D9F2260003C7350 /* Debug */,
 				EC4446AD2D9F2260003C7350 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EC4446AE2D9F2260003C7350 /* Build configuration list for PBXNativeTarget "SLAPUIUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EC4446AF2D9F2260003C7350 /* Debug */,
-				EC4446B02D9F2260003C7350 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
