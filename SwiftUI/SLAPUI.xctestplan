@@ -1,0 +1,39 @@
+{
+  "configurations" : [
+    {
+      "id" : "14AB21EF-DE1F-4969-A565-8FC3EFF3DDEA",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:SLAPUI.xcodeproj",
+      "identifier" : "EC4446832D9F225F003C7350",
+      "name" : "SLAPUI"
+    },
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:SLAPUI.xcodeproj",
+        "identifier" : "EC4446932D9F225F003C7350",
+        "name" : "SLAPUITests"
+      }
+    },
+    {
+      "enabled" : false,
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:SLAPUI.xcodeproj",
+        "identifier" : "EC44469D2D9F225F003C7350",
+        "name" : "SLAPUIUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
