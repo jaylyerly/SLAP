@@ -22,6 +22,17 @@
 		EC4446D82D9F28E0003C7350 /* SLAPUI.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SLAPUI.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		ECB96C3F2DA708AD001115DD /* Exceptions for "SLAPUITests" folder in "SLAPUI" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Data/API/animals.json,
+				Data/API/animals.publishable.json,
+			);
+			target = EC4446832D9F225F003C7350 /* SLAPUI */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		EC4446862D9F225F003C7350 /* SLAPUI */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -30,6 +41,9 @@
 		};
 		EC4446972D9F225F003C7350 /* SLAPUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				ECB96C3F2DA708AD001115DD /* Exceptions for "SLAPUITests" folder in "SLAPUI" target */,
+			);
 			path = SLAPUITests;
 			sourceTree = "<group>";
 		};

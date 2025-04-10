@@ -123,3 +123,20 @@ extension Animal {
         (rawPhotos ?? []).compactMap { URL(string: $0) }
     }
 }
+
+// MARK: - Preview Data -
+
+extension Animal {
+    
+    static let previewAnimals: [Animal] = {
+        guard let url = Bundle.main.url(forResource: "animals.publishable", withExtension: "json"),
+              let data = try? Data(contentsOf: url),
+              let wrapper = try? JSONDecoder().decode(AnimalWrapper.self, from: data) else {
+            return []
+        }
+
+        return wrapper.animals
+    }()
+    
+    static let previewAnimal = previewAnimals[0] 
+}
