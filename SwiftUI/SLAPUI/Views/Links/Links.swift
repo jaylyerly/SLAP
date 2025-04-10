@@ -12,6 +12,20 @@ struct Links: View {
     @Environment(\.config)
     var config: Config
     
+    func linkButton(title: String, symbol: String, url: URL) -> some View {
+        Link(destination: url) {
+            VStack {
+                Image(systemName: symbol)
+                    .font(.system(size: 96))
+                    .accessibilityHidden(true)
+                Spacer()
+                Text(title)
+                    .foregroundStyle(.white)
+            }
+        }
+        .frame(maxWidth: .infinity)
+    }
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -29,31 +43,8 @@ struct Links: View {
                 .padding(10)
                 Spacer()
                 HStack {
-                    Link(destination: config.homeUrl) {
-                        VStack {
-                            Image(systemName: "house")
-                                .font(.system(size: 96))
-                                .accessibilityHidden(true)
-                            Spacer()
-                            Text("WebSite")
-                                .foregroundStyle(.white)
-                        }
-                    }
-                    .frame(maxWidth: .infinity)
-                    
-                    Link(destination: config.storeUrl) {
-                        VStack {
-                            Image(systemName: "storefront")
-                                .font(.system(size: 96))
-                                .accessibilityHidden(true)
-                            Spacer()
-                            Text("Store")
-                                .foregroundStyle(.white)
-                            
-                        }
-                    }
-                    .frame(maxWidth: .infinity)
-                    
+                    linkButton(title: "WebSite", symbol: "house", url: config.homeUrl)
+                    linkButton(title: "Store", symbol: "storefront", url: config.storeUrl)
                 }
                 .padding(10)
             }
