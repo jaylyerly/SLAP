@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class Config {
     
@@ -28,4 +29,9 @@ class Config {
     var version: String {
          "\(appVersion) (\(buildNumber))"
     }
+    
+    var bodyFont: Font = .custom("Marker Felt", size: 18, relativeTo: .body)
+    var titleFont: Font = .custom("Marker Felt", size: 32, relativeTo: .title)
+    var largeTitleFont: Font = .custom("Marker Felt", size: 48, relativeTo: .largeTitle)
+
 }

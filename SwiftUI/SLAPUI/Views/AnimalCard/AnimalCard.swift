@@ -33,7 +33,7 @@ struct AnimalCard: View {
                 .cornerRadius(10)
                 Text(animal.name)
                     .padding(insets)
-                    .background(.accent.opacity(0.7))
+                    .background(.slapBlue.opacity(0.7))
                     .foregroundStyle(.white)
                     .cornerRadius(10)
                     .offset(y: -insets.top - 5)

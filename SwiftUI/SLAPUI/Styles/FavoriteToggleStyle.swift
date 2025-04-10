@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FavoriteToggleStyle: ToggleStyle {
 
-    var onColor: Color = .secondaryAccent
+    var onColor: Color = .slapGreen
     var offColor: Color = .gray
     
     var onSymbol = "heart.fill"

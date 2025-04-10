@@ -25,8 +25,12 @@ struct AnimalList: View {
     let mode: Mode
     
     @State var viewModel: ViewModel?
+    
     @Environment(\.service)
     var service: Service
+    
+    @Environment(\.config)
+    var config: Config
 
     var body: some View {
         NavigationStack {
@@ -45,7 +49,7 @@ struct AnimalList: View {
                 }
             }
             .navigationDestination(for: Animal.self) { animal in
-                AnimalDetail(animal: animal)
+                AnimalDetail(internalId: animal.internalId)
             }
             .refreshable {
                 await viewModel?.refresh()
@@ -59,14 +63,16 @@ struct AnimalList: View {
             .toolbar {
                 ToolbarItem(placement: .navigation) {
                     Text(mode.title)
-                        .font(.largeTitle)
+                        .font(config.largeTitleFont)
                         .foregroundStyle(.white)
                         
                 }
             }
-            .toolbarColorScheme(.dark, for: .navigationBar)
-            .background(Color.accentColor)
+            .navigationTitle("")
+            .background(Color.slapBlue)
             .tint(.white)
+            .toolbarBackground(Color.slapBlue, for: .navigationBar)
+            .toolbarBackground(Color.slapBlue, for: .tabBar)
         }
     }
 }

@@ -11,35 +11,34 @@ private let insets = EdgeInsets(top: 5, leading: 20, bottom: 5, trailing: 20)
 
 struct AnimalDetail: View {
     
-    let animal: Animal
-    @State var isOn: Bool = false // placeholder for fav
+    let internalId: String
     
+    @State var isOn: Bool = false // placeholder for fav
+
+    @State var viewModel: ViewModel?
+
+    @Environment(\.service)
+    var service: Service
+    @Environment(\.config)
+    var config: Config
+    
+    var animal: Animal? { viewModel?.animal }
+
     var infoStack: some View {
         VStack(alignment: .center, spacing: 10) {
-            Text(animal.name)
-                .font(.largeTitle)
-                .padding(10)
-                .frame(maxWidth: .infinity)
-                .background(.accent)
-                .foregroundStyle(.white)
-                .cornerRadius(10)
-                .overlay {
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(.white, lineWidth: 2)
-                }
             VStack {
                 
                 HStack(alignment: .center, spacing: 15) {
-                    Text(animal.sex.rawValue.capitalized)
-                    if let weight = animal.weight {
+                    Text(animal?.sex.rawValue.capitalized ?? "")
+                    if let weight = animal?.weight {
                         Text("Weight: \(Int(round(weight))) lbs")
                     }
-                    if let age = animal.age {
+                    if let age = animal?.age {
                         Text("Age: \(Int(round(age))) years")
                     }
                 }
                 Divider()
-                if let desc = animal.animalDescription {
+                if let desc = animal?.animalDescription {
                     Text(desc)
                 }
             }
@@ -47,11 +46,12 @@ struct AnimalDetail: View {
             .background(.white)
             .cornerRadius(10)
         }.padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+    
     }
     
     var photoStack: some View {
         LazyVStack {
-            ForEach(animal.photos, id: \.self) { url in
+            ForEach(animal?.photos ?? [], id: \.self) { url in
                 AsyncImage(url: url,
                            content: { image in
                     image
@@ -73,11 +73,38 @@ struct AnimalDetail: View {
             infoStack
             photoStack
         }
-        .background(Color.accentColor)
+        .background(Color.slapBlue)
+        .refreshable {
+            await viewModel?.refresh()
+        }
+        .onAppear {
+            self.viewModel = ViewModel(internalId: internalId, service: service)
+        }
+        .task {
+            await viewModel?.refresh()
+        }
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text(viewModel?.animal?.name ?? "Details")
+                    .font(config.titleFont)
+                    .foregroundStyle(.white)
+                    
+            }
+            ToolbarItemGroup(placement: .topBarTrailing) {
+                Toggle("", isOn: $isOn)
+                .toggleStyle(FavoriteToggleStyle(padding: 0, size: 18))
+            }
+        }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarBackground(Color.slapBlue, for: .navigationBar)
+        .toolbarBackground(Color.slapBlue, for: .tabBar)
+        .tint(.white)
     }
     
 }
 
 #Preview {
-    AnimalDetail(animal: .previewAnimal)
+    NavigationStack {
+        AnimalDetail(internalId: Animal.previewAnimal.internalId)
+    }
 }
