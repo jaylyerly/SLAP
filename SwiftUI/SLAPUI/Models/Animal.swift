@@ -9,7 +9,7 @@ import Foundation
 import SwiftData
 
 @Model
-class Animal: Identifiable, Codable {
+class Animal: Codable {
 
     // Disable check for '_' in id name b/c we must match what the @Model macro generates
     // swiftlint:disable identifier_name
@@ -38,6 +38,8 @@ class Animal: Identifiable, Codable {
     var rawCoverPhoto: String?
     var rawPhotos: [String]?
     var animalDescription: String?
+    var isFavorite: Bool?
+    var isPublishable: Bool?
         
     var id: String { internalId }
 
@@ -51,7 +53,9 @@ class Animal: Identifiable, Codable {
         rawAge: Int? = nil,
         rawCoverPhoto: String? = nil,
         rawPhotos: [String]? = nil,
-        animalDescription: String? = nil
+        animalDescription: String? = nil,
+        isFavorite: Bool? = nil,
+        isPublishable: Bool? = nil
     ) {
         self.internalId = internalId
         self.name = name
@@ -63,6 +67,8 @@ class Animal: Identifiable, Codable {
         self.rawCoverPhoto = rawCoverPhoto
         self.rawPhotos = rawPhotos
         self.animalDescription = animalDescription
+        self.isFavorite = isFavorite
+        self.isPublishable = isPublishable
     }
     
     required init(from decoder: any Decoder) throws {
@@ -77,6 +83,8 @@ class Animal: Identifiable, Codable {
         rawCoverPhoto = try container.decodeIfPresent(String.self, forKey: ._rawCoverPhoto)
         rawPhotos = try container.decodeIfPresent([String].self, forKey: ._rawPhotos)
         animalDescription = try container.decodeIfPresent(String.self, forKey: ._animalDescription)
+        isFavorite = nil
+        isPublishable = nil
     }
     
     func encode(to encoder: any Encoder) throws {
@@ -121,6 +129,24 @@ extension Animal {
     
     var photos: [URL] {
         (rawPhotos ?? []).compactMap { URL(string: $0) }
+    }
+}
+
+// MARK: CRUD helpers
+
+extension Animal {
+    func merge(with other: Animal) {
+        name = other.name
+        rawSex = other.rawSex ?? rawSex
+        status = other.status ?? status
+        rawWeight = other.rawWeight ?? rawWeight
+        rawAltered = other.rawAltered ?? rawAltered
+        rawAge = other.rawAge ?? rawAge
+        rawCoverPhoto = other.rawCoverPhoto ?? rawCoverPhoto
+        rawPhotos = other.rawPhotos ?? rawPhotos
+        animalDescription = other.animalDescription ?? animalDescription
+        isFavorite = other.isFavorite ?? isFavorite
+        isPublishable = other.isPublishable ?? isPublishable
     }
 }
 

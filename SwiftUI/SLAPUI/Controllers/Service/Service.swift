@@ -36,11 +36,20 @@ class Service {
 // MARK: - Animals
 extension Service {
     
-    var animals: [Animal] {
+//    var animals: [Animal] {
+//        do {
+//            return try storage.animals()
+//        } catch {
+//            logger.error("Failed to get animals from storage: \(error.localizedDescription)")
+//            return []
+//        }
+//    }
+    
+    var publishableAnimals: [Animal] {
         do {
-            return try storage.animals()
+            return try storage.publishableAnimals()
         } catch {
-            logger.error("Failed to get animals from storage: \(error.localizedDescription)")
+            logger.error("Failed to get publishable animals from storage: \(error.localizedDescription)")
             return []
         }
     }
@@ -68,7 +77,7 @@ extension Service {
     func updateAnimal(withInternalId internalId: String) async -> Animal? {
         if let animal = try? await api.refreshAnimal(withInternalId: internalId) {
             do {
-                try storage.add(animal: animal)
+                try storage.upsert(animal: animal)
                 notifyDidUpdateAnimal(animal)
             } catch {
                 self.logger.error("Failed to update animal: \(error.localizedDescription)")
@@ -81,10 +90,10 @@ extension Service {
     
     @discardableResult
     func updateAnimals() async -> [Animal] {
-        let wrapper = try? await api.refreshAnimals()
+        let wrapper = try? await api.refreshPublishableAnimals()
         let animals = wrapper?.animals ?? []
         do {
-            try storage.add(animals: animals)
+            try storage.upsertPublishable(animals: animals)
             notifyDidUpdateAnimals()
             animals.forEach { notifyDidUpdateAnimal($0) }
         } catch {
@@ -92,20 +101,20 @@ extension Service {
         }
         
         return animals
-    }
+    }    
+
 }
 
 // MARK: - Favorites
 extension Service {
      
-    var favorites: [Animal] {
-        fatalError("Favorites not implemented yet")
-//        do {
-//            return try storage.favorites()
-//        } catch {
-//            logger.error("Failed to get favorites from storage: \(error.localizedDescription)")
-//            return []
-//        }
+    var favoriteAnimals: [Animal] {
+        do {
+            return try storage.favoriteAnimals()
+        } catch {
+            logger.error("Failed to get favorite animals from storage: \(error.localizedDescription)")
+            return []
+        }
     }
     
     private func notifyDidUpdateFavorite(_ animal: Animal) {
@@ -114,19 +123,22 @@ extension Service {
                                 userInfo: [Service.userInfoAnimalInternalIdKey: animal.internalId])
     }
     
-    @discardableResult
-    func toggleFavorite(withInternalId internalId: String) async -> Animal? {
-        if let animal = try? await api.refreshAnimal(withInternalId: internalId) {
-            do {
-                try storage.add(animal: animal)
-                notifyDidUpdateFavorite(animal)
-            } catch {
-                self.logger.error("Failed to update animal: \(error.localizedDescription)")
-            }
-            return animal
+    func favorite(_ animal: Animal) async {
+        do {
+            try storage.setFavorite(animal: animal, toValue: true)
+            notifyDidUpdateFavorite(animal)
+        } catch {
+            logger.error("Failed to toggle favorite: \(error.localizedDescription)")
         }
-            
-        return nil
+    }
+    
+    func unFavorite(_ animal: Animal) async {
+        do {
+            try storage.setFavorite(animal: animal, toValue: false)
+            notifyDidUpdateFavorite(animal)
+        } catch {
+            logger.error("Failed to toggle favorite: \(error.localizedDescription)")
+        }
     }
     
 }

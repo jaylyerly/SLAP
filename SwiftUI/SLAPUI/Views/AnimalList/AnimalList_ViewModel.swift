@@ -57,9 +57,9 @@ extension AnimalList {
         func update() {
             switch mode {
                 case .all:
-                    animals = service.animals
+                    animals = service.publishableAnimals
                 case .favorites:
-                    animals = service.favorites
+                    animals = service.favoriteAnimals
             }
         }
     }

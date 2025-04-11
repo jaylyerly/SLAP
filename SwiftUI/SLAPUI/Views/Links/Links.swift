@@ -12,20 +12,6 @@ struct Links: View {
     @Environment(\.config)
     var config: Config
     
-    func linkButton(title: String, symbol: String, url: URL) -> some View {
-        Link(destination: url) {
-            VStack {
-                Image(systemName: symbol)
-                    .font(.system(size: 96))
-                    .accessibilityHidden(true)
-                Spacer()
-                Text(title)
-                    .foregroundStyle(.white)
-            }
-        }
-        .frame(maxWidth: .infinity)
-    }
-    
     var body: some View {
         ScrollView {
             VStack {
@@ -50,6 +36,20 @@ struct Links: View {
             }
         }
         .background(.slapBlue)
+    }
+    
+    func linkButton(title: String, symbol: String, url: URL) -> some View {
+        Link(destination: url) {
+            VStack {
+                Image(systemName: symbol)
+                    .font(.system(size: 96))
+                    .accessibilityHidden(true)
+                Spacer()
+                Text(title)
+                    .foregroundStyle(.white)
+            }
+        }
+        .frame(maxWidth: .infinity)
     }
 }
 

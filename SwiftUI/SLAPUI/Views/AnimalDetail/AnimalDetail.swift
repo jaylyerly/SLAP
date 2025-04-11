@@ -13,8 +13,6 @@ struct AnimalDetail: View {
     
     let internalId: String
     
-    @State var isOn: Bool = false // placeholder for fav
-
     @State var viewModel: ViewModel?
 
     @Environment(\.service)
@@ -24,6 +22,14 @@ struct AnimalDetail: View {
     
     var animal: Animal? { viewModel?.animal }
 
+    var isFavorite: Binding<Bool> {
+        Binding<Bool>(get: {
+            viewModel?.isFavorite ?? false
+        }, set: { newValue in
+            viewModel?.isFavorite = newValue
+        })
+    }
+    
     var infoStack: some View {
         VStack(alignment: .center, spacing: 10) {
             VStack {
@@ -91,7 +97,7 @@ struct AnimalDetail: View {
                     
             }
             ToolbarItemGroup(placement: .topBarTrailing) {
-                Toggle("", isOn: $isOn)
+                Toggle("", isOn: isFavorite)
                 .toggleStyle(FavoriteToggleStyle(padding: 0, size: 18))
             }
         }

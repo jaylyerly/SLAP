@@ -30,7 +30,7 @@ class Api {
                              sessionConfiguration: sessionConfig)
     }
     
-    func refreshAnimals() async throws -> AnimalWrapper {
+    func refreshPublishableAnimals() async throws -> AnimalWrapper {
         logger.info("refreshing animal list")
 
         let list = try await server.load(endpoint: AnimalWrapper.publishable())

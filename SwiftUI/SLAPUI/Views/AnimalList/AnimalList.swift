@@ -20,6 +20,15 @@ struct AnimalList: View {
                     return "Favorites"
             }
         }
+        
+        var emptyListMessage: String {
+            switch self {
+                case .all:
+                    return "No adoptable animals found."
+                case .favorites:
+                    return "No favorite animals found."
+            }
+        }
     }
 
     let mode: Mode
@@ -31,22 +40,32 @@ struct AnimalList: View {
     
     @Environment(\.config)
     var config: Config
+    
+    var scrollContent: some View {
+        LazyVStack(alignment: .leading) {
+            if let viewModel {
+                ForEach(viewModel.animals, id: \.self) { animal in
+                    NavigationLink(value: animal) {
+                        AnimalCard(animal: animal)
+                    }
+                }
+                if viewModel.animals.isEmpty {
+                    Text(mode.emptyListMessage)
+                        .frame(maxWidth: .infinity)
+                        .padding(30)
+                        .foregroundStyle(.white)
+                        .font(config.bodyFont)
+                }
+            } else {
+                Text(mode.emptyListMessage)
+            }
+        }
+    }
 
     var body: some View {
         NavigationStack {
-            
             ScrollView {
-                LazyVStack(alignment: .leading) {
-                    if let viewModel {
-                        ForEach(viewModel.animals, id: \.self) { animal in
-                            NavigationLink(value: animal) {
-                                AnimalCard(animal: animal)
-                            }
-                        }
-                    } else {
-                        Text("No animals found.")
-                    }
-                }
+                scrollContent
             }
             .navigationDestination(for: Animal.self) { animal in
                 AnimalDetail(internalId: animal.internalId)
@@ -65,7 +84,6 @@ struct AnimalList: View {
                     Text(mode.title)
                         .font(config.largeTitleFont)
                         .foregroundStyle(.white)
-                        
                 }
             }
             .navigationTitle("")
@@ -79,5 +97,10 @@ struct AnimalList: View {
 
 #Preview {
     AnimalList(mode: .all, viewModel: nil)
+        .environment(\.service, .preview)
+}
+
+#Preview {
+    AnimalList(mode: .favorites, viewModel: nil)
         .environment(\.service, .preview)
 }
