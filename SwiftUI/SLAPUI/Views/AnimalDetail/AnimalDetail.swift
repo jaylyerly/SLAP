@@ -5,6 +5,7 @@
 //  Created by Jay Lyerly on 4/9/25.
 //
 
+import CachedAsyncImage
 import SwiftUI
 
 private let insets = EdgeInsets(top: 5, leading: 20, bottom: 5, trailing: 20)
@@ -58,8 +59,9 @@ struct AnimalDetail: View {
     var photoStack: some View {
         LazyVStack {
             ForEach(animal?.photos ?? [], id: \.self) { url in
-                AsyncImage(url: url,
-                           content: { image in
+                CachedAsyncImage(url: url,
+                                 urlCache: .imageCache,
+                                 content: { image in
                     image
                         .resizable()
                         .scaledToFit()

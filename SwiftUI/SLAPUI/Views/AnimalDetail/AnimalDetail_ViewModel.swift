@@ -46,7 +46,7 @@ extension AnimalDetail {
         private func listenForNotifications() {
             Task {
                 for await notification in notificationCenter.notifications(named: .didUpdateAnimal) {
-                    logger.debug("didUpdateAnimal received!")
+//                    logger.debug("didUpdateAnimal received!")
                     if notification.userInfo?[Service.userInfoAnimalInternalIdKey] as? String == internalId {
                         // Update if the notification is for this Animal
                         update()
@@ -55,7 +55,7 @@ extension AnimalDetail {
             }
             Task {
                 for await notification in notificationCenter.notifications(named: .didUpdateFavorites) {
-                    logger.debug("didUpdateFavorites received!")
+//                    logger.debug("didUpdateFavorites received!")
                     if notification.userInfo?[Service.userInfoAnimalInternalIdKey] as? String == internalId {
                         // Update if the notification is for this Animal
                         update()

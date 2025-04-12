@@ -7,9 +7,8 @@
 
 import Foundation
 import Testing
-import SwiftData
-
 @testable import SLAPUI
+import SwiftData
 
 @Suite("Storage Tests") struct StorageTests {
     

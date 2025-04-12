@@ -36,6 +36,9 @@ struct Links: View {
             }
         }
         .background(.slapBlue)
+        .toolbarBackground(Color.slapBlue, for: .navigationBar)
+        .toolbarBackground(Color.slapBlue, for: .tabBar)
+
     }
     
     func linkButton(title: String, symbol: String, url: URL) -> some View {

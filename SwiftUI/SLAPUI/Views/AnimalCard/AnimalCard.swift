@@ -5,6 +5,7 @@
 //  Created by Jay Lyerly on 4/8/25.
 //
 
+import CachedAsyncImage
 import SwiftUI
 
 private let insets = EdgeInsets(top: 5, leading: 20, bottom: 5, trailing: 20)
@@ -12,13 +13,26 @@ private let insets = EdgeInsets(top: 5, leading: 20, bottom: 5, trailing: 20)
 struct AnimalCard: View {
     
     let animal: Animal
-    @State var isOn: Bool = false // placeholder for fav
+    
+    @Environment(\.service)
+    var service: Service
+    
+    @State var viewModel: ViewModel?
+    
+    var isFavorite: Binding<Bool> {
+        Binding<Bool>(get: {
+            viewModel?.isFavorite ?? false
+        }, set: { newValue in
+            viewModel?.isFavorite = newValue
+        })
+    }
     
     var body: some View {
         ZStack(alignment: .topTrailing) {
             ZStack(alignment: .bottom) {
                 
-                AsyncImage(url: animal.coverPhoto,
+                CachedAsyncImage(url: animal.coverPhoto,
+                                 urlCache: .imageCache,
                            content: { image in
                     image
                         .resizable()
@@ -39,8 +53,11 @@ struct AnimalCard: View {
                     .offset(y: -insets.top - 5)
             }
             .padding(10)
-            Toggle("", isOn: $isOn)
+            Toggle("", isOn: isFavorite)
             .toggleStyle(FavoriteToggleStyle(padding: 30, size: 36))
+        }
+        .onAppear {
+            self.viewModel = ViewModel(internalId: animal.internalId, service: service)
         }
     }
     

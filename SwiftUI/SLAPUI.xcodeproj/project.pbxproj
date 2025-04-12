@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		EC449F932DA9BD4D003FFC74 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = EC449F922DA9BD4D003FFC74 /* CachedAsyncImage */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		EC4446952D9F225F003C7350 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -54,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC449F932DA9BD4D003FFC74 /* CachedAsyncImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +78,7 @@
 				EC4446D82D9F28E0003C7350 /* SLAPUI.xctestplan */,
 				EC4446862D9F225F003C7350 /* SLAPUI */,
 				EC4446972D9F225F003C7350 /* SLAPUITests */,
+				EC449F912DA9BD4D003FFC74 /* Frameworks */,
 				EC4446852D9F225F003C7350 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -84,6 +90,13 @@
 				EC4446942D9F225F003C7350 /* SLAPUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		EC449F912DA9BD4D003FFC74 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -107,6 +120,7 @@
 			);
 			name = SLAPUI;
 			packageProductDependencies = (
+				EC449F922DA9BD4D003FFC74 /* CachedAsyncImage */,
 			);
 			productName = SLAPUI;
 			productReference = EC4446842D9F225F003C7350 /* SLAPUI.app */;
@@ -163,6 +177,9 @@
 			);
 			mainGroup = EC44467B2D9F225F003C7350;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				EC449F902DA9BC9A003FFC74 /* XCRemoteSwiftPackageReference "CachedAsyncImage" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = EC4446852D9F225F003C7350 /* Products */;
 			projectDirPath = "";
@@ -512,6 +529,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EC449F902DA9BC9A003FFC74 /* XCRemoteSwiftPackageReference "CachedAsyncImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/0xWDG/CachedAsyncImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EC449F922DA9BD4D003FFC74 /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC449F902DA9BC9A003FFC74 /* XCRemoteSwiftPackageReference "CachedAsyncImage" */;
+			productName = CachedAsyncImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EC44467C2D9F225F003C7350 /* Project object */;
 }
