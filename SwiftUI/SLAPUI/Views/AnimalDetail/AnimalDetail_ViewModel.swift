@@ -14,7 +14,11 @@ extension AnimalDetail {
     class ViewModel {
         private let logger = Logger.defaultLogger()
         
-        let service: Service
+        var service: Service? {
+            didSet {
+                update()
+            }
+        }
         let notificationCenter: NotificationCenter
         
         let internalId: String
@@ -26,16 +30,15 @@ extension AnimalDetail {
                 guard let animal else { return }
                 Task {
                     if newValue {
-                        await service.favorite(animal)
+                        await service?.favorite(animal)
                     } else {
-                        await service.unFavorite(animal)
+                        await service?.unFavorite(animal)
                     }
                 }
             }
         }
         
-        init(internalId: String, service: Service, notificationCenter: NotificationCenter = .default) {
-            self.service = service
+        init(internalId: String, notificationCenter: NotificationCenter = .default) {
             self.notificationCenter = notificationCenter
             self.internalId = internalId
             
@@ -46,7 +49,6 @@ extension AnimalDetail {
         private func listenForNotifications() {
             Task {
                 for await notification in notificationCenter.notifications(named: .didUpdateAnimal) {
-//                    logger.debug("didUpdateAnimal received!")
                     if notification.userInfo?[Service.userInfoAnimalInternalIdKey] as? String == internalId {
                         // Update if the notification is for this Animal
                         update()
@@ -55,7 +57,6 @@ extension AnimalDetail {
             }
             Task {
                 for await notification in notificationCenter.notifications(named: .didUpdateFavorites) {
-//                    logger.debug("didUpdateFavorites received!")
                     if notification.userInfo?[Service.userInfoAnimalInternalIdKey] as? String == internalId {
                         // Update if the notification is for this Animal
                         update()
@@ -66,11 +67,29 @@ extension AnimalDetail {
         }
         
         func refresh() async {
-            await service.updateAnimal(withInternalId: internalId)
+            await service?.updateAnimal(withInternalId: internalId)
         }
         
         func update() {
-            animal = service.animal(withInternalId: internalId)
+            animal = service?.animal(withInternalId: internalId)
         }
     }
+}
+
+extension AnimalDetail.ViewModel {
+    
+    var displayName: String {
+        animal?.name ?? "<Missing Name>"
+    }
+    
+    var displayWeight: String? {
+        guard let weight = animal?.weight else { return nil }
+        return "Weight: \(Int(round(weight))) lbs"
+    }
+    
+    var displayAge: String? {
+        guard let age = animal?.age else { return nil }
+        return "Age: \(Int(round(age))) years"
+    }
+    
 }

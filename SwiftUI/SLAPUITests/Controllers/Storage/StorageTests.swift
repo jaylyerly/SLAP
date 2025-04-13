@@ -6,9 +6,9 @@
 //
 
 import Foundation
-import Testing
 @testable import SLAPUI
 import SwiftData
+import Testing
 
 @Suite("Storage Tests") struct StorageTests {
     

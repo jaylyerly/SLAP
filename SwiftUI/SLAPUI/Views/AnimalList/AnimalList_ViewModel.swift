@@ -31,13 +31,11 @@ extension AnimalList {
         private func listenForNotifications() {
             Task {
                 for await _ in notificationCenter.notifications(named: .didUpdateAnimals) {
-//                    logger.debug("didUpdateAnimals received!")
                     update()
                 }
             }
             Task {
                 for await _ in notificationCenter.notifications(named: .didUpdateFavorites) {
-//                    logger.debug("didUpdateFavorites received!")
                     update()
                 }
             }
@@ -49,7 +47,6 @@ extension AnimalList {
                     await service.updateAnimals()
                 case .favorites:
                     // Favs are local, so no way to refresh, just update
-//                    await service.updateFavorites()
                     update()
             }
         }

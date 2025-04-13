@@ -46,7 +46,7 @@ struct AnimalList: View {
             if let viewModel {
                 ForEach(viewModel.animals, id: \.self) { animal in
                     NavigationLink(value: animal) {
-                        AnimalCard(animal: animal)
+                        AnimalCard(viewModel: .init(internalId: animal.internalId))
                     }
                 }
                 if viewModel.animals.isEmpty {
@@ -68,7 +68,7 @@ struct AnimalList: View {
                 scrollContent
             }
             .navigationDestination(for: Animal.self) { animal in
-                AnimalDetail(internalId: animal.internalId)
+                AnimalDetail(viewModel: .init(internalId: animal.internalId))
             }
             .refreshable {
                 await viewModel?.refresh()
