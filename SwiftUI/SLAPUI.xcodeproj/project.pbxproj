@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC38149E2DAC290200151F52 /* CustomDump in Frameworks */ = {isa = PBXBuildFile; productRef = EC38149D2DAC290200151F52 /* CustomDump */; };
 		EC449F932DA9BD4D003FFC74 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = EC449F922DA9BD4D003FFC74 /* CachedAsyncImage */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC38149E2DAC290200151F52 /* CustomDump in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +146,7 @@
 			);
 			name = SLAPUITests;
 			packageProductDependencies = (
+				EC38149D2DAC290200151F52 /* CustomDump */,
 			);
 			productName = SLAPUITests;
 			productReference = EC4446942D9F225F003C7350 /* SLAPUITests.xctest */;
@@ -179,6 +182,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				EC449F902DA9BC9A003FFC74 /* XCRemoteSwiftPackageReference "CachedAsyncImage" */,
+				EC38149C2DAC290200151F52 /* XCRemoteSwiftPackageReference "swift-custom-dump" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = EC4446852D9F225F003C7350 /* Products */;
@@ -531,6 +535,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EC38149C2DAC290200151F52 /* XCRemoteSwiftPackageReference "swift-custom-dump" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-custom-dump.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.3;
+			};
+		};
 		EC449F902DA9BC9A003FFC74 /* XCRemoteSwiftPackageReference "CachedAsyncImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/0xWDG/CachedAsyncImage.git";
@@ -542,6 +554,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EC38149D2DAC290200151F52 /* CustomDump */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC38149C2DAC290200151F52 /* XCRemoteSwiftPackageReference "swift-custom-dump" */;
+			productName = CustomDump;
+		};
 		EC449F922DA9BD4D003FFC74 /* CachedAsyncImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EC449F902DA9BC9A003FFC74 /* XCRemoteSwiftPackageReference "CachedAsyncImage" */;

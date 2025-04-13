@@ -47,17 +47,6 @@ extension Storage {
         return animals
     }
 
-//    func add(animals: [Animal]) throws {
-//        let context = getContext()
-//        animals.forEach { context.insert($0) }
-//        try context.save()
-//        
-//    }
-//    
-//    func add(animal: Animal) throws {
-//        try add(animals: [animal])
-//    }
-    
     func upsert(animals: [Animal], context overrideContext: ModelContext? = nil) throws {
         let context = overrideContext ?? getContext()
         animals.forEach { animal in
@@ -98,7 +87,7 @@ extension Storage {
     
     func setFavorite(animal inAnimal: Animal, toValue value: Bool) throws {
         let context = getContext()
-        if var workingAnimal = try animal(withInternalId: inAnimal.internalId, context: context) {
+        if let workingAnimal = try animal(withInternalId: inAnimal.internalId, context: context) {
             workingAnimal.isFavorite = value
             try context.save()
         } else {

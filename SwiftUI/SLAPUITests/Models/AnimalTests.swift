@@ -42,9 +42,9 @@ import Testing
         let url2 = try #require(URL(string: photo2))
         // Check derived values
         #expect(animal.sex == .female)
-        #expect(aboutEqual(try #require(animal.weight), 4.0962))
+        #expect(aboutEqual(animal.weight, 4.0962))
         #expect(animal.altered)
-        #expect(aboutEqual(try #require(animal.age), 2.66666))
+        #expect(aboutEqual(animal.age, 2.66666))
         #expect(animal.coverPhoto == url1)
         #expect(animal.photos == [url1, url2])
     }

@@ -48,21 +48,19 @@ extension AnimalDetail {
         
         private func listenForNotifications() {
             Task {
-                for await notification in notificationCenter.notifications(named: .didUpdateAnimal) {
-                    if notification.userInfo?[Service.userInfoAnimalInternalIdKey] as? String == internalId {
-                        // Update if the notification is for this Animal
-                        update()
-                    }
+                for await notification in notificationCenter.notifications(named: .didUpdateAnimal) where
+                notification.userInfo?[Service.userInfoAnimalInternalIdKey] as? String == internalId {
+                    // Update if the notification is for this Animal
+                    update()
                 }
+                
             }
             Task {
-                for await notification in notificationCenter.notifications(named: .didUpdateFavorites) {
-                    if notification.userInfo?[Service.userInfoAnimalInternalIdKey] as? String == internalId {
-                        // Update if the notification is for this Animal
-                        update()
-                    }
+                for await notification in notificationCenter.notifications(named: .didUpdateFavorites)
+                where notification.userInfo?[Service.userInfoAnimalInternalIdKey] as? String == internalId {
+                    // Update if the notification is for this Animal
+                    update()
                 }
-
             }
         }
         

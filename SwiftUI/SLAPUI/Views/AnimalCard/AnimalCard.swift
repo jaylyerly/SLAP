@@ -24,12 +24,12 @@ struct AnimalCard: View {
                 
                 CachedAsyncImage(url: animal?.coverPhoto,
                                  urlCache: .imageCache,
-                           content: { image in
+                                 content: { image in
                     image
                         .resizable()
                         .scaledToFit()
                 },
-                           placeholder: {
+                                 placeholder: {
                     Image("PlaceholderRabbit")
                         .resizable()
                         .scaledToFit()

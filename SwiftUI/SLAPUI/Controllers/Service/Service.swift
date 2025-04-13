@@ -36,15 +36,6 @@ class Service {
 // MARK: - Animals
 extension Service {
     
-//    var animals: [Animal] {
-//        do {
-//            return try storage.animals()
-//        } catch {
-//            logger.error("Failed to get animals from storage: \(error.localizedDescription)")
-//            return []
-//        }
-//    }
-    
     var publishableAnimals: [Animal] {
         do {
             return try storage.publishableAnimals()

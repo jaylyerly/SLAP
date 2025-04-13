@@ -9,6 +9,15 @@
     }
   ],
   "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:SLAPUI.xcodeproj",
+          "identifier" : "EC4446832D9F225F003C7350",
+          "name" : "SLAPUI"
+        }
+      ]
+    },
     "targetForVariableExpansion" : {
       "containerPath" : "container:SLAPUI.xcodeproj",
       "identifier" : "EC4446832D9F225F003C7350",

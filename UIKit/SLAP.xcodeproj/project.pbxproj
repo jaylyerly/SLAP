@@ -93,20 +93,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		EC4446462D9C7576003C7350 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ECA17C032CCD26F900B13270 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EC4446352D9C7575003C7350;
-			remoteInfo = SLAP2;
-		};
-		EC4446502D9C7576003C7350 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ECA17C032CCD26F900B13270 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EC4446352D9C7575003C7350;
-			remoteInfo = SLAP2;
-		};
 		ECA17C222CCD26FB00B13270 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ECA17C032CCD26F900B13270 /* Project object */;
@@ -117,9 +103,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		EC4446362D9C7575003C7350 /* SLAP2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SLAP2.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC4446452D9C7576003C7350 /* SLAP2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SLAP2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC44464F2D9C7576003C7350 /* SLAP2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SLAP2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC4446792D9F2194003C7350 /* SLAP.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SLAP.xcdatamodel; sourceTree = "<group>"; };
 		ECA17C0B2CCD26FA00B13270 /* SLAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SLAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA17C0E2CCD26FA00B13270 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -209,27 +192,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		EC4446332D9C7575003C7350 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EC4446422D9C7576003C7350 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EC44464C2D9C7576003C7350 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		ECA17C082CCD26FA00B13270 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -262,9 +224,6 @@
 			children = (
 				ECA17C0B2CCD26FA00B13270 /* SLAP.app */,
 				ECA17C212CCD26FB00B13270 /* SLAPTests.xctest */,
-				EC4446362D9C7575003C7350 /* SLAP2.app */,
-				EC4446452D9C7576003C7350 /* SLAP2Tests.xctest */,
-				EC44464F2D9C7576003C7350 /* SLAP2UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -602,65 +561,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EC4446352D9C7575003C7350 /* SLAP2 */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EC44465D2D9C7576003C7350 /* Build configuration list for PBXNativeTarget "SLAP2" */;
-			buildPhases = (
-				EC4446322D9C7575003C7350 /* Sources */,
-				EC4446332D9C7575003C7350 /* Frameworks */,
-				EC4446342D9C7575003C7350 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SLAP2;
-			packageProductDependencies = (
-			);
-			productName = SLAP2;
-			productReference = EC4446362D9C7575003C7350 /* SLAP2.app */;
-			productType = "com.apple.product-type.application";
-		};
-		EC4446442D9C7576003C7350 /* SLAP2Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EC44465E2D9C7576003C7350 /* Build configuration list for PBXNativeTarget "SLAP2Tests" */;
-			buildPhases = (
-				EC4446412D9C7576003C7350 /* Sources */,
-				EC4446422D9C7576003C7350 /* Frameworks */,
-				EC4446432D9C7576003C7350 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EC4446472D9C7576003C7350 /* PBXTargetDependency */,
-			);
-			name = SLAP2Tests;
-			packageProductDependencies = (
-			);
-			productName = SLAP2Tests;
-			productReference = EC4446452D9C7576003C7350 /* SLAP2Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		EC44464E2D9C7576003C7350 /* SLAP2UITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EC44465F2D9C7576003C7350 /* Build configuration list for PBXNativeTarget "SLAP2UITests" */;
-			buildPhases = (
-				EC44464B2D9C7576003C7350 /* Sources */,
-				EC44464C2D9C7576003C7350 /* Frameworks */,
-				EC44464D2D9C7576003C7350 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EC4446512D9C7576003C7350 /* PBXTargetDependency */,
-			);
-			name = SLAP2UITests;
-			packageProductDependencies = (
-			);
-			productName = SLAP2UITests;
-			productReference = EC44464F2D9C7576003C7350 /* SLAP2UITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		ECA17C0A2CCD26FA00B13270 /* SLAP */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = ECA17C352CCD26FB00B13270 /* Build configuration list for PBXNativeTarget "SLAP" */;
@@ -710,17 +610,6 @@
 				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1630;
 				TargetAttributes = {
-					EC4446352D9C7575003C7350 = {
-						CreatedOnToolsVersion = 16.3;
-					};
-					EC4446442D9C7576003C7350 = {
-						CreatedOnToolsVersion = 16.3;
-						TestTargetID = EC4446352D9C7575003C7350;
-					};
-					EC44464E2D9C7576003C7350 = {
-						CreatedOnToolsVersion = 16.3;
-						TestTargetID = EC4446352D9C7575003C7350;
-					};
 					ECA17C0A2CCD26FA00B13270 = {
 						CreatedOnToolsVersion = 15.4;
 					};
@@ -748,35 +637,11 @@
 			targets = (
 				ECA17C0A2CCD26FA00B13270 /* SLAP */,
 				ECA17C202CCD26FB00B13270 /* SLAPTests */,
-				EC4446352D9C7575003C7350 /* SLAP2 */,
-				EC4446442D9C7576003C7350 /* SLAP2Tests */,
-				EC44464E2D9C7576003C7350 /* SLAP2UITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		EC4446342D9C7575003C7350 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EC4446432D9C7576003C7350 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EC44464D2D9C7576003C7350 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		ECA17C092CCD26FA00B13270 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -824,27 +689,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		EC4446322D9C7575003C7350 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EC4446412D9C7576003C7350 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EC44464B2D9C7576003C7350 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		ECA17C072CCD26FA00B13270 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -936,16 +780,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		EC4446472D9C7576003C7350 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EC4446352D9C7575003C7350 /* SLAP2 */;
-			targetProxy = EC4446462D9C7576003C7350 /* PBXContainerItemProxy */;
-		};
-		EC4446512D9C7576003C7350 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EC4446352D9C7575003C7350 /* SLAP2 */;
-			targetProxy = EC4446502D9C7576003C7350 /* PBXContainerItemProxy */;
-		};
 		ECA17C232CCD26FB00B13270 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = ECA17C0A2CCD26FA00B13270 /* SLAP */;
@@ -973,174 +807,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		EC4446572D9C7576003C7350 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SLAP2/SLAP2.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sonicbunny.SLAP2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				REGISTER_APP_GROUPS = YES;
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				XROS_DEPLOYMENT_TARGET = 2.4;
-			};
-			name = Debug;
-		};
-		EC4446582D9C7576003C7350 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SLAP2/SLAP2.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sonicbunny.SLAP2;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				REGISTER_APP_GROUPS = YES;
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				XROS_DEPLOYMENT_TARGET = 2.4;
-			};
-			name = Release;
-		};
-		EC4446592D9C7576003C7350 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
-				MACOSX_DEPLOYMENT_TARGET = 15.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sonicbunny.SLAP2Tests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SLAP2.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SLAP2";
-				XROS_DEPLOYMENT_TARGET = 2.4;
-			};
-			name = Debug;
-		};
-		EC44465A2D9C7576003C7350 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
-				MACOSX_DEPLOYMENT_TARGET = 15.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sonicbunny.SLAP2Tests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SLAP2.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/SLAP2";
-				XROS_DEPLOYMENT_TARGET = 2.4;
-			};
-			name = Release;
-		};
-		EC44465B2D9C7576003C7350 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
-				MACOSX_DEPLOYMENT_TARGET = 15.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sonicbunny.SLAP2UITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_TARGET_NAME = SLAP2;
-				XROS_DEPLOYMENT_TARGET = 2.4;
-			};
-			name = Debug;
-		};
-		EC44465C2D9C7576003C7350 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
-				MACOSX_DEPLOYMENT_TARGET = 15.4;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sonicbunny.SLAP2UITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_TARGET_NAME = SLAP2;
-				XROS_DEPLOYMENT_TARGET = 2.4;
-			};
-			name = Release;
-		};
 		ECA17C332CCD26FB00B13270 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1367,33 +1033,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EC44465D2D9C7576003C7350 /* Build configuration list for PBXNativeTarget "SLAP2" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EC4446572D9C7576003C7350 /* Debug */,
-				EC4446582D9C7576003C7350 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EC44465E2D9C7576003C7350 /* Build configuration list for PBXNativeTarget "SLAP2Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EC4446592D9C7576003C7350 /* Debug */,
-				EC44465A2D9C7576003C7350 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		EC44465F2D9C7576003C7350 /* Build configuration list for PBXNativeTarget "SLAP2UITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EC44465B2D9C7576003C7350 /* Debug */,
-				EC44465C2D9C7576003C7350 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		ECA17C062CCD26F900B13270 /* Build configuration list for PBXProject "SLAP" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
