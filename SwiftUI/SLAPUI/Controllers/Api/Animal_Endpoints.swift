@@ -10,11 +10,9 @@ import Foundation
 typealias AnimalEndpoint = Endpoint<Animal>
 
 extension Animal {
-    
-    static let detailEndpointName = "AnimalDetail"
-    
+        
     static func detail(forId objId: String) -> AnimalEndpoint {
-        AnimalEndpoint(name: detailEndpointName, pathPrefix: "animals", objId: objId)
+        AnimalEndpoint(pathPrefix: "animals", objId: objId)
     }
     
 }
