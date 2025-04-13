@@ -1,6 +1,6 @@
 //
-//  AnimalEndpointTests.swift
-//  SLAPUI
+//  AnimalEndpointsTests.swift
+//  SLAPUITests
 //
 //  Created by Jay Lyerly on 4/13/25.
 //
@@ -9,7 +9,6 @@ import CustomDump
 import Foundation
 @testable import SLAPUI
 import Testing
-
 
 @Suite("Animal Endpoints Tests") struct AnimalEndpointsTests {
 
@@ -40,4 +39,3 @@ import Testing
     }
     
 }
-

@@ -1,6 +1,6 @@
 //
 //  ApiTests.swift
-//  SLAPUI
+//  SLAPUITests
 //
 //  Created by Jay Lyerly on 4/13/25.
 //

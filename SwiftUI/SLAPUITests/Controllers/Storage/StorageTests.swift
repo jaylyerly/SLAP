@@ -63,7 +63,7 @@ import Testing
         try storage.setFavorite(animal: favAnimal, toValue: true)
         
         #expect(try storage.favoriteAnimals().count == 1)
-        let newAnimal = try #require(await storage.animal(withInternalId: favAnimal.internalId))
+        let newAnimal = try #require(try storage.animal(withInternalId: favAnimal.internalId))
         let isFav = try #require(newAnimal.isFavorite as Bool?)
         #expect(isFav)
         #expect(try storage.favoriteAnimals()[0].id == favAnimal.id)
