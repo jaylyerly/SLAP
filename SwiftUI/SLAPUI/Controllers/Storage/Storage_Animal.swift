@@ -9,6 +9,9 @@ import Foundation
 import SwiftData
 
 extension Storage {
+    private var sortBy: [SortDescriptor<Animal>] {
+        [SortDescriptor(\Animal.name)]
+    }
     
     private func fetchDescriptor(withInternalId internalId: String) -> FetchDescriptor<Animal> {
         let predicate = #Predicate<Animal> { $0.internalId == internalId }
@@ -26,7 +29,7 @@ extension Storage {
     
     func animals() throws -> [Animal] {
         let context = getContext()
-        let descriptor = FetchDescriptor<Animal>()
+        let descriptor = FetchDescriptor<Animal>(sortBy: sortBy)
         let animals = try context.fetch(descriptor)
         return animals
     }
@@ -34,7 +37,7 @@ extension Storage {
     func favoriteAnimals() throws -> [Animal] {
         let context = getContext()
         let predicate = #Predicate<Animal> { $0.isFavorite == true }
-        let descriptor = FetchDescriptor(predicate: predicate)
+        let descriptor = FetchDescriptor(predicate: predicate, sortBy: sortBy)
         let animals = try context.fetch(descriptor)
         return animals
     }
@@ -42,7 +45,7 @@ extension Storage {
     func publishableAnimals() throws -> [Animal] {
         let context = getContext()
         let predicate = #Predicate<Animal> { $0.isPublishable == true }
-        let descriptor = FetchDescriptor(predicate: predicate)
+        let descriptor = FetchDescriptor(predicate: predicate, sortBy: sortBy)
         let animals = try context.fetch(descriptor)
         return animals
     }

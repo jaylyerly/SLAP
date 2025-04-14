@@ -61,7 +61,7 @@ import Testing
         let lastAnimal = try #require(animals.last)
         #expect(lastAnimal.name == "Romeo")
         #expect(aboutEqual(lastAnimal.age, 3.33333)).self
-        #expect(lastAnimal.weight == nil)
+        #expect(lastAnimal.weight == 5.7)
         
     }
 }

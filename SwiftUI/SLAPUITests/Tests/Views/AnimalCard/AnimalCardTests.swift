@@ -12,6 +12,9 @@ import Testing
 
 @Suite("AnimalCard Tests") struct AnimalCardTests {
     
+    class FakeViewModel: AnimalCard.ViewModel {
+        
+    }
     
     @Test func parseAnimal() throws {
         

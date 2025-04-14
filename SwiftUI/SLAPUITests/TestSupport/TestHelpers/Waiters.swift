@@ -30,9 +30,9 @@ func waitUntilTrue(
     )
 }
 
-func waitUntilEqual(
-    _ expressionA: @autoclosure (() async throws -> Bool),
-    _ expressionB: @autoclosure (() async throws -> Bool),
+func waitUntilEqual<T: Equatable>(
+    _ expressionA: @autoclosure (() async throws -> T?),
+    _ expressionB: @autoclosure (() async throws -> T?),
     timeout: Duration = .milliseconds(200),
     sleepInterval: Duration = .milliseconds(1),
     fileID: String = #fileID,

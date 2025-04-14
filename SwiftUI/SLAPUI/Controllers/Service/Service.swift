@@ -30,11 +30,8 @@ class Service {
         self.storage = try storage ?? (try Storage())
         self.notificationCenter = notificationCenter
     }
-    
-}
 
 // MARK: - Animals
-extension Service {
     
     var publishableAnimals: [Animal] {
         do {
@@ -94,10 +91,7 @@ extension Service {
         return animals
     }    
 
-}
-
 // MARK: - Favorites
-extension Service {
      
     var favoriteAnimals: [Animal] {
         do {
