@@ -5,21 +5,118 @@
 //  Created by Jay Lyerly on 4/14/25.
 //
 
+import CustomDump
 import Foundation
-import Testing
-
 @testable import SLAPUI
+import SwiftUI
+import Testing
+import ViewInspector
+import XCTest
 
-@Suite("AnimalCard Tests") struct AnimalCardTests {
-    
+class AnimalCardTests: TestCase {
+
     class FakeViewModel: AnimalCard.ViewModel {
         
-    }
-    
-    @Test func parseAnimal() throws {
+        var backingIsFavorite = false
+        var didRefresh = false
+        var didUpdate = false
         
+        override var isFavorite: Bool {
+            get { backingIsFavorite }
+            set { backingIsFavorite = newValue }
+        }
+        
+        override func refresh() async { didRefresh = true }
+        override func update() { didUpdate = true }
+        
+        override var displayName: String { "Almighty Malachi" }
+        override var displayAge: String? { "Age: 99"}
+        override var displayWeight: String? { "Weight: 1000 lbs" }
+    }
+
+    var viewModel: FakeViewModel!
+    var sut: AnimalCard!
+    
+    @MainActor
+    override func setUpWithError() throws {
+        try super.setUpWithError()
+        viewModel = FakeViewModel(internalId: "123")
+        sut = AnimalCard(viewModel: viewModel)
     }
     
+    override func tearDownWithError() throws {
+        sut = nil
+        viewModel = nil
+        try super.tearDownWithError()
+    }
+    
+//    @Test func checkToggleFavorite() async throws {
+//        try await ViewHosting.host(view) { hostedView in
+//            let toggle = hostedView.find(Toggle.self)
+//        }
+//    }
+    
+//    @MainActor
+//    @Test func checkToggleFavorite() async throws {
+//        let sut = Links()
+//        
+//        try await ViewHosting.host(sut.environment(\.config, .fake()) {
+//            try await withThrowingDiscardingTaskGroup { group in
+//                group.addTask {
+//                    try await sut.inspection.inspect { hostedView in
+//                        print("hostedView: \(hostedView)")
+//                        let toggle = try hostedView.find(ViewType.Toggle.self)
+//                        
+//                        // initial state
+//                        expectNoDifference(viewModel.isFavorite, false)
+//                        
+//                        try toggle.tap()
+//                        expectNoDifference(viewModel.isFavorite, true)
+//                        
+//                        try toggle.tap()
+//                        expectNoDifference(viewModel.isFavorite, false)
+//                        
+//                        try toggle.tap()
+//                        expectNoDifference(viewModel.isFavorite, true)
+//                    }
+//                }
+//            }
+//        }
+//    }
+    
+    @MainActor
+    func testToggleSync() throws {
+        let exp = sut.inspection.inspect { view in
+            let viewModel = try XCTUnwrap(self.viewModel)
+
+            let toggle = try view.find(ViewType.Toggle.self)
+            
+            // initial state
+            expectNoDifference(viewModel.isFavorite, false)
+            
+            try toggle.tap()
+            expectNoDifference(viewModel.isFavorite, true)
+            
+            try toggle.tap()
+            expectNoDifference(viewModel.isFavorite, false)
+            
+            try toggle.tap()
+            expectNoDifference(viewModel.isFavorite, true)
+        }
+        ViewHosting.host(view: sut)
+        wait(for: [exp], timeout: 2.0)
+    }
+    
+    @MainActor
+    func testLink() throws {
+        let sutView = Links()
+        let exp = sutView.inspection.inspect(after: 0.5) { view in
+            let link1 = try view.find(ViewType.Link.self)
+            expectNoDifference(link1.pathToRoot, "")
+        }
+        ViewHosting.host(view: sutView.environment(\.config, .fake()))
+        wait(for: [exp], timeout: 2.0)
+    }
 }
 
 /*

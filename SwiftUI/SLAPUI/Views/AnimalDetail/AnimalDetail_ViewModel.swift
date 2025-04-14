@@ -74,6 +74,7 @@ extension AnimalDetail {
     }
 }
 
+@objc
 extension AnimalDetail.ViewModel {
     
     var displayName: String {

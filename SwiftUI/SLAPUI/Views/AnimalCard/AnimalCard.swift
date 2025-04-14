@@ -17,7 +17,9 @@ struct AnimalCard: View {
     
     @State var viewModel: ViewModel
     var animal: Animal? { viewModel.animal }
-            
+
+    let inspection = Inspection<Self>() // ViewInspector hook
+
     var body: some View {
         ZStack(alignment: .topTrailing) {
             ZStack(alignment: .bottom) {
@@ -50,6 +52,8 @@ struct AnimalCard: View {
         .onAppear {
             viewModel.service = service
         }
+        .onReceive(inspection.notice) { inspection.visit(self, $0) } // ViewInspector
+
     }
     
 }

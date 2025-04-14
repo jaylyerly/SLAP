@@ -12,6 +12,8 @@ struct Links: View {
     @Environment(\.config)
     var config: Config
     
+    let inspection = Inspection<Self>() // ViewInspector hook
+
     var body: some View {
         ScrollView {
             VStack {
@@ -38,6 +40,7 @@ struct Links: View {
         .background(.slapBlue)
         .toolbarBackground(Color.slapBlue, for: .navigationBar)
         .toolbarBackground(Color.slapBlue, for: .tabBar)
+        .onReceive(inspection.notice) { inspection.visit(self, $0) } // ViewInspector
 
     }
     
