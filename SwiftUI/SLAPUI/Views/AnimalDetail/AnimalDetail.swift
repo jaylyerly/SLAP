@@ -20,6 +20,7 @@ struct AnimalDetail: View {
     var config: Config
     
     var animal: Animal? { viewModel.animal }
+    let inspection = Inspection<Self>() // ViewInspector hook
 
     var infoStack: some View {
         VStack(alignment: .center, spacing: 10) {
@@ -34,8 +35,8 @@ struct AnimalDetail: View {
                     }
                 }
                 Divider()
-                if let desc = animal?.animalDescription {
-                    Text(desc)
+                if let displayDescription = viewModel.displayDescription {
+                    Text(displayDescription)
                 }
             }
             .padding(10)
@@ -60,7 +61,7 @@ struct AnimalDetail: View {
                         .resizable()
                         .scaledToFit()
                         .accessibilityLabel("Loading...")
-                })
+                }).tag("photo")
             }
         }
     }
@@ -96,6 +97,8 @@ struct AnimalDetail: View {
         .toolbarBackground(Color.slapBlue, for: .navigationBar)
         .toolbarBackground(Color.slapBlue, for: .tabBar)
         .tint(.white)
+        .onReceive(inspection.notice) { inspection.visit(self, $0) } // ViewInspector
+
     }
     
 }

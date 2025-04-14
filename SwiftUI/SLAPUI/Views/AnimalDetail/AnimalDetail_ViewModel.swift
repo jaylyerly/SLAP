@@ -91,4 +91,13 @@ extension AnimalDetail.ViewModel {
         return "Age: \(Int(round(age))) years"
     }
     
+    var displayDescription: String? {
+        guard let animalDescription = animal?.animalDescription else { return nil }
+        return animalDescription
+    }
+    
+    var displayPhotoUrls: [URL] {
+        animal?.photos ?? []
+    }
+    
 }
