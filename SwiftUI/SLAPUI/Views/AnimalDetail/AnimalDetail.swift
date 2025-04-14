@@ -83,7 +83,7 @@ struct AnimalDetail: View {
         .toolbar {
             ToolbarItem(placement: .principal) {
                 Text(viewModel.displayName)
-                    .font(config.titleFont)
+                    .font(config.titleFont.font)
                     .foregroundStyle(.white)
                     
             }

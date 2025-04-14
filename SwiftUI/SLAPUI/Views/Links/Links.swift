@@ -16,7 +16,7 @@ struct Links: View {
         ScrollView {
             VStack {
                 Text("Links")
-                    .font(config.largeTitleFont)
+                    .font(config.largeTitleFont.font)
                     .foregroundStyle(.white)
                 HStack {
                     Image("Banner")

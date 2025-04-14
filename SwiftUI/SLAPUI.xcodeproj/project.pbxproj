@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EC38149E2DAC290200151F52 /* CustomDump in Frameworks */ = {isa = PBXBuildFile; productRef = EC38149D2DAC290200151F52 /* CustomDump */; };
+		EC3814AE2DAD4E0900151F52 /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = EC3814AD2DAD4E0900151F52 /* ViewInspector */; };
 		EC449F932DA9BD4D003FFC74 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = EC449F922DA9BD4D003FFC74 /* CachedAsyncImage */; };
 /* End PBXBuildFile section */
 
@@ -31,8 +32,8 @@
 		ECB96C3F2DA708AD001115DD /* Exceptions for "SLAPUITests" folder in "SLAPUI" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Data/API/animals.json,
-				Data/API/animals.publishable.json,
+				TestSupport/Data/API/animals.json,
+				TestSupport/Data/API/animals.publishable.json,
 			);
 			target = EC4446832D9F225F003C7350 /* SLAPUI */;
 		};
@@ -68,6 +69,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC38149E2DAC290200151F52 /* CustomDump in Frameworks */,
+				EC3814AE2DAD4E0900151F52 /* ViewInspector in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +149,7 @@
 			name = SLAPUITests;
 			packageProductDependencies = (
 				EC38149D2DAC290200151F52 /* CustomDump */,
+				EC3814AD2DAD4E0900151F52 /* ViewInspector */,
 			);
 			productName = SLAPUITests;
 			productReference = EC4446942D9F225F003C7350 /* SLAPUITests.xctest */;
@@ -183,6 +186,7 @@
 			packageReferences = (
 				EC449F902DA9BC9A003FFC74 /* XCRemoteSwiftPackageReference "CachedAsyncImage" */,
 				EC38149C2DAC290200151F52 /* XCRemoteSwiftPackageReference "swift-custom-dump" */,
+				EC3814AC2DAD4E0900151F52 /* XCRemoteSwiftPackageReference "ViewInspector" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = EC4446852D9F225F003C7350 /* Products */;
@@ -543,6 +547,14 @@
 				minimumVersion = 1.3.3;
 			};
 		};
+		EC3814AC2DAD4E0900151F52 /* XCRemoteSwiftPackageReference "ViewInspector" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nalexn/ViewInspector.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.10.1;
+			};
+		};
 		EC449F902DA9BC9A003FFC74 /* XCRemoteSwiftPackageReference "CachedAsyncImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/0xWDG/CachedAsyncImage.git";
@@ -558,6 +570,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC38149C2DAC290200151F52 /* XCRemoteSwiftPackageReference "swift-custom-dump" */;
 			productName = CustomDump;
+		};
+		EC3814AD2DAD4E0900151F52 /* ViewInspector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC3814AC2DAD4E0900151F52 /* XCRemoteSwiftPackageReference "ViewInspector" */;
+			productName = ViewInspector;
 		};
 		EC449F922DA9BD4D003FFC74 /* CachedAsyncImage */ = {
 			isa = XCSwiftPackageProductDependency;

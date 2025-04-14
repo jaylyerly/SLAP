@@ -54,7 +54,7 @@ struct AnimalList: View {
                         .frame(maxWidth: .infinity)
                         .padding(30)
                         .foregroundStyle(.white)
-                        .font(config.bodyFont)
+                        .font(config.bodyFont.font)
                 }
             } else {
                 Text(mode.emptyListMessage)
@@ -82,7 +82,7 @@ struct AnimalList: View {
             .toolbar {
                 ToolbarItem(placement: .navigation) {
                     Text(mode.title)
-                        .font(config.largeTitleFont)
+                        .font(config.largeTitleFont.font)
                         .foregroundStyle(.white)
                 }
             }
