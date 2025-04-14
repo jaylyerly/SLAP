@@ -25,14 +25,6 @@ class Service {
     let notificationCenter: NotificationCenter
     let logger = Logger.defaultLogger()
     
-    init(api: Api? = nil, storage: Storage? = nil, notificationCenter: NotificationCenter = .default) throws {
-        self.api = api ?? Api()
-        self.storage = try storage ?? (try Storage())
-        self.notificationCenter = notificationCenter
-    }
-
-// MARK: - Animals
-    
     var publishableAnimals: [Animal] {
         do {
             return try storage.publishableAnimals()
@@ -42,6 +34,23 @@ class Service {
         }
     }
     
+    var favoriteAnimals: [Animal] {
+        do {
+            return try storage.favoriteAnimals()
+        } catch {
+            logger.error("Failed to get favorite animals from storage: \(error.localizedDescription)")
+            return []
+        }
+    }
+    
+    init(api: Api? = nil, storage: Storage? = nil, notificationCenter: NotificationCenter = .default) throws {
+        self.api = api ?? Api()
+        self.storage = try storage ?? (try Storage())
+        self.notificationCenter = notificationCenter
+    }
+
+// MARK: - Animals
+    
     private func notifyDidUpdateAnimals() {
         notificationCenter.post(name: .didUpdateAnimals, object: self)
     }
@@ -49,7 +58,7 @@ class Service {
     private func notifyDidUpdateAnimal(_ animal: Animal) {
         notificationCenter.post(name: .didUpdateAnimal,
                                 object: self,
-                                userInfo: [Service.userInfoAnimalInternalIdKey: animal.internalId])
+                                userInfo: [Self.userInfoAnimalInternalIdKey: animal.internalId])
     }
     
     func animal(withInternalId internalId: String) -> Animal? {
@@ -93,19 +102,10 @@ class Service {
 
 // MARK: - Favorites
      
-    var favoriteAnimals: [Animal] {
-        do {
-            return try storage.favoriteAnimals()
-        } catch {
-            logger.error("Failed to get favorite animals from storage: \(error.localizedDescription)")
-            return []
-        }
-    }
-    
     private func notifyDidUpdateFavorite(_ animal: Animal) {
         notificationCenter.post(name: .didUpdateFavorites,
                                 object: self,
-                                userInfo: [Service.userInfoAnimalInternalIdKey: animal.internalId])
+                                userInfo: [Self.userInfoAnimalInternalIdKey: animal.internalId])
     }
     
     func favorite(_ animal: Animal) async {
