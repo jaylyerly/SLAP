@@ -12,7 +12,7 @@ import Testing
 
 @Suite("AnimalDetail ViewModel Tests") struct AnimalDetailVMTests {
     
-    var viewModel: AnimalCard.ViewModel
+    var viewModel: AnimalDetail.ViewModel
     var notificationCenter: NotificationCenter
     var service: FakeService
     var animal: Animal
@@ -57,6 +57,8 @@ import Testing
         
     }
     
+    // Note: these notification center tests seem prone to spurious failures
+    // when the test suite is run in parallel. 
     @Test func checkUpdateNotification() async throws {
         // Initial conditions
         service.lastFetchedAnimalWithInternalId = nil
@@ -65,7 +67,7 @@ import Testing
         let userInfo = [Service.userInfoAnimalInternalIdKey: internalId]
         notificationCenter.post(name: .didUpdateAnimal, object: service, userInfo: userInfo)
         
-        await waitUntilEqual(service.lastFetchedAnimalWithInternalId, internalId)
+        await waitUntilEqual(service.lastFetchedAnimalWithInternalId, internalId, timeout: .seconds(1))
     }
     
     @Test func checkFavoriteNotification() async throws {
@@ -76,7 +78,7 @@ import Testing
         let userInfo = [Service.userInfoAnimalInternalIdKey: internalId]
         notificationCenter.post(name: .didUpdateFavorites, object: service, userInfo: userInfo)
         
-        await waitUntilEqual(service.lastFetchedAnimalWithInternalId, internalId)
+        await waitUntilEqual(service.lastFetchedAnimalWithInternalId, internalId, timeout: .seconds(1))
     }
 
     @Test func checkRefresh() async throws {

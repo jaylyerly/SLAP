@@ -43,22 +43,26 @@ extension AnimalDetail {
             self.internalId = internalId
             
             listenForNotifications()
-            update()
         }
         
         private func listenForNotifications() {
             Task {
+                print("Awaiting notifications for didUpdateAnimal")
                 for await notification in notificationCenter.notifications(named: .didUpdateAnimal) where
                 notification.userInfo?[Service.userInfoAnimalInternalIdKey] as? String == internalId {
                     // Update if the notification is for this Animal
+                    print("Received update animal notification, service: \(service)")
+                    
                     update()
                 }
                 
             }
             Task {
+                print("Awaiting notifications for didUpdateFavorites")
                 for await notification in notificationCenter.notifications(named: .didUpdateFavorites)
                 where notification.userInfo?[Service.userInfoAnimalInternalIdKey] as? String == internalId {
                     // Update if the notification is for this Animal
+                    print("Received update favorit notification, service: \(service)")
                     update()
                 }
             }

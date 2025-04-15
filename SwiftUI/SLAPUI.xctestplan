@@ -27,20 +27,11 @@
   },
   "testTargets" : [
     {
-      "parallelizable" : true,
+      "parallelizable" : false,
       "target" : {
         "containerPath" : "container:SLAPUI.xcodeproj",
         "identifier" : "EC4446932D9F225F003C7350",
         "name" : "SLAPUITests"
-      }
-    },
-    {
-      "enabled" : false,
-      "parallelizable" : true,
-      "target" : {
-        "containerPath" : "container:SLAPUI.xcodeproj",
-        "identifier" : "EC44469D2D9F225F003C7350",
-        "name" : "SLAPUIUITests"
       }
     }
   ],

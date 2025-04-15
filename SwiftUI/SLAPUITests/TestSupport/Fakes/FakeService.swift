@@ -26,10 +26,10 @@ class FakeService: Service {
         return await super.updateAnimal(withInternalId: internalId)
     }
     
-//    override func updateAnimals() async -> [Animal] {
-//        didUpdateAnimals = true
-//        return await super.updateAnimals()
-//    }
+    override func updateAnimals() async -> [Animal] {
+        didUpdateAnimals = true
+        return await super.updateAnimals()
+    }
     
     override func favorite(_ animal: Animal) async {
         lastFavoriteAnimal = animal
