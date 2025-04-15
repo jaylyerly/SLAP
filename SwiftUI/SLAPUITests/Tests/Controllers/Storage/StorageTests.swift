@@ -5,6 +5,7 @@
 //  Created by Jay Lyerly on 4/11/25.
 //
 
+import CustomDump
 import Foundation
 @testable import SLAPUI
 import SwiftData
@@ -67,6 +68,52 @@ import Testing
         let isFav = try #require(newAnimal.isFavorite as Bool?)
         #expect(isFav)
         #expect(try storage.favoriteAnimals()[0].id == favAnimal.id)
+    }
+    
+    @Test func checkDelete() async throws {
+        let animals = try storage.animals()
+        #expect(animals.count == 12)
+        
+        for idx in 0..<4 {
+            try storage.delete(animal: animals[idx])
+        }
+        
+        expectNoDifference(try storage.animals().count, 8)
+        
+        try storage.delete(animals: animals)
+        
+        expectNoDifference(try storage.animals().isEmpty, true)
+    }
+    
+    @Test func checkUpsert() async throws {
+        // Nuke all existing animals
+        try storage.deleteAllAnimals()
+        expectNoDifference(try storage.animals().count, 0)
+
+        let animal = referenceAnimals[0]
+        let name = animal.name
+        
+        // Insert into DB
+        try storage.upsert(animal: animal)
+        
+        // Now there should be one animal
+        expectNoDifference(try storage.animals().count, 1)
+        expectNoDifference(try storage.animals().first?.name, name)
+        
+        // Insert again
+        try storage.upsert(animal: animal)
+
+        // Now there should still be one animal
+        expectNoDifference(try storage.animals().count, 1)
+        expectNoDifference(try storage.animals().first?.name, name)
+        
+        // Create a new animal as though it has come from the API, same ID, but new name and no context
+        let newAnimal = Animal(internalId: animal.internalId, name: "TopKnot")
+        try storage.upsert(animal: newAnimal)
+        
+        // Still one animal, but new name
+        expectNoDifference(try storage.animals().count, 1)
+        expectNoDifference(try storage.animals().first?.name, "TopKnot")
     }
     
 }

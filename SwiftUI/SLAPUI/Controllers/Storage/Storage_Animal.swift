@@ -27,8 +27,8 @@ extension Storage {
         return animal
     }
     
-    func animals() throws -> [Animal] {
-        let context = getContext()
+    func animals(context overrideContext: ModelContext? = nil) throws -> [Animal] {
+        let context = overrideContext ?? getContext()
         let descriptor = FetchDescriptor<Animal>(sortBy: sortBy)
         let animals = try context.fetch(descriptor)
         return animals
@@ -52,19 +52,27 @@ extension Storage {
 
     func upsert(animals: [Animal], context overrideContext: ModelContext? = nil) throws {
         let context = overrideContext ?? getContext()
-        animals.forEach { animal in
+        try animals.forEach { animal in
             if let existingAnimal = try? context.fetch(fetchDescriptor(withInternalId: animal.internalId)).first {
                 existingAnimal.merge(with: animal)  // overwrites fields only if not nil
             } else {
+                if let modelContext = animal.modelContext {
+                    // If the model already has a context, we can't insert it directly.  It must be removed
+                    // from the other context.  Surely there's a better way to do this.
+                    modelContext.delete(animal)
+                    try modelContext.save()
+                }
                 context.insert(animal)
             }
         }
-        try context.save()
+        if overrideContext == nil {
+            try context.save()
+        }
     }
     
-    func upsertPublishable(animals: [Animal]) throws {
-        let context = getContext()
-        
+    func upsertPublishable(animals: [Animal], context overrideContext: ModelContext? = nil) throws {
+        let context = overrideContext ?? getContext()
+
         // Clear isPublishable flag on existing entries
         let existingAnimals = try context.fetch(FetchDescriptor<Animal>())
         existingAnimals.forEach { $0.isPublishable = false }
@@ -72,20 +80,54 @@ extension Storage {
         // Set isPublishable on the new entries and upsert
         animals.forEach { $0.isPublishable = true }
         try upsert(animals: animals, context: context)
+        if overrideContext == nil {
+            try context.save()
+        }
     }
     
-    func upsert(animal: Animal) throws {
-        try upsert(animals: [animal])
+    func upsert(animal: Animal, context overrideContext: ModelContext? = nil) throws {
+        let context = overrideContext ?? getContext()
+        
+        try upsert(animals: [animal], context: context)
+        
+        if overrideContext == nil {
+            try context.save()
+        }
+
     }
     
-    func delete(animals: [Animal]) throws {
-        let context = getContext()
-        animals.forEach { context.delete($0) }
-        try context.save()
+    func delete(animalWithInternalId internalId: String, context overrideContext: ModelContext? = nil) throws {
+        let context = overrideContext ?? getContext()
+        if let animalToDelete = try animal(withInternalId: internalId, context: context) {
+            context.delete(animalToDelete)
+        }
+        if overrideContext == nil {
+            try context.save()
+        }
+    }
+    
+    func delete(animals: [Animal], context overrideContext: ModelContext? = nil) throws {
+        let context = overrideContext ?? getContext()
+        try animals.forEach { animal in
+            try delete(animalWithInternalId: animal.internalId, context: context)
+        }
+        if overrideContext == nil {
+            try context.save()
+        }
     }
     
     func delete(animal: Animal) throws {
         try delete(animals: [animal])
+    }
+    
+    func deleteAllAnimals(context overrideContext: ModelContext? = nil) throws {
+        let context = overrideContext ?? getContext()
+        
+        try context.delete(model: Animal.self)
+        
+        if overrideContext == nil {
+            try context.save()
+        }
     }
     
     func setFavorite(animal inAnimal: Animal, toValue value: Bool) throws {

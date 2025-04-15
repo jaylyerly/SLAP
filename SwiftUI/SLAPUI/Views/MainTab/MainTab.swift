@@ -11,6 +11,8 @@ struct MainTab: View {
     @SceneStorage("selectedTab")
     private var selectedTab: Int = 0
     
+    let inspection = Inspection<Self>() // ViewInspector hook
+
     var body: some View {
         TabView(selection: $selectedTab) {
             Tab(
@@ -35,5 +37,7 @@ struct MainTab: View {
                 Links()
             }
         }
+        .onReceive(inspection.notice) { inspection.visit(self, $0) } // ViewInspector
+
     }
 }
