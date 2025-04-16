@@ -93,4 +93,12 @@ import Testing
         expectNoDifference(animals.count, 12)
         expectNoDifference(service.publishableAnimals.count, 12)
     }
+    
+    @Test func testPreview() async throws {
+        let preview: Service = .preview
+        expectNoDifference(preview.publishableAnimals.count, 12)
+        expectNoDifference(preview.publishableAnimals[0].name, "Bijou")
+        expectNoDifference(preview.favoriteAnimals.count, 2)
+        expectNoDifference(preview.favoriteAnimals[0].name, "Dancer")
+    }
 }
