@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		EC38149E2DAC290200151F52 /* CustomDump in Frameworks */ = {isa = PBXBuildFile; productRef = EC38149D2DAC290200151F52 /* CustomDump */; };
 		EC3814AE2DAD4E0900151F52 /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = EC3814AD2DAD4E0900151F52 /* ViewInspector */; };
-		EC449F932DA9BD4D003FFC74 /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = EC449F922DA9BD4D003FFC74 /* CachedAsyncImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,10 +28,9 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		ECB96C3F2DA708AD001115DD /* Exceptions for "SLAPUITests" folder in "SLAPUI" target */ = {
+		EC2C0E732DB01F9800B760C7 /* Exceptions for "SLAPUITests" folder in "SLAPUI" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				TestSupport/Data/API/animals.json,
 				TestSupport/Data/API/animals.publishable.json,
 			);
 			target = EC4446832D9F225F003C7350 /* SLAPUI */;
@@ -48,7 +46,7 @@
 		EC4446972D9F225F003C7350 /* SLAPUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				ECB96C3F2DA708AD001115DD /* Exceptions for "SLAPUITests" folder in "SLAPUI" target */,
+				EC2C0E732DB01F9800B760C7 /* Exceptions for "SLAPUITests" folder in "SLAPUI" target */,
 			);
 			path = SLAPUITests;
 			sourceTree = "<group>";
@@ -60,7 +58,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC449F932DA9BD4D003FFC74 /* CachedAsyncImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,7 +121,6 @@
 			);
 			name = SLAPUI;
 			packageProductDependencies = (
-				EC449F922DA9BD4D003FFC74 /* CachedAsyncImage */,
 			);
 			productName = SLAPUI;
 			productReference = EC4446842D9F225F003C7350 /* SLAPUI.app */;
@@ -184,7 +180,6 @@
 			mainGroup = EC44467B2D9F225F003C7350;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				EC449F902DA9BC9A003FFC74 /* XCRemoteSwiftPackageReference "CachedAsyncImage" */,
 				EC38149C2DAC290200151F52 /* XCRemoteSwiftPackageReference "swift-custom-dump" */,
 				EC3814AC2DAD4E0900151F52 /* XCRemoteSwiftPackageReference "ViewInspector" */,
 			);
@@ -555,14 +550,6 @@
 				minimumVersion = 0.10.1;
 			};
 		};
-		EC449F902DA9BC9A003FFC74 /* XCRemoteSwiftPackageReference "CachedAsyncImage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/0xWDG/CachedAsyncImage.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.3;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -575,11 +562,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC3814AC2DAD4E0900151F52 /* XCRemoteSwiftPackageReference "ViewInspector" */;
 			productName = ViewInspector;
-		};
-		EC449F922DA9BD4D003FFC74 /* CachedAsyncImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = EC449F902DA9BC9A003FFC74 /* XCRemoteSwiftPackageReference "CachedAsyncImage" */;
-			productName = CachedAsyncImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
