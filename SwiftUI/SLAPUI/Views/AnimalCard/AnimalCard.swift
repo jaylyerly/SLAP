@@ -15,6 +15,12 @@ struct AnimalCard: View {
     @Environment(\.service)
     var service: Service
     
+    @Environment(\.imageCache)
+    var imageCache: ImageCache
+
+    @Environment(\.config)
+    var config: Config
+
     @State var viewModel: ViewModel
     var animal: Animal? { viewModel.animal }
 
@@ -23,25 +29,16 @@ struct AnimalCard: View {
     var body: some View {
         ZStack(alignment: .topTrailing) {
             ZStack(alignment: .bottom) {
-                
-                CachedAsyncImage(url: animal?.coverPhoto,
-                                 urlCache: .imageCache,
-                                 content: { image in
-                    image
-                        .resizable()
-                        .scaledToFit()
-                },
-                                 placeholder: {
-                    Image("PlaceholderRabbit")
-                        .resizable()
-                        .scaledToFit()
-                        .accessibilityLabel("Loading...")
-                })
-                .cornerRadius(10)
+                Image(data: viewModel.coverPhotoData)
+                    .resizable()
+                    .scaledToFit()
+                    .cornerRadius(10)
+                    .accessibilityHidden(true)
                 Text(viewModel.displayName)
                     .padding(insets)
                     .background(.slapBlue.opacity(0.7))
                     .foregroundStyle(.white)
+                    .font(config.titleFont.font)
                     .cornerRadius(10)
                     .offset(y: -insets.top - 5)
             }
@@ -51,6 +48,7 @@ struct AnimalCard: View {
         }
         .onAppear {
             viewModel.service = service
+            viewModel.imageCache = imageCache
         }
         .onReceive(inspection.notice) { inspection.visit(self, $0) } // ViewInspector
 

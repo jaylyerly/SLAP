@@ -18,6 +18,8 @@ struct AnimalDetail: View {
     var service: Service
     @Environment(\.config)
     var config: Config
+    @Environment(\.imageCache)
+    var imageCache: ImageCache
     
     var animal: Animal? { viewModel.animal }
     let inspection = Inspection<Self>() // ViewInspector hook
@@ -48,20 +50,11 @@ struct AnimalDetail: View {
     
     var photoStack: some View {
         LazyVStack {
-            ForEach(animal?.photos ?? [], id: \.self) { url in
-                CachedAsyncImage(url: url,
-                                 urlCache: .imageCache,
-                                 content: { image in
-                    image
-                        .resizable()
-                        .scaledToFit()
-                },
-                           placeholder: {
-                    Image("PlaceholderRabbit")
-                        .resizable()
-                        .scaledToFit()
-                        .accessibilityLabel("Loading...")
-                }).tag("photo")
+            ForEach(viewModel.photosData, id: \.self) { data in
+                Image(data: data)
+                    .resizable()
+                    .scaledToFit()
+                    .accessibilityHidden(true)
             }
         }
     }
@@ -77,6 +70,7 @@ struct AnimalDetail: View {
         }
         .onAppear {
             viewModel.service = service
+            viewModel.imageCache = imageCache
         }
         .task {
             await viewModel.refresh()

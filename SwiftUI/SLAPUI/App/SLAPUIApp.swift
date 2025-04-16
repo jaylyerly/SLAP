@@ -17,6 +17,7 @@ struct SLAPUIApp: App {
             fatalError("Could not create Service: \(error)")
         }
     }()
+    @State private var imageCache = ImageCache()
 
     var body: some Scene {
         WindowGroup {
@@ -25,10 +26,12 @@ struct SLAPUIApp: App {
         .modelContainer(service.storage.modelContainer)
         .environment(\.service, service)
         .environment(\.config, config)
+        .environment(\.imageCache, imageCache)
     }
 }
 
 extension EnvironmentValues {
     @Entry var service: Service = try! Service()  // swiftlint:disable:this force_try
     @Entry var config = Config()
+    @Entry var imageCache = ImageCache()
 }

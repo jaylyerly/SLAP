@@ -19,10 +19,24 @@ extension AnimalDetail {
                 update()
             }
         }
+        var imageCache: ImageCache? {
+            didSet {
+                loadImages()
+            }
+        }
+        
+        var coverPhotoData: Data?
+        var photosData: [Data] = []
+        
         let notificationCenter: NotificationCenter
         
         let internalId: String
-        var animal: Animal?
+        var animal: Animal? {
+            didSet {
+                loadImages()
+            }
+        }
+        private var hasLoadedImages = false
         
         var isFavorite: Bool {
             get { animal?.isFavorite ?? false }
@@ -47,22 +61,17 @@ extension AnimalDetail {
         
         private func listenForNotifications() {
             Task {
-                print("Awaiting notifications for didUpdateAnimal")
                 for await notification in notificationCenter.notifications(named: .didUpdateAnimal) where
                 notification.userInfo?[Service.userInfoAnimalInternalIdKey] as? String == internalId {
                     // Update if the notification is for this Animal
-                    print("Received update animal notification, service: \(service)")
-                    
                     update()
                 }
                 
             }
             Task {
-                print("Awaiting notifications for didUpdateFavorites")
                 for await notification in notificationCenter.notifications(named: .didUpdateFavorites)
                 where notification.userInfo?[Service.userInfoAnimalInternalIdKey] as? String == internalId {
                     // Update if the notification is for this Animal
-                    print("Received update favorit notification, service: \(service)")
                     update()
                 }
             }
@@ -70,11 +79,58 @@ extension AnimalDetail {
         
         func refresh() async {
             await service?.updateAnimal(withInternalId: internalId)
+            hasLoadedImages = false
+            photosData = []
+            loadImages()
         }
         
         func update() {
             animal = service?.animal(withInternalId: internalId)
         }
+                
+        private func loadImages() {
+            // Make sure to only run this once, but only after the animal has loaded and imageCache is ready
+            guard let animal, let imageCache else { return }
+            if hasLoadedImages { return }
+            hasLoadedImages = true
+            
+            // Get cover photo
+            if let coverUrl = animal.coverPhoto {
+                if let data = imageCache.imageDataFromCache(for: coverUrl) {
+                    coverPhotoData = data
+                    photosData.append(data)
+                } else {
+                    coverPhotoData = ImageCache.placeholderData
+                    Task {
+                        coverPhotoData = try? await imageCache.imageDataFromCacheOrDownload(for: coverUrl)
+                        if let coverPhotoData {
+                            photosData.append(coverPhotoData)
+                        }
+                    }
+                }
+                
+            } else {
+                coverPhotoData = ImageCache.placeholderData
+            }
+            
+            // Get other photos
+            // Note:  Cover photo is usually in the list of photos, but we don't want to trigger two downloads
+            // so make sure to remove it.
+            var urls = Set(animal.photos)
+            if let coverUrl = animal.coverPhoto {
+                urls.remove(coverUrl)
+            }
+            
+            for url in urls {
+                Task {
+                    if let data = try? await imageCache.imageDataFromCacheOrDownload(for: url) {
+                        photosData.append(data)
+                    }
+                }
+            }
+            
+        }
+        
     }
 }
 
@@ -96,7 +152,10 @@ extension AnimalDetail.ViewModel {
     }
     
     var displayDescription: String? {
-        guard let animalDescription = animal?.animalDescription else { return nil }
+        let name = animal?.name ?? "this rabbit"
+        let defaultDescription = "More info about \(name) coming soon!"
+        guard let animalDescription = animal?.animalDescription else { return defaultDescription }
+        if animalDescription.isEmpty { return defaultDescription }
         return animalDescription
     }
     
