@@ -98,13 +98,13 @@ extension AnimalDetail {
             if let coverUrl = animal.coverPhoto {
                 if let data = imageCache.imageDataFromCache(for: coverUrl) {
                     coverPhotoData = data
-                    photosData.append(data)
+                    photosData.insert(data, at: 0)  // always make cover photo first
                 } else {
                     coverPhotoData = ImageCache.placeholderData
                     Task {
                         coverPhotoData = try? await imageCache.imageDataFromCacheOrDownload(for: coverUrl)
                         if let coverPhotoData {
-                            photosData.append(coverPhotoData)
+                            photosData.insert(coverPhotoData, at: 0)  // always make cover photo first
                         }
                     }
                 }
@@ -153,7 +153,7 @@ extension AnimalDetail.ViewModel {
     
     var displayDescription: String? {
         let name = animal?.name ?? "this rabbit"
-        let defaultDescription = "More info about \(name) coming soon!"
+        let defaultDescription = "More about \(name) coming soon!"
         guard let animalDescription = animal?.animalDescription else { return defaultDescription }
         if animalDescription.isEmpty { return defaultDescription }
         return animalDescription
