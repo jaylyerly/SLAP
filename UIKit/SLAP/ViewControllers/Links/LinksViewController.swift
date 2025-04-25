@@ -60,7 +60,7 @@ class LinksViewController: UIViewController, AppEnvConsumer {
 
         mainStackView.addArrangedSubview(heroImageView)
         mainStackView.addArrangedSubview(buttonRow1)
-        mainStackView.addArrangedSubview(Spacer())
+        mainStackView.addArrangedSubview(UISpacer())
 
         return mainStackView
     }()

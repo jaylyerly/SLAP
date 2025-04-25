@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC2C0E842DBC1C1400B760C7 /* LinksUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2C0E832DBC1C0E00B760C7 /* LinksUIViewController.swift */; };
+		EC2C0F342DBC1C6100B760C7 /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2C0F332DBC1C5F00B760C7 /* Links.swift */; };
+		EC2C0F362DBC241F00B760C7 /* LinksWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2C0F352DBC241C00B760C7 /* LinksWrapper.swift */; };
 		EC44467A2D9F2194003C7350 /* SLAP.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EC4446782D9F2194003C7350 /* SLAP.xcdatamodeld */; };
 		ECA17C0F2CCD26FA00B13270 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C0E2CCD26FA00B13270 /* AppDelegate.swift */; };
 		ECA17C132CCD26FA00B13270 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C122CCD26FA00B13270 /* MainViewController.swift */; };
@@ -50,7 +53,7 @@
 		ECA17C9B2CCD906200B13270 /* WebLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C9A2CCD906200B13270 /* WebLinks.swift */; };
 		ECA17C9D2CCD928000B13270 /* FakeWebLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C9C2CCD928000B13270 /* FakeWebLinks.swift */; };
 		ECA17C9F2CCD962D00B13270 /* NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17C9E2CCD962D00B13270 /* NSLayoutConstraint.swift */; };
-		ECA17CA22CCD971200B13270 /* Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CA12CCD971200B13270 /* Spacer.swift */; };
+		ECA17CA22CCD971200B13270 /* UISpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CA12CCD971200B13270 /* UISpacer.swift */; };
 		ECA17CA52CCD99D000B13270 /* LinksViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CA42CCD99D000B13270 /* LinksViewControllerTests.swift */; };
 		ECA17CA72CCD9B0900B13270 /* UIAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA17CA62CCD9B0900B13270 /* UIAction.swift */; };
 		ECA17CAB2CCDC77000B13270 /* rabbits.json in Resources */ = {isa = PBXBuildFile; fileRef = ECA17CA92CCDC77000B13270 /* rabbits.json */; };
@@ -103,6 +106,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EC2C0E832DBC1C0E00B760C7 /* LinksUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksUIViewController.swift; sourceTree = "<group>"; };
+		EC2C0F332DBC1C5F00B760C7 /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
+		EC2C0F352DBC241C00B760C7 /* LinksWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksWrapper.swift; sourceTree = "<group>"; };
 		EC4446792D9F2194003C7350 /* SLAP.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SLAP.xcdatamodel; sourceTree = "<group>"; };
 		ECA17C0B2CCD26FA00B13270 /* SLAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SLAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA17C0E2CCD26FA00B13270 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -148,7 +154,7 @@
 		ECA17C9A2CCD906200B13270 /* WebLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebLinks.swift; sourceTree = "<group>"; };
 		ECA17C9C2CCD928000B13270 /* FakeWebLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeWebLinks.swift; sourceTree = "<group>"; };
 		ECA17C9E2CCD962D00B13270 /* NSLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraint.swift; sourceTree = "<group>"; };
-		ECA17CA12CCD971200B13270 /* Spacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacer.swift; sourceTree = "<group>"; };
+		ECA17CA12CCD971200B13270 /* UISpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISpacer.swift; sourceTree = "<group>"; };
 		ECA17CA42CCD99D000B13270 /* LinksViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksViewControllerTests.swift; sourceTree = "<group>"; };
 		ECA17CA62CCD9B0900B13270 /* UIAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAction.swift; sourceTree = "<group>"; };
 		ECA17CA82CCD9D6900B13270 /* SLAP.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SLAP.xctestplan; sourceTree = "<group>"; };
@@ -210,6 +216,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC2C0E822DBC1BFF00B760C7 /* LinksUI */ = {
+			isa = PBXGroup;
+			children = (
+				EC2C0E832DBC1C0E00B760C7 /* LinksUIViewController.swift */,
+				EC2C0F332DBC1C5F00B760C7 /* Links.swift */,
+				EC2C0F352DBC241C00B760C7 /* LinksWrapper.swift */,
+			);
+			path = LinksUI;
+			sourceTree = "<group>";
+		};
 		ECA17C022CCD26F900B13270 = {
 			isa = PBXGroup;
 			children = (
@@ -294,6 +310,7 @@
 				ECA17C812CCD693C00B13270 /* List */,
 				ECA17C912CCD6CC100B13270 /* Detail */,
 				ECA17C822CCD694F00B13270 /* Links */,
+				EC2C0E822DBC1BFF00B760C7 /* LinksUI */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -414,7 +431,7 @@
 		ECA17CA02CCD970600B13270 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				ECA17CA12CCD971200B13270 /* Spacer.swift */,
+				ECA17CA12CCD971200B13270 /* UISpacer.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -695,7 +712,8 @@
 			files = (
 				ECA17C4D2CCD353500B13270 /* Defaults.swift in Sources */,
 				EC44467A2D9F2194003C7350 /* SLAP.xcdatamodeld in Sources */,
-				ECA17CA22CCD971200B13270 /* Spacer.swift in Sources */,
+				ECA17CA22CCD971200B13270 /* UISpacer.swift in Sources */,
+				EC2C0E842DBC1C1400B760C7 /* LinksUIViewController.swift in Sources */,
 				ECA17CC52CCE882600B13270 /* Server.swift in Sources */,
 				ECA17D362CD180E800B13270 /* ListCell.swift in Sources */,
 				ECA17C132CCD26FA00B13270 /* MainViewController.swift in Sources */,
@@ -717,8 +735,10 @@
 				ECA17C972CCD71A800B13270 /* UIView.swift in Sources */,
 				ECA17CB82CCDD6F400B13270 /* RabbitList.swift in Sources */,
 				ECA17C902CCD6BE900B13270 /* ListMode.swift in Sources */,
+				EC2C0F342DBC1C6100B760C7 /* Links.swift in Sources */,
 				ECA17C492CCD329E00B13270 /* AppEnv.swift in Sources */,
 				ECA17C532CCD373400B13270 /* Alert.swift in Sources */,
+				EC2C0F362DBC241F00B760C7 /* LinksWrapper.swift in Sources */,
 				ECA17CE52CD060AD00B13270 /* GenericError.swift in Sources */,
 				ECA17CC92CCE8C9C00B13270 /* RabbitList_Endpoints.swift in Sources */,
 				ECA17C4B2CCD32BE00B13270 /* Config.swift in Sources */,

@@ -11,4 +11,5 @@ enum MainTabBarTag: Int {
     case adoptables = 0 // Should be zero so that Defaults has the right default
     case favorites = 1
     case links = 2
+    case linksUI = 3
 }

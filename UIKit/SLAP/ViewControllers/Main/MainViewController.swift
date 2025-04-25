@@ -43,8 +43,13 @@ class MainViewController: UITabBarController, AppViewController {
         linksVC.tabBarItem.tag = MainTabBarTag.links.rawValue
         let linksNavVC = UINavigationController(rootViewController: linksVC)
         style(linksNavVC)
+        
+        let linksUIVC = ViewControllerFactory.linksUI(appEnv: appEnv)
+        linksVC.tabBarItem.tag = MainTabBarTag.linksUI.rawValue
+        let linksUINavVC = UINavigationController(rootViewController: linksUIVC)
+        style(linksUINavVC)
 
-        setViewControllers([adoptNavVC, favNavVC, linksNavVC], animated: false)
+        setViewControllers([adoptNavVC, favNavVC, linksNavVC, linksUINavVC], animated: false)
         
         selectedIndex = defaults.mainTabBarSelection.rawValue
         

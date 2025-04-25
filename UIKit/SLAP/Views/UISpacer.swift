@@ -1,5 +1,5 @@
 //
-//  Spacer.swift
+//  UISpacer.swift
 //  SLAP
 //
 //  Created by Jay Lyerly on 10/26/24.
@@ -7,12 +7,12 @@
 
 import UIKit
 
-class Spacer: UIView {}
+class UISpacer: UIView {}
 
 extension UIView {
         
-    static func spacer(width: CGFloat? = nil, height: CGFloat? = nil) -> Spacer {
-        let view = Spacer()
+    static func spacer(width: CGFloat? = nil, height: CGFloat? = nil) -> UISpacer {
+        let view = UISpacer()
         view.translatesAutoresizingMaskIntoConstraints = false
         
         if let width {

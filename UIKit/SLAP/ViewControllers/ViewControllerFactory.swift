@@ -57,4 +57,8 @@ enum ViewControllerFactory {
         LinksViewController(appEnv: appEnv)
     }
 
+    static func linksUI(appEnv: AppEnv) -> LinksUIViewController {
+        LinksUIViewController(config: appEnv.config)
+    }
+
 }
