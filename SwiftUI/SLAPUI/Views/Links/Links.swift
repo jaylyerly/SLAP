@@ -45,7 +45,7 @@ struct Links: View {
     }
     
     func linkButton(title: String, symbol: String, url: URL) -> some View {
-        Link(destination: url) {
+        LinkWrapper(destination: url) {
             VStack {
                 Image(systemName: symbol)
                     .font(.system(size: 96))
