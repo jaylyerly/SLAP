@@ -141,6 +141,10 @@ extension AnimalDetail.ViewModel {
         animal?.name ?? "<Missing Name>"
     }
     
+    var displaySex: String? {
+        animal?.sex.rawValue.capitalized
+    }
+    
     var displayWeight: String? {
         guard let weight = animal?.weight else { return nil }
         return "Weight: \(Int(round(weight))) lbs"
@@ -151,7 +155,7 @@ extension AnimalDetail.ViewModel {
         return "Age: \(Int(round(age))) years"
     }
     
-    var displayDescription: String? {
+    var displayDescription: String {
         let name = animal?.name ?? "this rabbit"
         let defaultDescription = "More about \(name) coming soon!"
         guard let animalDescription = animal?.animalDescription else { return defaultDescription }

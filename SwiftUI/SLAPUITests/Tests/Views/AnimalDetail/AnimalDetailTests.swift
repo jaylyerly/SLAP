@@ -31,7 +31,7 @@ import ViewInspector
         override var displayName: String { "Almighty Malachi" }
         override var displayAge: String? { "Age: 99"}
         override var displayWeight: String? { "Weight: 1000 lbs" }
-        override var displayDescription: String? { "A very powerful dragon." }
+        override var displayDescription: String { "A very powerful dragon." }
         override var displayPhotoUrls: [URL] {[
             URL(string: "https://www.example.com/photos/1")!,
             URL(string: "https://www.example.com/photos/2")!,
@@ -74,11 +74,11 @@ import ViewInspector
             try await view.inspection.inspect { hostedView in
                 
                 let labels = hostedView.findAll(ViewType.Text.self)
-                expectNoDifference(labels.count, 6)
-                expectNoDifference(try labels[1].string(), "Weight: 1000 lbs")
-                expectNoDifference(try labels[2].string(), "Age: 99")
-                expectNoDifference(try labels[3].string(), "A very powerful dragon.")
-                expectNoDifference(try labels[4].string(), "Almighty Malachi")
+                expectNoDifference(labels.count, 5)
+                expectNoDifference(try labels[0].string(), "Weight: 1000 lbs")
+                expectNoDifference(try labels[1].string(), "Age: 99")
+                expectNoDifference(try labels[2].string(), "A very powerful dragon.")
+                expectNoDifference(try labels[3].string(), "Almighty Malachi")
             }
         }
     }
