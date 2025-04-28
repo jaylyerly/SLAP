@@ -27,7 +27,9 @@ struct AnimalDetail: View {
         VStack(alignment: .center, spacing: 10) {
             VStack {
                 HStack(alignment: .center, spacing: 15) {
-                    Text(animal?.sex.rawValue.capitalized ?? "")
+                    if let displaySex = viewModel.displaySex {
+                        Text(displaySex)
+                    }
                     if let displayWeight = viewModel.displayWeight {
                         Text(displayWeight)
                     }
@@ -36,9 +38,7 @@ struct AnimalDetail: View {
                     }
                 }
                 Divider()
-                if let displayDescription = viewModel.displayDescription {
-                    Text(displayDescription)
-                }
+                Text(viewModel.displayDescription)
             }
             .padding(10)
             .background(.white)
@@ -99,5 +99,6 @@ struct AnimalDetail: View {
 #Preview {
     NavigationStack {
         AnimalDetail(viewModel: .init(internalId: Animal.previewAnimal.internalId))
+            .environment(\.service, .preview)
     }
 }
